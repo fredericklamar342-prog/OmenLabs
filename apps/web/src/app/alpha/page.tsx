@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
+import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 export default function AlphaPage() {
@@ -69,129 +70,137 @@ export default function AlphaPage() {
 
   return (
     <Layout>
-      <div className="max-w-2xl mx-auto px-4">
-        <PageHeader 
-          title="Private Alpha Access" 
-          description="Apply for early access to the Omen Protocol SDK and Registry."
-        />
+      <div className="max-w-3xl mx-auto px-4 py-12">
+        <motion.div
+           initial={{ opacity: 0, y: 16 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5 }}
+        >
+          <PageHeader 
+            title="Private Alpha Access" 
+            description="Apply for early access to the Omen Protocol SDK and Registry."
+          />
 
-        <form onSubmit={handleSubmit} className="space-y-8 py-8">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Full Name *</label>
-              <Input 
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="John Doe" 
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Work Email *</label>
-              <Input 
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="john@protocol.xyz" 
-                required
-              />
-            </div>
-          </div>
+          <div className="mt-8 rounded-2xl border border-[#E6E8EB] bg-white/90 p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.10)] backdrop-blur">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Full Name *</label>
+                  <Input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe" 
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Work Email *</label>
+                  <Input 
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@protocol.xyz" 
+                    required
+                  />
+                </div>
+              </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Role *</label>
-              <Select 
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select a role...</option>
-                <option value="Wallet">Wallet</option>
-                <option value="DEX">DEX</option>
-                <option value="Protocol">Protocol</option>
-                <option value="Launchpad">Launchpad</option>
-                <option value="Explorer">Explorer</option>
-                <option value="Other">Other</option>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Project Name *</label>
-              <Input 
-                name="projectName"
-                value={formData.projectName}
-                onChange={handleChange}
-                placeholder="Omen Labs" 
-                required
-              />
-            </div>
-          </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Role *</label>
+                  <Select 
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select a role...</option>
+                    <option value="Wallet">Wallet</option>
+                    <option value="DEX">DEX</option>
+                    <option value="Protocol">Protocol</option>
+                    <option value="Launchpad">Launchpad</option>
+                    <option value="Explorer">Explorer</option>
+                    <option value="Other">Other</option>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Project Name *</label>
+                  <Input 
+                    name="projectName"
+                    value={formData.projectName}
+                    onChange={handleChange}
+                    placeholder="Omen Labs" 
+                    required
+                  />
+                </div>
+              </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Network *</label>
-              <Select 
-                name="network"
-                value={formData.network}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select network...</option>
-                <option value="Testnet">Testnet</option>
-                <option value="Mainnet">Mainnet</option>
-                <option value="Both">Both</option>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">Monthly Users</label>
-              <Input 
-                name="monthlyUsers"
-                value={formData.monthlyUsers}
-                onChange={handleChange}
-                placeholder="e.g. 50k+" 
-              />
-            </div>
-          </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Network *</label>
+                  <Select 
+                    name="network"
+                    value={formData.network}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select network...</option>
+                    <option value="Testnet">Testnet</option>
+                    <option value="Mainnet">Mainnet</option>
+                    <option value="Both">Both</option>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-subtext">Monthly Users</label>
+                  <Input 
+                    name="monthlyUsers"
+                    value={formData.monthlyUsers}
+                    onChange={handleChange}
+                    placeholder="e.g. 50k+" 
+                  />
+                </div>
+              </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-bold uppercase tracking-wider">Desired Integration *</label>
-            <textarea 
-              name="desiredIntegration"
-              value={formData.desiredIntegration}
-              onChange={handleChange}
-              className="flex min-h-[120px] w-full border border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-subtext focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-50 transition-colors"
-              placeholder="How do you plan to use Omen?"
-              required
-            />
-          </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-subtext">Desired Integration *</label>
+                <textarea 
+                  name="desiredIntegration"
+                  value={formData.desiredIntegration}
+                  onChange={handleChange}
+                  className="flex min-h-[140px] w-full border border-border bg-white px-3 py-3 text-sm ring-offset-background placeholder:text-subtext focus-visible:outline-none focus:border-accent/50 focus:ring-4 focus:ring-accent/10 disabled:cursor-not-allowed disabled:opacity-50 transition-all resize-none"
+                  placeholder="How do you plan to use Omen?"
+                  required
+                />
+              </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-bold uppercase tracking-wider">Optional Telegram</label>
-            <Input 
-              name="telegram"
-              value={formData.telegram}
-              onChange={handleChange}
-              placeholder="@username" 
-            />
-          </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-subtext">Optional Telegram</label>
+                <Input 
+                  name="telegram"
+                  value={formData.telegram}
+                  onChange={handleChange}
+                  placeholder="@username" 
+                />
+              </div>
 
-          <div className="pt-4 border-t border-border flex flex-col gap-4">
-            <Button 
-              type="submit" 
-              className="w-full h-12 text-lg" 
-              disabled={!isFormValid || status === "loading"}
-              isLoading={status === "loading"}
-            >
-              Submit Application
-            </Button>
-            <p className="text-xs text-center text-subtext uppercase tracking-widest">
-              * Required fields
-            </p>
+              <div className="pt-6 border-t border-border flex flex-col gap-4">
+                <Button 
+                  type="submit" 
+                  className="w-full h-14 text-lg rounded-none uppercase tracking-tighter font-black" 
+                  disabled={!isFormValid || status === "loading"}
+                  isLoading={status === "loading"}
+                >
+                  Submit Application
+                </Button>
+                <p className="text-[10px] text-center text-subtext uppercase tracking-[0.2em] font-bold">
+                  * All data remains secure and encrypted
+                </p>
+              </div>
+            </form>
           </div>
-        </form>
+        </motion.div>
       </div>
     </Layout>
   );

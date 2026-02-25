@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Input } from "@/components/ui/Input";
@@ -157,11 +158,13 @@ export default function DashboardPage() {
                   variant={isSimulatingRevocation ? "primary" : "secondary"} 
                   size="sm" 
                   onClick={() => setIsSimulatingRevocation(!isSimulatingRevocation)}
-                  className={isSimulatingRevocation ? "bg-accent text-white" : ""}
+                  className={isSimulatingRevocation ? "bg-accent text-white border-accent shadow-[0_0_20px_rgba(139,0,0,0.3)]" : "border-2"}
                 >
-                  {isSimulatingRevocation ? "Revocation Active" : "Simulate Revocation"}
+                  {isSimulatingRevocation ? "Omen Shield Active" : "Simulate Revocation"}
                 </Button>
-                <Button variant="secondary" size="sm" onClick={triggerError}>Simulate Error</Button>
+                <Button variant="secondary" size="sm" onClick={triggerError} className="border-2 font-bold uppercase tracking-tighter text-[10px]">
+                  Simulate Error
+                </Button>
               </div>
             </div>
           }
@@ -180,7 +183,12 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="border border-border bg-background overflow-hidden relative min-h-[400px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          className="border border-border bg-background overflow-hidden relative min-h-[400px]"
+        >
           {isLoading ? (
             <div className="p-0">
               <Table>
@@ -288,7 +296,7 @@ export default function DashboardPage() {
               </Table>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );

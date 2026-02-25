@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Shield } from "lucide-react";
+import { SoftShine } from "@/components/ui/SoftShine";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -61,22 +62,7 @@ export default function LoginPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#FAFBFC] text-[#0A0A0A]">
-      {/* soft “white shine” glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-white blur-3xl opacity-80" />
-        <div className="absolute top-40 left-[10%] h-[360px] w-[360px] rounded-full bg-white blur-3xl opacity-60" />
-        <div className="absolute bottom-0 right-[5%] h-[420px] w-[420px] rounded-full bg-white blur-3xl opacity-50" />
-      </div>
-
-      {/* subtle grid texture (very premium) */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(229,231,235,0.55) 1px, transparent 1px), linear-gradient(to bottom, rgba(229,231,235,0.55) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+      <SoftShine />
 
       <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-16">
         <motion.div
@@ -85,7 +71,7 @@ export default function LoginPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="w-full max-w-md"
         >
-          <div className="rounded-2xl border border-[#E6E8EB] bg-white/90 p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] backdrop-blur">
+          <div className="rounded-2xl border border-[#E6E8EB] bg-white/90 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.10)] backdrop-blur">
             {/* Brand mark */}
             <div className="mb-6 flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-xl border border-[#E6E8EB] bg-white shadow-sm">
@@ -128,8 +114,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-11 w-full rounded-xl border border-[#E6E8EB] bg-white px-4 text-sm outline-none transition
-                             focus:border-[#8B0000]/50 focus:ring-4 focus:ring-[#8B0000]/10"
+                  className="h-11 w-full rounded-xl border border-[#E6E8EB] px-4 text-sm outline-none focus:border-[#8B0000]/50 focus:ring-4 focus:ring-[#8B0000]/10 transition"
                 />
               </div>
 
@@ -152,8 +137,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-11 w-full rounded-xl border border-[#E6E8EB] bg-white px-4 text-sm outline-none transition
-                             focus:border-[#8B0000]/50 focus:ring-4 focus:ring-[#8B0000]/10"
+                  className="h-11 w-full rounded-xl border border-[#E6E8EB] px-4 text-sm outline-none focus:border-[#8B0000]/50 focus:ring-4 focus:ring-[#8B0000]/10 transition"
                 />
 
                 {/* Password Strength Indicator */}
@@ -191,8 +175,7 @@ export default function LoginPage() {
                 disabled={isLoading || !email || !isPassStrongEnough || socialLoading !== null}
                 whileHover={!isLoading && email && isPassStrongEnough ? { y: -1 } : {}}
                 whileTap={!isLoading && email && isPassStrongEnough ? { scale: 0.99 } : {}}
-                className={`group relative flex h-11 w-full items-center justify-center rounded-xl bg-[#0A0A0A] text-sm font-semibold text-white
-                           shadow-[0_10px_20px_rgba(0,0,0,0.10)] transition hover:opacity-[0.92] disabled:opacity-50 disabled:cursor-not-allowed`}
+                className="h-11 w-full rounded-xl bg-[#0A0A0A] text-sm font-semibold text-white hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent rounded-full" />

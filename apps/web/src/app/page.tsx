@@ -1,52 +1,68 @@
 import Link from "next/link";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
 import { Shield, Database, UserCheck, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 md:py-32 flex flex-col items-center text-center">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 max-w-4xl">
-          Omen is the Trust Layer for Sui.
-        </h1>
-        <p className="text-xl md:text-2xl text-subtext max-w-2xl mb-10">
-          Verified Code ≠ Safe Intent. Omen makes identity and risk enforceable at the protocol level.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button asChild className="h-12 px-8 text-lg">
-            <Link href="/alpha">Join Private Alpha</Link>
-          </Button>
-          <Button asChild variant="secondary" className="h-12 px-8 text-lg">
-            <Link href="/docs">View SDK Documentation</Link>
-          </Button>
-        </div>
+      <section className="py-24 md:py-40 flex flex-col items-center text-center relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl"
+        >
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9] bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
+            Trust is the new<br />Asset Class.
+          </h1>
+          <p className="text-xl md:text-2xl text-subtext max-w-2xl mx-auto mb-12 leading-relaxed">
+            Omen Protocol provides the fundamental infrastructure for identity, risk, and intent enforcement on Sui.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild className="h-14 px-10 text-lg rounded-none">
+              <Link href="/alpha">Join Private Alpha</Link>
+            </Button>
+            <Button asChild variant="secondary" className="h-14 px-10 text-lg rounded-none">
+              <Link href="/docs">SDK Documentation</Link>
+            </Button>
+          </div>
+        </motion.div>
       </section>
 
       {/* Features Grid */}
       <section className="py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-8 border border-border flex flex-col gap-4">
-          <Database className="w-8 h-8 text-accent" />
-          <h3 className="text-xl font-bold">Registry — Source of Truth</h3>
-          <p className="text-subtext">
-            A decentralized repository of verified protocol metadata and security audits.
-          </p>
-        </div>
-        <div className="p-8 border border-border flex flex-col gap-4">
-          <UserCheck className="w-8 h-8 text-accent" />
-          <h3 className="text-xl font-bold">Badge — Programmable Identity</h3>
-          <p className="text-subtext">
-            Enforce granular permissions and trust levels across the entire Sui ecosystem.
-          </p>
-        </div>
-        <div className="p-8 border border-border flex flex-col gap-4">
-          <Shield className="w-8 h-8 text-accent" />
-          <h3 className="text-xl font-bold">SDK Shield — Enforced Security</h3>
-          <p className="text-subtext">
-            Simple integration to prevent malicious transactions before they reach the chain.
-          </p>
-        </div>
+        {[
+          {
+            icon: <Database className="w-8 h-8 text-accent" />,
+            title: "Registry — Source of Truth",
+            description: "A decentralized repository of verified protocol metadata and security audits."
+          },
+          {
+            icon: <UserCheck className="w-8 h-8 text-accent" />,
+            title: "Badge — Programmable Identity",
+            description: "Enforce granular permissions and trust levels across the entire Sui ecosystem."
+          },
+          {
+            icon: <Shield className="w-8 h-8 text-accent" />,
+            title: "SDK Shield — Enforced Security",
+            description: "Simple integration to prevent malicious transactions before they reach the chain."
+          }
+        ].map((feature, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: i * 0.1 }}
+            className="p-8 border border-border flex flex-col gap-4 bg-white/50 backdrop-blur"
+          >
+            {feature.icon}
+            <h3 className="text-xl font-bold">{feature.title}</h3>
+            <p className="text-subtext">{feature.description}</p>
+          </motion.div>
+        ))}
       </section>
 
       {/* Code Section */}

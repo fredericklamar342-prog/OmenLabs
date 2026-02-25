@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Nav } from "./Nav";
+import { SoftShine } from "@/components/ui/SoftShine";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,9 +8,10 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-background relative overflow-hidden">
+      <SoftShine />
       <Nav />
-      <main className="flex-1 container mx-auto px-4 pb-12">
+      <main className="flex-1 container mx-auto px-4 pb-12 relative z-10">
         {children}
       </main>
       <footer className="border-t border-border py-12 bg-gray-50/30">

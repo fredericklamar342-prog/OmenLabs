@@ -12,10 +12,10 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function Badge({ className, variant = "default", ...props }: BadgeProps) {
   const variants = {
-    default: "border-border text-foreground",
-    verified: "border-accent text-accent",
-    watchlist: "border-gray-500 text-gray-500",
-    revoked: "bg-accent text-white border-accent",
+    default: "border-[#E6E8EB] text-[#6B7280] bg-[#FAFBFC]",
+    verified: "border-[#10B981]/20 text-[#059669] bg-[#10B981]/10",
+    watchlist: "border-[#F59E0B]/20 text-[#D97706] bg-[#F59E0B]/10",
+    revoked: "bg-[#8B0000] text-white border-[#8B0000]",
   };
 
   return (
