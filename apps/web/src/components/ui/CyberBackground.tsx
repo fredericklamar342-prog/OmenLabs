@@ -14,7 +14,6 @@ export function CyberBackground() {
       <motion.div 
         style={{ y: y1 }}
         className="absolute inset-0 opacity-[0.4]"
-        innerHtml={undefined}
       >
         <div 
           className="absolute inset-0"
