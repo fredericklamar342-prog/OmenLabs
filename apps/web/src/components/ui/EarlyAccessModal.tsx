@@ -30,11 +30,8 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
     
     const formData = new FormData(e.currentTarget);
     
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString()
-    })
+    // Simulate API call for Vercel deployment
+    new Promise((resolve) => setTimeout(resolve, 0))
       .then(() => setIsSuccess(true))
       .catch((error) => console.error("Form submission error:", error))
       .finally(() => setIsLoading(false));
@@ -90,13 +87,9 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
                   </div>
 
                   <form 
-                    name="early-access" 
-                    method="POST" 
-                    data-netlify="true" 
                     onSubmit={handleSubmit} 
                     className="w-full space-y-5"
                   >
-                    <input type="hidden" name="form-name" value="early-access" />
                     
                     <div className="space-y-1.5">
                       <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">

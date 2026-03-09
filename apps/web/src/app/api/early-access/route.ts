@@ -1,40 +1,33 @@
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL || "OmenLabs <no-reply@omenlabs.com>";
 const adminEmail = process.env.ADMIN_EMAIL || "admin@omenlabs.com";
 
-// Simple in-memory rate limiting (Note: not persistent across function cold starts)
-const rateLimitMap = new Map<string, number>();
 
-export const handler = async (event: any) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
+export async function POST(req: Request) {
   try {
-    const { email, honeypot } = JSON.parse(event.body);
+    if (!process.env.RESEND_API_KEY) {
+      console.warn("RESEND_API_KEY is not defined. Email will not be sent.");
+    }
+    const resend = new Resend(process.env.RESEND_API_KEY || "missing_key_for_build");
+
+    const data = await req.json();
+    const email = data.email;
+    const honeypot = data["bot-field"];
 
     // 1. Honeypot check
     if (honeypot) {
       console.warn("Honeypot filled, blocking spam.");
-      return { statusCode: 200, body: JSON.stringify({ message: "Success (spambot trapped)" }) };
+      return NextResponse.json({ message: "Success (spambot trapped)" }, { status: 200 });
     }
 
     // 2. Validation
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return { statusCode: 400, body: JSON.stringify({ message: "Invalid email address" }) };
+      return NextResponse.json({ message: "Invalid email address" }, { status: 400 });
     }
 
-    // 3. Simple Rate Limiting (60 seconds)
-    const now = Date.now();
-    const lastSubmission = rateLimitMap.get(email);
-    if (lastSubmission && now - lastSubmission < 60000) {
-      return { statusCode: 429, body: JSON.stringify({ message: "Request received. Please wait 60 seconds." }) };
-    }
-    rateLimitMap.set(email, now);
-
-    // 4. Send Confirmation to User
+    // 3. Send Confirmation to User
     await resend.emails.send({
       from: fromEmail,
       to: email,
@@ -57,7 +50,7 @@ export const handler = async (event: any) => {
       `,
     });
 
-    // 5. Send Notification to Admin
+    // 4. Send Notification to Admin
     await resend.emails.send({
       from: fromEmail,
       to: adminEmail,
@@ -72,15 +65,9 @@ export const handler = async (event: any) => {
       `,
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "You’re on the waitlist ✅ Check your inbox" }),
-    };
-  } catch (err: any) {
-    console.error("Email Sender Error:", err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: "System error, please try again later." }),
-    };
+    return NextResponse.json({ message: "You’re on the waitlist ✅ Check your inbox" }, { status: 200 });
+  } catch (error: any) {
+    console.error("Email Sender Error:", error);
+    return NextResponse.json({ message: "System error, please try again later." }, { status: 500 });
   }
-};
+}

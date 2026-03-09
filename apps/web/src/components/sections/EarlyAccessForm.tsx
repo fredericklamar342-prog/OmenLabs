@@ -43,20 +43,25 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
 
     try {
       const formData = new FormData(e.currentTarget);
-      const response = await fetch("/", {
+      const payload = {
+        email: formData.get("email"),
+        "bot-field": formData.get("bot-field"),
+      };
+
+      const res = await fetch("/api/early-access", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
-        setStatus("success");
-        setEmail(""); // clean input on success
-      } else {
+      if (!res.ok) {
         throw new Error("Unable to submit. Please try again later.");
       }
+      
+      setStatus("success");
+      setEmail(""); // clean input on success
     } catch (err: any) {
-      console.error("Netlify Form Error:", err);
+      console.error("Form Error:", err);
       setStatus("error");
       setMessage(err.message || "Something went wrong. Please try again.");
     }
@@ -101,24 +106,10 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
   /* ── Form ──────────────────────────────────────────────────────── */
   return (
     <form 
-      name="early-access" 
-      method="POST" 
-      data-netlify="true" 
       onSubmit={handleSubmit} 
       className="relative w-full" 
       noValidate
     >
-      <input type="hidden" name="form-name" value="early-access" />
-      
-      {/* Honeypot — completely hidden from users, Netlify standard is typically bot-field */}
-      <input
-        type="text"
-        name="bot-field"
-        className="hidden"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-      />
 
       <div className="flex flex-col md:flex-row gap-2">
         {/* Email Input */}

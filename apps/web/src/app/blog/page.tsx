@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { motion } from "framer-motion";
 import { FileText, ShieldAlert, Cpu, Layers } from "lucide-react";
 
 export default function BlogPage() {
