@@ -1,3 +1,5 @@
+"use client";
+
 import { Layout } from "@/components/layout/Layout";
 import { BookOpen, Sparkles, MoveRight } from "lucide-react";
 import Link from "next/link";
