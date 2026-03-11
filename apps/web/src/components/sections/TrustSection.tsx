@@ -24,7 +24,7 @@ export function TrustSection() {
           
           {/* Text Content */}
           <div className="space-y-6 animate-fade-up text-center lg:text-left">
-            <span className="text-[11px] font-bold tracking-[0.3em] text-[#2B5C92] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.3em] text-[#43B6D5] uppercase">
               Why Omen matters
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0B1220] leading-[1.1]">
@@ -45,7 +45,7 @@ export function TrustSection() {
                   transition={{ delay: i * 0.05, duration: 0.3, ease: "easeOut" }}
                   className="flex items-center gap-2.5"
                 >
-                  <div className="w-1.5 h-1.5 bg-[#2B5C92] rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-[#43B6D5] rounded-full" />
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#4A5568] whitespace-nowrap">
                     {text}
                   </span>
@@ -82,8 +82,8 @@ export function TrustSection() {
                 className="absolute glass-panel p-4 md:p-6 flex flex-col items-center gap-3 md:backdrop-blur-md border border-white/50 shadow-xl group cursor-pointer hover:bg-white/40 transition-colors"
                 style={{ left: `calc(50% + ${p.x})`, top: `calc(50% + ${p.y})` }}
               >
-                <div className="w-10 h-10 border border-[#2B5C92]/10 flex items-center justify-center p-2 rounded-xl group-hover:scale-110 group-hover:bg-[#2B5C92]/5 transition-all duration-500">
-                  <div className={`w-full h-full bg-[#2B5C92]/20 group-hover:bg-[#2B5C92]/40 transition-colors ${p.icon === "circle" ? "rounded-full" : "rounded-sm"}`} />
+                <div className="w-10 h-10 border border-[#43B6D5]/10 flex items-center justify-center p-2 rounded-xl group-hover:scale-110 group-hover:bg-[#43B6D5]/5 transition-all duration-500">
+                  <div className={`w-full h-full bg-[#43B6D5]/20 group-hover:bg-[#43B6D5]/40 transition-colors ${p.icon === "circle" ? "rounded-full" : "rounded-sm"}`} />
                 </div>
                 <span className="text-[11px] font-bold tracking-tight text-[#4A5568]/60 group-hover:text-[#0B1220] transition-colors whitespace-nowrap">
                   {p.name}

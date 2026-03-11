@@ -121,7 +121,7 @@ export default function ProductPage() {
         <section className="glass-card overflow-hidden px-6 py-10 md:px-10 md:py-14 lg:px-14">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0E2F76]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#2B5C92]">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#43B6D5]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#43B6D5]">
                 <Sparkles className="h-4 w-4" />
                 Core Product
               </div>
@@ -145,22 +145,22 @@ export default function ProductPage() {
                 </Button>
               </div>
               <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold text-[#4A5568]">
-                <span className="rounded-full border border-[#0E2F76]/10 bg-white/60 px-3 py-1.5">Sui-native scoring</span>
-                <span className="rounded-full border border-[#0E2F76]/10 bg-white/60 px-3 py-1.5">SDK policy assertions</span>
-                <span className="rounded-full border border-[#0E2F76]/10 bg-white/60 px-3 py-1.5">Walrus audit storage</span>
-                <span className="rounded-full border border-[#0E2F76]/10 bg-white/60 px-3 py-1.5">Agent-aware enforcement</span>
+                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Sui-native scoring</span>
+                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">SDK policy assertions</span>
+                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Walrus audit storage</span>
+                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Agent-aware enforcement</span>
               </div>
             </div>
 
             <div className="glass-panel rounded-[28px] border border-white/80 p-6 md:p-8">
               <div className="mb-6 flex items-center justify-between">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
                     Runtime Flow
                   </p>
                   <p className="text-sm text-[#4A5568]">How the trust engine moves from data to enforcement.</p>
                 </div>
-                <Workflow className="h-7 w-7 text-[#0E2F76]" />
+                <Workflow className="h-7 w-7 text-[#43B6D5]" />
               </div>
               <div className="space-y-4">
                 {[
@@ -171,14 +171,14 @@ export default function ProductPage() {
                 ].map(([title, text]) => (
                   <div
                     key={title}
-                    className="rounded-2xl border border-[#0E2F76]/8 bg-white/75 px-4 py-4"
+                    className="rounded-2xl border border-[#43B6D5]/8 bg-white/75 px-4 py-4"
                   >
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <p className="text-sm font-semibold text-[#0B1220]">{title}</p>
                         <p className="text-sm text-[#4A5568]">{text}</p>
                       </div>
-                      <div className="rounded-full bg-[#EAF3FA] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#2B5C92]">
+                      <div className="rounded-full bg-[#EAF3FA] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#43B6D5]">
                         Active
                       </div>
                     </div>
@@ -191,7 +191,7 @@ export default function ProductPage() {
 
         <section className="py-16 md:py-20">
           <div className="mb-10 max-w-3xl">
-            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
               Trust Lifecycle
             </p>
             <h2 className="mb-4">Explain the product like infrastructure, not marketing.</h2>
@@ -203,7 +203,7 @@ export default function ProductPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {lifecycle.map((item) => (
               <div key={item.title} className="glass-card p-6">
-                <div className="mb-5 inline-flex rounded-2xl bg-[#EAF3FA] p-3 text-[#0E2F76]">
+                <div className="mb-5 inline-flex rounded-2xl bg-[#EAF3FA] p-3 text-[#43B6D5]">
                   <item.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mb-3 text-xl">{item.title}</h3>
@@ -216,17 +216,17 @@ export default function ProductPage() {
         <section className="grid gap-8 py-4 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="glass-card p-6 md:p-8">
             <div className="mb-8 flex items-center gap-3">
-              <Blocks className="h-6 w-6 text-[#0E2F76]" />
+              <Blocks className="h-6 w-6 text-[#43B6D5]" />
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">Primitives</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Primitives</p>
                 <h2 className="mb-0 text-2xl md:text-3xl">Composable product surface</h2>
               </div>
             </div>
             <div className="grid gap-4">
               {primitives.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-[#0E2F76]/8 bg-white/65 p-5">
+                <div key={item.title} className="rounded-2xl border border-[#43B6D5]/8 bg-white/65 p-5">
                   <div className="mb-3 flex items-center gap-3">
-                    <item.icon className="h-5 w-5 text-[#0E2F76]" />
+                    <item.icon className="h-5 w-5 text-[#43B6D5]" />
                     <h3 className="mb-0 text-lg">{item.title}</h3>
                   </div>
                   <p className="text-base text-[#4A5568]">{item.description}</p>
@@ -237,24 +237,24 @@ export default function ProductPage() {
 
           <div className="glass-card p-6 md:p-8">
             <div className="mb-8 flex items-center gap-3">
-              <CheckCheck className="h-6 w-6 text-[#0E2F76]" />
+              <CheckCheck className="h-6 w-6 text-[#43B6D5]" />
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">Scoring Model</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Scoring Model</p>
                 <h2 className="mb-0 text-2xl md:text-3xl">Readable trust composition</h2>
               </div>
             </div>
             <div className="space-y-4">
               {scorecards.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-[#0E2F76]/8 bg-white/70 p-5">
+                <div key={item.label} className="rounded-2xl border border-[#43B6D5]/8 bg-white/70 p-5">
                   <div className="mb-3 flex items-center justify-between gap-4">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2B5C92]">{item.label}</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#43B6D5]">{item.label}</p>
                     <span className="text-2xl font-bold text-[#0B1220]">{item.value}</span>
                   </div>
                   <p className="text-base text-[#4A5568]">{item.detail}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-2xl border border-dashed border-[#0E2F76]/15 bg-[#F8FBFE] p-5">
+            <div className="mt-6 rounded-2xl border border-dashed border-[#43B6D5]/15 bg-[#F8FBFE] p-5">
               <p className="text-sm font-semibold text-[#0B1220]">Operational result</p>
               <p className="mt-2 text-base text-[#4A5568]">
                 Policies consume the score as a runtime decision, not a vanity metric. That is the difference
@@ -268,9 +268,9 @@ export default function ProductPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
             <div className="glass-card p-6 md:p-8">
               <div className="mb-8 flex items-center gap-3">
-                <ShieldCheck className="h-6 w-6 text-[#0E2F76]" />
+                <ShieldCheck className="h-6 w-6 text-[#43B6D5]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">Policy States</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Policy States</p>
                   <h2 className="mb-0 text-2xl md:text-3xl">Three operating modes</h2>
                 </div>
               </div>
@@ -286,9 +286,9 @@ export default function ProductPage() {
 
             <div className="glass-card p-6 md:p-8">
               <div className="mb-8 flex items-center gap-3">
-                <Bot className="h-6 w-6 text-[#0E2F76]" />
+                <Bot className="h-6 w-6 text-[#43B6D5]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">Use Cases</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Use Cases</p>
                   <h2 className="mb-0 text-2xl md:text-3xl">Where this becomes visible to users</h2>
                 </div>
               </div>
@@ -296,9 +296,9 @@ export default function ProductPage() {
                 {useCases.map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-4 rounded-2xl border border-[#0E2F76]/8 bg-white/70 p-5"
+                    className="flex items-start gap-4 rounded-2xl border border-[#43B6D5]/8 bg-white/70 p-5"
                   >
-                    <div className="mt-1 rounded-full bg-[#EAF3FA] p-2 text-[#0E2F76]">
+                    <div className="mt-1 rounded-full bg-[#EAF3FA] p-2 text-[#43B6D5]">
                       <ArrowRight className="h-4 w-4" />
                     </div>
                     <p className="text-base text-[#4A5568]">{item}</p>
@@ -312,7 +312,7 @@ export default function ProductPage() {
         <section className="glass-card p-6 md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div>
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
                 Developer Surface
               </p>
               <h2 className="mb-4">The product page should hand developers an obvious next step.</h2>
@@ -330,7 +330,7 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[28px] border border-[#0E2F76]/10 bg-[#0B1220] p-5 text-sm text-white shadow-[0_20px_50px_rgba(11,18,32,0.18)]">
+            <div className="overflow-hidden rounded-[28px] border border-[#43B6D5]/10 bg-[#0B1220] p-5 text-sm text-white shadow-[0_20px_50px_rgba(11,18,32,0.18)]">
               <div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-white/50">
                 <Braces className="h-4 w-4" />
                 sdk.ts

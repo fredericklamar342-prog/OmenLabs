@@ -10,13 +10,13 @@ export function TeamSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16 animate-fade-up">
-          <span className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4 flex items-center gap-2">
+          <span className="text-[11px] font-bold tracking-widest text-[#43B6D5] uppercase mb-4 flex items-center gap-2">
             <ShieldCheck className="w-4 h-4" /> Built on Trust
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0B1220] mb-4">
             The Team Behind Omen
           </h2>
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0] rounded-full" />
+          <div className="h-[2px] w-16 bg-gradient-to-r from-[#2A8FA8] to-[#B3CDE0] rounded-full" />
         </div>
 
         {/* Team Cards Container */}
@@ -27,12 +27,12 @@ export function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="glass-card p-8 md:p-10 border border-[#0E2F76]/10 flex flex-col items-center text-center max-w-[400px] w-full rounded-3xl"
+            className="glass-card p-8 md:p-10 border border-[#43B6D5]/10 flex flex-col items-center text-center max-w-[400px] w-full rounded-3xl"
           >
             {/* Avatar / Initials */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#0C1446] to-[#B3CDE0] p-[2px] mb-6">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#2A8FA8] to-[#B3CDE0] p-[2px] mb-6">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center border-2 border-white">
-                <span className="text-3xl font-bold font-plus-jakarta text-[#0E2F76]">OM</span>
+                <span className="text-3xl font-bold font-plus-jakarta text-[#43B6D5]">OM</span>
               </div>
             </div>
 
@@ -47,7 +47,7 @@ export function TeamSection() {
                 href="https://x.com/OmenLabsHQ" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#0E2F76]/20 bg-white/50 hover:bg-[#0E2F76] hover:text-white hover:border-[#0E2F76] text-[#4A5568] transition-all duration-300 shadow-sm"
+                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#43B6D5]/20 bg-white/50 hover:bg-[#43B6D5] hover:text-white hover:border-[#43B6D5] text-[#4A5568] transition-all duration-300 shadow-sm"
                 aria-label="X Profile"
               >
                 <Twitter className="w-4 h-4" />
@@ -56,7 +56,7 @@ export function TeamSection() {
                 href="https://github.com/omenprotocol" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#0E2F76]/20 bg-white/50 hover:bg-[#0B1220] hover:text-white hover:border-[#0B1220] text-[#4A5568] transition-all duration-300 shadow-sm"
+                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#43B6D5]/20 bg-white/50 hover:bg-[#0B1220] hover:text-white hover:border-[#0B1220] text-[#4A5568] transition-all duration-300 shadow-sm"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />

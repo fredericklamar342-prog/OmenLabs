@@ -42,7 +42,7 @@ export default function DashboardPage() {
       {/* Mobile Top Nav */}
       <div className="md:hidden flex items-center justify-between p-4 glass-panel sticky top-0 z-50 rounded-none border-b border-l-0 border-r-0 border-t-0">
         <Link href="/" className="flex items-center gap-2">
-          <ShieldCheck className="w-6 h-6 text-[#2B5C92]" />
+          <ShieldCheck className="w-6 h-6 text-[#43B6D5]" />
           <span className="font-bold tracking-tight">Omen</span>
         </Link>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2">
@@ -59,8 +59,8 @@ export default function DashboardPage() {
       `}>
         <div className="hidden md:flex items-center gap-3 px-8 pt-10 pb-8">
           <div className="relative w-8 h-8 flex items-center justify-center">
-            <div className="absolute inset-0 border-[3px] border-[#0C1446] rounded-lg rotate-45" />
-            <div className="w-3 h-3 bg-gradient-to-tr from-[#0C1446] to-[#B3CDE0] rounded-sm" />
+            <div className="absolute inset-0 border-[3px] border-[#2A8FA8] rounded-lg rotate-45" />
+            <div className="w-3 h-3 bg-gradient-to-tr from-[#2A8FA8] to-[#B3CDE0] rounded-sm" />
           </div>
           <span className="text-xl font-bold tracking-tight text-[#0B1220]">Omen</span>
         </div>
@@ -73,12 +73,12 @@ export default function DashboardPage() {
               className={`
                 flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-200
                 ${idx === 0
-                  ? "bg-[#0C1446]/5 font-semibold text-[#0B1220]"
+                  ? "bg-[#2A8FA8]/5 font-semibold text-[#0B1220]"
                   : "text-[#5B6B82] hover:text-[#0B1220] hover:bg-[rgba(11,18,32,0.05)]"}
               `}
               onClick={() => setMobileMenuOpen(false)}
             >
-              <link.icon className={`w-5 h-5 ${idx === 0 ? "text-[#2B5C92]" : ""}`} />
+              <link.icon className={`w-5 h-5 ${idx === 0 ? "text-[#43B6D5]" : ""}`} />
               <span>{link.name}</span>
             </Link>
           ))}
@@ -87,7 +87,7 @@ export default function DashboardPage() {
         <div className="p-4 mt-auto border-t border-[rgba(11,18,32,0.08)]">
           <Link
             href="/"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl text-[#5B6B82] hover:text-[#2B5C92] hover:bg-[#2B5C92]/5 transition-colors"
+            className="flex items-center gap-3 px-4 py-3 rounded-xl text-[#5B6B82] hover:text-[#43B6D5] hover:bg-[#43B6D5]/5 transition-colors"
           >
             <LogOut className="w-5 h-5" />
             <span>Log Out</span>
@@ -117,23 +117,23 @@ export default function DashboardPage() {
               {/* Status Pill */}
               <div className="glass-card p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-fade-up stagger-1">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2B5C92]/20 to-[#0C1446]/20 flex items-center justify-center border border-[#2B5C92]/20">
-                    <Activity className="w-6 h-6 text-[#2B5C92]" />
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#43B6D5]/20 to-[#2A8FA8]/20 flex items-center justify-center border border-[#43B6D5]/20">
+                    <Activity className="w-6 h-6 text-[#43B6D5]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-[#0B1220]">Identity Status</h3>
                     <p className="text-sm text-[#5B6B82]">Verification 60% complete</p>
                   </div>
                 </div>
-                <div className="px-4 py-1.5 rounded-full bg-[#EAF3FA] text-[#2B5C92] text-xs font-bold uppercase tracking-wider border border-[#B3CDE0]/60">
+                <div className="px-4 py-1.5 rounded-full bg-[#EAF3FA] text-[#43B6D5] text-xs font-bold uppercase tracking-wider border border-[#B3CDE0]/60">
                   In Progress
                 </div>
               </div>
 
               {/* Upload Area */}
-              <div className="glass-card p-8 text-center animate-fade-up stagger-2 border-dashed border-2 border-[rgba(11,18,32,0.08)] hover:border-[#2B5C92]/40 transition-colors cursor-pointer group">
-                <div className="w-16 h-16 mx-auto rounded-full bg-[rgba(11,18,32,0.04)] flex items-center justify-center mb-4 group-hover:bg-[#2B5C92]/10 transition-colors">
-                  <UploadCloud className="w-8 h-8 text-[#5B6B82] group-hover:text-[#2B5C92] transition-colors" />
+              <div className="glass-card p-8 text-center animate-fade-up stagger-2 border-dashed border-2 border-[rgba(11,18,32,0.08)] hover:border-[#43B6D5]/40 transition-colors cursor-pointer group">
+                <div className="w-16 h-16 mx-auto rounded-full bg-[rgba(11,18,32,0.04)] flex items-center justify-center mb-4 group-hover:bg-[#43B6D5]/10 transition-colors">
+                  <UploadCloud className="w-8 h-8 text-[#5B6B82] group-hover:text-[#43B6D5] transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">Upload Audit Storage</h3>
                 <p className="text-sm text-[#5B6B82] max-w-sm mx-auto mb-6">
@@ -150,8 +150,8 @@ export default function DashboardPage() {
               <div className="glass-card p-6 flex flex-col items-center text-center animate-fade-up stagger-3">
                 <h3 className="font-bold w-full text-left mb-6">Soulbound Badge</h3>
                 <div className="relative w-32 h-32 mb-6 drop-shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0C1446] to-[#B3CDE0] rounded-3xl rotate-6 opacity-30 blur-lg" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-[#0C1446] to-[#2B5C92] rounded-[2rem] border-2 border-white/40 flex items-center justify-center text-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#2A8FA8] to-[#B3CDE0] rounded-3xl rotate-6 opacity-30 blur-lg" />
+                  <div className="relative w-full h-full bg-gradient-to-br from-[#2A8FA8] to-[#43B6D5] rounded-[2rem] border-2 border-white/40 flex items-center justify-center text-white">
                     <ShieldCheck className="w-16 h-16" />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
               {RECENT_ACTIVITY.map((item) => (
                 <div key={item.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl hover:bg-[rgba(11,18,32,0.04)] transition-colors gap-2">
                   <div className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full ${item.status === "success" ? "bg-[#2B5C92]" : "bg-[#B3CDE0]"}`} />
+                    <div className={`w-2 h-2 rounded-full ${item.status === "success" ? "bg-[#43B6D5]" : "bg-[#B3CDE0]"}`} />
                     <span className="text-sm font-medium">{item.action}</span>
                   </div>
                   <span className="text-xs text-[#5B6B82]">{item.date}</span>

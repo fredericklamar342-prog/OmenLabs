@@ -43,8 +43,8 @@ export function Nav() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group" aria-label="Omen home">
             <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="absolute inset-0 border-[3px] border-[#2B5C92] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-200" />
-              <div className="w-3 h-3 bg-gradient-to-tr from-[#0C1446] to-[#B3CDE0] rounded-sm" />
+              <div className="absolute inset-0 border-[3px] border-[#43B6D5] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-200" />
+              <div className="w-3 h-3 bg-gradient-to-tr from-[#2A8FA8] to-[#B3CDE0] rounded-sm" />
             </div>
             <span className="text-xl font-bold font-plus-jakarta tracking-tight text-[#0B1220]">
               Omen
@@ -66,7 +66,7 @@ export function Nav() {
                       setIsOpen(false);
                     }
                   }}
-                  className="text-[15px] font-medium text-[#4A5568] hover:text-[#0E2F76] transition-colors duration-200"
+                  className="text-[15px] font-medium text-[#4A5568] hover:text-[#43B6D5] transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -115,7 +115,7 @@ export function Nav() {
                         }
                         setIsOpen(false);
                       }}
-                      className="text-lg font-medium text-[#0B1220] hover:text-[#0E2F76] transition-colors"
+                      className="text-lg font-medium text-[#0B1220] hover:text-[#43B6D5] transition-colors"
                     >
                       {link.name}
                     </Link>

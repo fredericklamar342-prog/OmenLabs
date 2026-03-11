@@ -17,7 +17,7 @@ export interface ButtonProps
 
 const variants = {
   primary: [
-    "bg-gradient-to-r from-[#0C1446] via-[#2B5C92] to-[#B3CDE0]",
+    "bg-gradient-to-r from-[#2A8FA8] via-[#43B6D5] to-[#B3CDE0]",
     "bg-[length:200%_auto]",
     "text-white border-none",
     "shadow-[0_8px_20px_rgba(43,92,146,0.25)]",
@@ -29,7 +29,7 @@ const variants = {
 
   secondary: [
     "bg-white/62 backdrop-blur-[20px]",
-    "text-[#0C1446]",
+    "text-[#2A8FA8]",
     "border border-white/85",
     "shadow-[0_4px_12px_rgba(11,18,32,0.05)]",
     "hover:-translate-y-[2px]",
@@ -37,7 +37,7 @@ const variants = {
     "active:translate-y-0",
   ].join(" "),
 
-  link: "bg-transparent text-[#2B5C92] hover:text-[#0C1446] p-0 h-auto",
+  link: "bg-transparent text-[#43B6D5] hover:text-[#2A8FA8] p-0 h-auto",
 };
 
 const sizes = {
@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center whitespace-nowrap",
           "transition-all duration-150 ease-out",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2B5C92]/40 focus-visible:ring-offset-2",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43B6D5]/40 focus-visible:ring-offset-2",
           "disabled:pointer-events-none disabled:opacity-40",
           variants[variant],
           variant !== "link" && sizes[size],

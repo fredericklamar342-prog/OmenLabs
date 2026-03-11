@@ -138,7 +138,7 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
       <div className="mt-4 flex items-center gap-4 px-1">
         <a
           href="/docs"
-          className="text-[11px] font-semibold uppercase tracking-widest text-[#5B6B82] underline decoration-black/10 underline-offset-4 transition-colors duration-200 hover:text-[#2B5C92] hover:decoration-[#2B5C92]/40"
+          className="text-[11px] font-semibold uppercase tracking-widest text-[#5B6B82] underline decoration-black/10 underline-offset-4 transition-colors duration-200 hover:text-[#43B6D5] hover:decoration-[#43B6D5]/40"
         >
           SDK Documentation
         </a>

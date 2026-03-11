@@ -62,13 +62,13 @@ export default function EarlyAccessPage() {
           <div>
             <Link
               href="/"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#2B5C92] transition-colors hover:text-[#0E2F76]"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#43B6D5] transition-colors hover:text-[#43B6D5]"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to home
             </Link>
 
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0E2F76]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#2B5C92]">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#43B6D5]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#43B6D5]">
               <Sparkles className="h-4 w-4" />
               Early Access
             </div>
@@ -90,9 +90,9 @@ export default function EarlyAccessPage() {
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-[#0E2F76]/8 bg-white/65 px-4 py-4"
+                className="flex items-start gap-3 rounded-2xl border border-[#43B6D5]/8 bg-white/65 px-4 py-4"
               >
-                <div className="rounded-full bg-[#EAF3FA] p-2 text-[#0E2F76]">
+                <div className="rounded-full bg-[#EAF3FA] p-2 text-[#43B6D5]">
                   <Shield className="h-4 w-4" />
                 </div>
                 <p className="text-sm text-[#4A5568]">{item}</p>
@@ -120,9 +120,9 @@ export default function EarlyAccessPage() {
                   initial={{ scale: 0.7, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-[#2B5C92]/10 bg-[#EAF3FA]"
+                  className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-[#43B6D5]/10 bg-[#EAF3FA]"
                 >
-                  <CheckCircle2 className="h-10 w-10 text-[#2B5C92]" />
+                  <CheckCircle2 className="h-10 w-10 text-[#43B6D5]" />
                 </motion.div>
                 <h2 className="text-3xl font-bold text-[#0B1220]">Registration complete</h2>
                 <p className="mt-3 max-w-md text-base text-[#4A5568]">{submitState.message}</p>
@@ -147,7 +147,7 @@ export default function EarlyAccessPage() {
                 className="w-full"
               >
                 <div className="mb-8">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
                     Registration Form
                   </p>
                   <h2 className="mt-3 text-2xl font-bold text-[#0B1220] md:text-3xl">Request access</h2>
@@ -196,7 +196,7 @@ export default function EarlyAccessPage() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-[#0E2F76]/8 bg-[#F8FBFE] px-4 py-4 text-sm text-[#4A5568]">
+                  <div className="rounded-2xl border border-[#43B6D5]/8 bg-[#F8FBFE] px-4 py-4 text-sm text-[#4A5568]">
                     You will see an in-app success state immediately. Email delivery depends on your EmailJS
                     service ID, public key, and template IDs being configured in the environment.
                   </div>

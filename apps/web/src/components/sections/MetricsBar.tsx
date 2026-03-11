@@ -27,12 +27,12 @@ function AnimatedStat({ label, numericEnd, prefix = "", suffix = "", decimals = 
 
   return (
     <div className="space-y-4 group" ref={ref as React.RefObject<HTMLDivElement>}>
-      <div className="text-5xl font-bold tracking-tight text-[#0B1220] font-mono tabular-nums group-hover:text-[#0E2F76] transition-colors">
+      <div className="text-5xl font-bold tracking-tight text-[#0B1220] font-mono tabular-nums group-hover:text-[#43B6D5] transition-colors">
         {prefix}{count}{suffix}
       </div>
       <div className="h-[2px] w-full bg-black/5 relative overflow-hidden rounded-full">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0]"
+          className="absolute inset-0 bg-gradient-to-r from-[#2A8FA8] to-[#B3CDE0]"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
@@ -67,12 +67,12 @@ export function MetricsBar() {
         <div className="relative glass-card p-12 md:p-20 flex flex-col items-center text-center overflow-hidden rounded-[32px] animate-fade-up border border-black/5">
           {/* Shield watermark */}
           <div className="absolute top-0 right-0 p-8 pointer-events-none opacity-5" aria-hidden="true">
-            <Shield className="w-64 h-64 text-[#2B5C92]" />
+            <Shield className="w-64 h-64 text-[#43B6D5]" />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 max-w-2xl text-[#0B1220] relative z-10">
             Ready to protect{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#0B1220] to-[#0E2F76]">your users?</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#0B1220] to-[#43B6D5]">your users?</span>
           </h2>
           <p className="text-lg text-[#4A5568] mb-10 max-w-xl leading-relaxed relative z-10">
             Join Omen Labs and give your community the one thing they need most — the ability to trust who is building for them.

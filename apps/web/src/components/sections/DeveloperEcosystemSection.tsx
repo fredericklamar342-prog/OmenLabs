@@ -25,7 +25,7 @@ export function DeveloperEcosystemSection() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="lg:w-1/3 text-center lg:text-left"
           >
-            <span className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4 block">
+            <span className="text-[11px] font-bold tracking-widest text-[#43B6D5] uppercase mb-4 block">
               For Developers
             </span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0B1220] leading-[1.1]">
@@ -43,9 +43,9 @@ export function DeveloperEcosystemSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.05, ease: "easeOut" }}
-                  className="flex items-start gap-4 p-5 glass-panel border border-[#0E2F76]/10 rounded-xl"
+                  className="flex items-start gap-4 p-5 glass-panel border border-[#43B6D5]/10 rounded-xl"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#2B5C92] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#43B6D5] shrink-0 mt-0.5" />
                   <span className="text-[16px] font-medium text-[#4A5568] leading-tight">
                     {feature}
                   </span>

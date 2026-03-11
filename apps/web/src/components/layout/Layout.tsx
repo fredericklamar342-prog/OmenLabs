@@ -17,23 +17,23 @@ export function Layout({ children }: LayoutProps) {
         <div className="max-container flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="group flex items-center gap-3">
             <div className="relative flex h-6 w-6 items-center justify-center">
-              <div className="absolute inset-0 rotate-45 rounded-md border-[2px] border-[#0E2F76] transition-transform duration-200 group-hover:rotate-90" />
+              <div className="absolute inset-0 rotate-45 rounded-md border-[2px] border-[#43B6D5] transition-transform duration-200 group-hover:rotate-90" />
               <div className="h-2 w-2 rounded-[1px] bg-[#AAC0E1]" />
             </div>
             <span className="font-bold tracking-tight text-[#0B1220]">Omen</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link href="/product" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#0E2F76]">
+            <Link href="/product" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
               Product
             </Link>
-            <Link href="/docs" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#0E2F76]">
+            <Link href="/docs" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
               Docs
             </Link>
-            <Link href="/developer" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#0E2F76]">
+            <Link href="/developer" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
               Developers
             </Link>
-            <Link href="/dashboard" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#0E2F76]">
+            <Link href="/dashboard" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
               Dashboard
             </Link>
           </div>
@@ -47,7 +47,7 @@ export function Layout({ children }: LayoutProps) {
             <a href="https://discord.gg/jQp2hzym" target="_blank" rel="noopener noreferrer" className="text-[11px] font-black uppercase tracking-widest text-[#4A5568] hover:text-primary transition-colors">Discord</a>
           </div>
 
-          <p className="text-[11px] font-black uppercase tracking-widest text-[#2B5C92]/60">Status: OMEN_PROTOCOL_STABLE</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-[#43B6D5]/60">Status: OMEN_PROTOCOL_STABLE</p>
         </div>
       </footer>
     </div>

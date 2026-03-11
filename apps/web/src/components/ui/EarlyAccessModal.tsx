@@ -62,7 +62,7 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-[#0E2F76]/20 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#43B6D5]/20 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -93,7 +93,7 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
                   className="w-full p-6 sm:p-8 md:p-10"
                 >
                   <div className="mb-8 text-center">
-                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#0E2F76]/10 bg-[#F8FBFE] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#2B5C92]">
+                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#43B6D5]/10 bg-[#F8FBFE] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#43B6D5]">
                       <MailCheck className="h-4 w-4" />
                       Fast Onboarding
                     </div>
@@ -180,9 +180,9 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
-                    className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#2B5C92]/10 bg-[#EAF3FA]"
+                    className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#43B6D5]/10 bg-[#EAF3FA]"
                   >
-                    <CheckCircle2 className="h-8 w-8 text-[#2B5C92]" />
+                    <CheckCircle2 className="h-8 w-8 text-[#43B6D5]" />
                   </motion.div>
 
                   <h3 className="mb-3 text-2xl font-bold text-[#0B1220]">Application Received</h3>

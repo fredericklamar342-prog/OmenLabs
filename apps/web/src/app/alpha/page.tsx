@@ -80,9 +80,9 @@ export default function AlphaPage() {
            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#0C1446]/20 bg-[#0C1446]/5 rounded-full mb-4">
-              <Lock className="w-3 h-3 text-[#2B5C92]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2B5C92]">Access Level: Alpha</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#2A8FA8]/20 bg-[#2A8FA8]/5 rounded-full mb-4">
+              <Lock className="w-3 h-3 text-[#43B6D5]" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#43B6D5]">Access Level: Alpha</span>
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-[#0B1220]">Private Alpha Access</h1>
             <p className="text-[#5B6B82] max-w-xl mx-auto">

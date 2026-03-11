@@ -10,7 +10,7 @@ export function BenefitsGrid() {
       <div className="max-container">
         <div className="flex flex-col items-center text-center mb-20 animate-fade-up">
           <span 
-            className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4"
+            className="text-[11px] font-bold tracking-widest text-[#43B6D5] uppercase mb-4"
           >
             What Omen Labs Does
           </span>
@@ -20,7 +20,7 @@ export function BenefitsGrid() {
           >
             Bring Trust to Web3.
           </h2>
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0] rounded-full" />
+          <div className="h-[2px] w-16 bg-gradient-to-r from-[#2A8FA8] to-[#B3CDE0] rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

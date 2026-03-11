@@ -57,10 +57,10 @@ export default function DeveloperPage() {
                     className="w-full"
                   >
                     <div className="text-center mb-10">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-[#EAF3FA] flex items-center justify-center mb-6 relative border border-[#0E2F76]/10">
-                        <Terminal className="w-8 h-8 text-[#0E2F76] relative z-10" />
+                      <div className="w-16 h-16 mx-auto rounded-full bg-[#EAF3FA] flex items-center justify-center mb-6 relative border border-[#43B6D5]/10">
+                        <Terminal className="w-8 h-8 text-[#43B6D5] relative z-10" />
                       </div>
-                      <span className="text-[11px] font-bold tracking-[0.4em] text-[#2B5C92] uppercase mb-4 block">
+                      <span className="text-[11px] font-bold tracking-[0.4em] text-[#43B6D5] uppercase mb-4 block">
                         Developer Portal
                       </span>
                       <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0B1220] mb-4">
@@ -140,9 +140,9 @@ export default function DeveloperPage() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
-                    className="w-20 h-20 rounded-full bg-[#EAF3FA] flex items-center justify-center mb-6 border border-[#2B5C92]/10"
+                    className="w-20 h-20 rounded-full bg-[#EAF3FA] flex items-center justify-center mb-6 border border-[#43B6D5]/10"
                   >
-                    <CheckCircle2 className="w-10 h-10 text-[#2B5C92]" />
+                    <CheckCircle2 className="w-10 h-10 text-[#43B6D5]" />
                   </motion.div>
                   
                   <h3 className="text-3xl font-bold text-[#0B1220] mb-4">

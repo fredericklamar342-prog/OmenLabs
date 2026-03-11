@@ -35,7 +35,7 @@ export function ArchitectureSection() {
       <div className="max-container">
         {/* Header */}
         <div className="flex flex-col mb-16 items-center text-center animate-fade-up">
-          <span className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4">
+          <span className="text-[11px] font-bold tracking-widest text-[#43B6D5] uppercase mb-4">
             How Omen Works
           </span>
           <h2
@@ -44,7 +44,7 @@ export function ArchitectureSection() {
           >
             4 Simple Steps to <br />Get Verified.
           </h2>
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0] rounded-full" />
+          <div className="h-[2px] w-16 bg-gradient-to-r from-[#2A8FA8] to-[#B3CDE0] rounded-full" />
         </div>
 
         {/* Grid */}
@@ -57,8 +57,8 @@ export function ArchitectureSection() {
             >
               <div className="flex flex-col gap-5 relative z-10 animate-fade-up">
                 {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center border border-[#0C1446]/20 bg-gradient-to-tr from-[#0C1446]/5 to-[#B3CDE0]/5 transition-colors duration-300 rounded-xl group-hover:scale-110">
-                  <item.icon className="w-6 h-6 text-[#2B5C92] transition-colors duration-200" />
+                <div className="w-12 h-12 flex items-center justify-center border border-[#2A8FA8]/20 bg-gradient-to-tr from-[#2A8FA8]/5 to-[#B3CDE0]/5 transition-colors duration-300 rounded-xl group-hover:scale-110">
+                  <item.icon className="w-6 h-6 text-[#43B6D5] transition-colors duration-200" />
                 </div>
 
                 <div className="space-y-2">

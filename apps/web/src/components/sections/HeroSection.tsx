@@ -28,7 +28,7 @@ export function HeroSection() {
             className="absolute right-[8%] top-[15%] glass-card p-5 flex flex-col gap-3 shadow-2xl w-56"
           >
             <div className="flex items-center gap-3">
-              <Fingerprint className="w-6 h-6 text-[#0E2F76]" />
+              <Fingerprint className="w-6 h-6 text-[#43B6D5]" />
               <div className="font-bold text-sm">Identity Linked</div>
             </div>
             <div className="space-y-2">
@@ -37,7 +37,7 @@ export function HeroSection() {
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="h-full bg-gradient-to-r from-[#AAC0E1] to-[#0E2F76]" 
+                  className="h-full bg-gradient-to-r from-[#AAC0E1] to-[#43B6D5]" 
                 />
               </div>
               <div className="flex justify-between text-[9px] font-bold text-[#4A5568]">
@@ -52,11 +52,11 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 150 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-            className="absolute left-[12%] bottom-[10%] glass-card px-6 py-4 flex items-center gap-4 border-l-4 border-l-[#0E2F76] shadow-xl"
+            className="absolute left-[12%] bottom-[10%] glass-card px-6 py-4 flex items-center gap-4 border-l-4 border-l-[#43B6D5] shadow-xl"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-[#0E2F76]/20 blur-md md:blur-lg rounded-full" />
-              <CheckCircle2 className="w-8 h-8 text-[#0E2F76] relative z-10" />
+              <div className="absolute inset-0 bg-[#43B6D5]/20 blur-md md:blur-lg rounded-full" />
+              <CheckCircle2 className="w-8 h-8 text-[#43B6D5] relative z-10" />
             </div>
             <div className="text-left">
               <div className="text-sm font-bold text-[#0B1220]">Badge Issued</div>
@@ -72,8 +72,8 @@ export function HeroSection() {
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-black/5 mb-8"
         >
-          <Droplet className="w-4 h-4 text-[#2B5C92] fill-[#2B5C92]/20" />
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#0E2F76]">
+          <Droplet className="w-4 h-4 text-[#43B6D5] fill-[#43B6D5]/20" />
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#43B6D5]">
             Native to Sui
           </span>
         </motion.div>
@@ -87,7 +87,7 @@ export function HeroSection() {
           className="text-4xl md:text-5xl lg:text-[72px] font-bold tracking-tight text-[#0B1220] leading-[1] max-w-[1000px] mb-8"
         >
           Programmable Trust <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#0B1220] via-[#0E2F76] to-[#AAC0E1]">for the Sui Economy</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#0B1220] via-[#43B6D5] to-[#AAC0E1]">for the Sui Economy</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -125,8 +125,8 @@ export function HeroSection() {
         {/* Decorative elements */}
         <div className="mt-32 relative w-full max-w-[1000px] flex items-center justify-center">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-gradient-to-r from-transparent via-[#AAC0E1]/10 to-transparent -rotate-12 blur-xl md:blur-3xl" />
-          <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[#0E2F76]/20 to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0E2F76]/40 blur-sm" />
+          <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[#43B6D5]/20 to-transparent" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#43B6D5]/40 blur-sm" />
         </div>
 
       </div>

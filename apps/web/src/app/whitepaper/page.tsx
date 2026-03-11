@@ -23,7 +23,7 @@ export default function WhitepaperPage() {
         {/* Left Sticky Navigation (TOC) */}
         <aside className="hidden lg:block w-64 shrink-0">
           <div className="sticky top-32 glass-panel p-6">
-            <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#2B5C92] mb-6">
+            <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#43B6D5] mb-6">
               Table of Contents
             </h3>
             <nav className="flex flex-col gap-3">
@@ -46,7 +46,7 @@ export default function WhitepaperPage() {
           {/* Header */}
           <div className="mb-16 animate-fade-up stagger-1">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 glass-panel rounded-lg mb-6 border border-black/5">
-              <FileText className="w-4 h-4 text-[#2B5C92]" />
+              <FileText className="w-4 h-4 text-[#43B6D5]" />
               <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1220]">
                 Omen Protocol
               </span>
@@ -59,7 +59,7 @@ export default function WhitepaperPage() {
             </p>
           </div>
 
-          <div className="prose prose-lg prose-slate prose-a:text-[#2B5C92] max-w-none text-[#5B6B82]">
+          <div className="prose prose-lg prose-slate prose-a:text-[#43B6D5] max-w-none text-[#5B6B82]">
             
             {/* Overview */}
             <section id="overview" className="scroll-mt-32 mb-16 animate-fade-up stagger-2">
@@ -68,8 +68,8 @@ export default function WhitepaperPage() {
                 Omen provides a comprehensive suite of security and identity infrastructure designed explicitly for decentralized applications (dApps). By bridging Web2 identity proofs with Web3 accounts via zkLogin, and storing heavy immutable audit trails on Walrus, Omen offers a modular framework to assert protocol safety before a user signs a transaction.
               </p>
               
-              <div className="my-8 p-6 glass-panel border border-[#2B5C92]/20 rounded-xl flex gap-4">
-                <Info className="w-6 h-6 text-[#2B5C92] shrink-0" />
+              <div className="my-8 p-6 glass-panel border border-[#43B6D5]/20 rounded-xl flex gap-4">
+                <Info className="w-6 h-6 text-[#43B6D5] shrink-0" />
                 <div className="text-sm">
                   <strong className="text-[#0B1220] block mb-1">Decentralized Trust</strong>
                   Our architecture ensures that identity assertions are cryptographically guaranteed, meaning Omen cannot forge a badge.
@@ -97,7 +97,7 @@ export default function WhitepaperPage() {
                 The Omen Protocol comprises three primary components:
               </p>
               
-              <div className="bg-[#0C1446] text-white p-6 rounded-xl my-8 shadow-xl font-mono text-sm overflow-w-auto">
+              <div className="bg-[#2A8FA8] text-white p-6 rounded-xl my-8 shadow-xl font-mono text-sm overflow-w-auto">
                 <pre>
 {`[Web2 Identity (X/GitHub)]
           ↓ (OAuth)
