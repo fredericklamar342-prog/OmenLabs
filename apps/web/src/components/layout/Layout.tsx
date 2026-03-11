@@ -49,54 +49,113 @@ export function Layout({ children }: LayoutProps) {
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-transparent text-[#0B1220]">
       <AtmosphericBackground />
       <Nav />
+      
       <main className="relative z-10 flex-1 pt-28 pb-20">{children}</main>
-      <footer className="relative z-10 border-t border-[rgba(14,47,118,0.08)] bg-white/20 py-12 backdrop-blur-xl">
-        <div className="max-container flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/omen-logo.png"
-              alt="Omen"
-              width={48}
-              height={40}
-              className="h-9 w-auto object-contain"
-            />
+
+      <footer className="relative z-10 bg-white/40 border-t border-black/5 backdrop-blur-3xl pt-24 pb-12 overflow-hidden">
+        {/* Subtle Background Accent */}
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-[#43B6D5]/5 to-transparent -z-10" />
+        
+        <div className="max-container">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 mb-24">
+            
+            {/* Brand Column */}
+            <div className="col-span-2 lg:col-span-2 space-y-8 pr-8">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/omen-logo.png"
+                  alt="Omen"
+                  width={48}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+                <span className="text-xl font-black uppercase tracking-tighter">Omen <span className="text-[#43B6D5]">Labs</span></span>
+              </div>
+              <p className="text-sm text-[#5B6B82] font-medium leading-relaxed max-w-sm">
+                The trust primitive for the Sui Stack. Solving accountability in on-chain finance and the agentic economy through Move-native reputation infrastructure.
+              </p>
+              <div className="flex items-center gap-4">
+                {socialLinks.map(({ href, label, icon }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-10 h-10 rounded-full bg-white border border-black/5 flex items-center justify-center text-[#5B6B82] transition-all hover:bg-[#43B6D5]/10 hover:text-[#43B6D5] hover:scale-110"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Sitemap Columns */}
+            <div className="space-y-6">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Protocol</h4>
+              <ul className="space-y-3">
+                {[
+                  { name: "Overview", href: "/product" },
+                  { name: "Dashboard", href: "/dashboard" },
+                  { name: "Security", href: "/whitepaper#resilience" },
+                  { name: "Audit Trail", href: "/dashboard" }
+                ].map(link => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Developers</h4>
+              <ul className="space-y-3">
+                {[
+                  { name: "Documentation", href: "/docs" },
+                  { name: "SDK Reference", href: "/docs#sdk" },
+                  { name: "API Access", href: "/developer" },
+                  { name: "MCP Server", href: "/docs#mcp" }
+                ].map(link => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Company</h4>
+              <ul className="space-y-3">
+                {[
+                  { name: "About Omen", href: "/" },
+                  { name: "Whitepaper", href: "/whitepaper" },
+                  { name: "Early Access", href: "/" },
+                  { name: "Blog", href: "/blog" }
+                ].map(link => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link href="/product" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
-              Product
-            </Link>
-            <Link href="/docs" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
-              Docs
-            </Link>
-            <Link href="/developer" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
-              Developers
-            </Link>
-            <Link href="/dashboard" className="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#43B6D5]">
-              Dashboard
-            </Link>
+          <div className="flex flex-col md:flex-row items-center justify-between border-t border-black/5 pt-12 gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+               <p className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40">&copy; {new Date().getFullYear()} Omen Labs. All Rights Reserved.</p>
+               <Link href="/privacy" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Privacy</Link>
+               <Link href="/terms" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Terms</Link>
+            </div>
+            
+            <div className="flex items-center gap-6">
+               <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/60">Sui Mainnet Live</span>
+               </div>
+               <div className="h-4 w-px bg-black/5 hidden md:block" />
+               <span className="text-[10px] font-black uppercase tracking-widest text-[#43B6D5]/80 hover:scale-105 transition-transform cursor-default">Status: OMEN_PROTOCOL_V2_STABLE</span>
+            </div>
           </div>
-        </div>
-
-        <div className="max-container mt-20 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-[rgba(14,47,118,0.08)] pt-12">
-          <p className="text-[11px] font-black uppercase tracking-widest text-body/30">&copy; {new Date().getFullYear()} Omen. Trust the Shard.</p>
-
-          <div className="flex items-center gap-5">
-            {socialLinks.map(({ href, label, icon }) => (
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="text-[#4A5568] transition-all duration-200 hover:text-[#43B6D5] hover:drop-shadow-[0_0_8px_rgba(67,182,213,0.6)]"
-              >
-                {icon}
-              </a>
-            ))}
-          </div>
-
-          <p className="text-[11px] font-black uppercase tracking-widest text-[#43B6D5]/60">Status: OMEN_PROTOCOL_STABLE</p>
         </div>
       </footer>
     </div>
