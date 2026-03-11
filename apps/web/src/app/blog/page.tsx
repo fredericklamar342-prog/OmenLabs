@@ -40,7 +40,7 @@ export default function BlogPage() {
               </Link>
             </Button>
             <Button variant="secondary" size="lg" className="w-full h-16 gap-3 glass-panel text-lg font-black italic" asChild>
-              <a href="https://x.com/OmenLabs" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/OmenLabsHQ" target="_blank" rel="noopener noreferrer">
                 Transmit Signal
               </a>
             </Button>

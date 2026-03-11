@@ -202,7 +202,7 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
                       className="h-16 w-full gap-3 rounded-[24px] border-0 bg-[#000000] text-white hover:bg-[#1A1A1A]"
                       asChild
                     >
-                      <a href="https://x.com/OmenLabs" target="_blank" rel="noopener noreferrer">
+                      <a href="https://x.com/OmenLabsHQ" target="_blank" rel="noopener noreferrer">
                         <Twitter className="h-5 w-5" /> Follow System_Update
                       </a>
                     </Button>

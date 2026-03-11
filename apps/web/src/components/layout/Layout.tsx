@@ -45,6 +45,13 @@ export function Layout({ children }: LayoutProps) {
         </div>
         <div className="max-container mt-20 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-12">
           <p className="text-[11px] font-black uppercase tracking-[0.3em] text-body/30">&copy; {new Date().getFullYear()} Omen. Trust the Shard.</p>
+          
+          <div className="flex items-center gap-6">
+            <a href="https://x.com/OmenLabsHQ" target="_blank" rel="noopener noreferrer" className="text-[11px] font-black uppercase tracking-[0.3em] text-body/40 hover:text-primary transition-colors">X (Twitter)</a>
+            <a href="https://github.com/omenprotocol" target="_blank" rel="noopener noreferrer" className="text-[11px] font-black uppercase tracking-[0.3em] text-body/40 hover:text-primary transition-colors">GitHub</a>
+            <a href="https://discord.gg/jQp2hzym" target="_blank" rel="noopener noreferrer" className="text-[11px] font-black uppercase tracking-[0.3em] text-body/40 hover:text-primary transition-colors">Discord</a>
+          </div>
+
           <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/40">Status: OMEN_PROTOCOL_STABLE</p>
         </div>
       </footer>

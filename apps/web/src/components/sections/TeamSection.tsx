@@ -56,7 +56,7 @@ export function TeamSection() {
             {/* Social Links */}
             <div className="flex items-center gap-8">
               <a 
-                href="https://x.com/OmenLabs" 
+                href="https://x.com/OmenLabsHQ" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 bg-white/3 hover:bg-primary hover:text-black hover:border-primary text-body/40 transition-all duration-500 shadow-xl"
@@ -65,7 +65,7 @@ export function TeamSection() {
                 <Twitter className="w-6 h-6 fill-current" />
               </a>
               <a 
-                href="https://github.com/OmenLabs" 
+                href="https://github.com/omenprotocol" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 bg-white/3 hover:bg-white hover:text-black hover:border-white text-body/40 transition-all duration-500 shadow-xl"
