@@ -49,165 +49,172 @@ export default function EarlyAccessPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden text-[#0B1220]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(179,205,224,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(14,47,118,0.18),transparent_30%)]" />
+    <div className="relative min-h-screen overflow-hidden text-foreground bg-[#060A0D]">
+      <div className="pointer-events-none absolute inset-0 omen-bg" />
+      <div className="pointer-events-none absolute inset-0 omen-grid opacity-20" />
 
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-6xl gap-8 px-4 py-24 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl gap-12 px-4 py-24 lg:py-32 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <motion.section
-          initial={{ opacity: 0, x: -18 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-          className="glass-card flex flex-col justify-between rounded-[32px] p-6 sm:p-8 lg:p-10"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col justify-between"
         >
           <div>
             <Link
               href="/"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#2B5C92] transition-colors hover:text-[#0E2F76]"
+              className="mb-16 inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.4em] text-body transition-all hover:text-primary hover:gap-4 group"
             >
-              <ArrowLeft className="h-4 w-4" />
-              Back to home
+              <ArrowLeft className="h-4 w-4 text-primary group-hover:-translate-x-1" />
+              Back to terminal
             </Link>
 
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0E2F76]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#2B5C92]">
+            <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-primary/10 px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-primary animate-float">
               <Sparkles className="h-4 w-4" />
-              Early Access
+              Secure Alpha Session
             </div>
 
-            <h1 className="max-w-xl text-4xl leading-[1.03] md:text-5xl">
-              Join the onboarding queue for Omen&apos;s trust registry.
+            <h1 className="max-w-xl text-6xl leading-[0.9] md:text-8xl font-black mb-12 tracking-tighter italic">
+              Join the <br />
+              <span className="text-primary italic">Reputation</span> Queue
             </h1>
-            <p className="mt-4 max-w-xl text-base text-[#4A5568] md:text-lg">
-              Submit your team or project details. Once registered, we confirm the request by email and review
-              access in batches.
+            <p className="mt-4 max-w-xl text-2xl text-body font-medium leading-relaxed opacity-80">
+              Submit your project telemetry to join our private cohort. We deploy access in phased, cryptographically-secure batches.
             </p>
           </div>
 
-          <div className="mt-10 space-y-4">
+          <div className="mt-20 space-y-8">
             {[
-              "Responsive onboarding flow optimized for mobile and desktop.",
-              "Immediate confirmation state after successful registration.",
-              "Confirmation email dispatched to every valid signup when Resend is configured.",
-            ].map((item) => (
-              <div
+              "Native verification optimized for Sui Network.",
+              "Proof-of-builder identity for dApps and AI agents.",
+              "Secure reputation anchored on Walrus storage.",
+            ].map((item, i) => (
+              <motion.div
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-[#0E2F76]/8 bg-white/65 px-4 py-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + (i * 0.1), duration: 0.5 }}
+                className="flex items-start gap-6 rounded-[32px] border border-white/5 bg-panel/30 px-8 py-7 hover:border-primary/20 hover:bg-panel/50 transition-all group shadow-2xl"
               >
-                <div className="rounded-full bg-[#EAF3FA] p-2 text-[#0E2F76]">
-                  <Shield className="h-4 w-4" />
+                <div className="rounded-2xl bg-primary/10 p-3.5 text-primary border border-primary/20 group-hover:scale-110 transition-transform">
+                  <Shield className="h-6 w-6" />
                 </div>
-                <p className="text-sm text-[#4A5568]">{item}</p>
-              </div>
+                <p className="text-lg font-bold text-body group-hover:text-foreground transition-colors leading-relaxed">{item}</p>
+              </motion.div>
             ))}
           </div>
         </motion.section>
 
         <motion.section
-          initial={{ opacity: 0, x: 18, y: 10 }}
+          initial={{ opacity: 0, x: 30, y: 20 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-          className="glass-card rounded-[32px] p-5 sm:p-8 lg:p-10"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="glass-card rounded-[64px] p-10 sm:p-14 lg:p-20 border border-primary/10 bg-panel/30 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] h-fit sticky top-32"
         >
           <AnimatePresence mode="wait">
             {submitState.status === "success" ? (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                className="flex min-h-[520px] flex-col items-center justify-center text-center"
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="flex min-h-[560px] flex-col items-center justify-center text-center py-10"
               >
                 <motion.div
-                  initial={{ scale: 0.7, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-[#2B5C92]/10 bg-[#EAF3FA]"
+                  initial={{ scale: 0.5, opacity: 0, rotate: -20 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  className="mb-12 flex h-32 w-32 items-center justify-center rounded-[40px] border border-primary/30 bg-primary/10 shadow-[0_0_50px_rgba(67,182,213,0.3)]"
                 >
-                  <CheckCircle2 className="h-10 w-10 text-[#2B5C92]" />
+                  <CheckCircle2 className="h-16 w-16 text-primary" />
                 </motion.div>
-                <h2 className="text-3xl font-bold text-[#0B1220]">Registration complete</h2>
-                <p className="mt-3 max-w-md text-base text-[#4A5568]">{submitState.message}</p>
-                <div className="mt-8 flex w-full max-w-sm flex-col gap-3">
-                  <Button variant="secondary" size="lg" asChild>
+                <h2 className="text-5xl font-black text-foreground mb-6 italic tracking-tight">Access <span className="text-primary italic">Granted</span></h2>
+                <p className="max-w-md text-xl text-body font-medium leading-relaxed opacity-80">{submitState.message}</p>
+                <div className="mt-16 flex w-full max-w-sm flex-col gap-6">
+                  <Button variant="secondary" size="lg" asChild className="h-16 glass-panel text-lg font-black italic">
                     <Link href="/docs">
-                      <MailCheck className="mr-2 h-4 w-4" />
-                      Read the docs while you wait
+                      <MailCheck className="mr-3 h-6 w-6 text-primary" />
+                      Decrypt the Docs
                     </Link>
                   </Button>
-                  <Button size="lg" onClick={() => setSubmitState(initialState)}>
-                    Register another email
-                  </Button>
+                  <button 
+                    onClick={() => setSubmitState(initialState)}
+                    className="text-[11px] font-black uppercase tracking-[0.4em] text-primary/40 hover:text-primary transition-colors py-2"
+                  >
+                    Register new telemetry shard
+                  </button>
                 </div>
               </motion.div>
             ) : (
               <motion.div
                 key="form"
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
+                exit={{ opacity: 0, y: -20 }}
                 className="w-full"
               >
-                <div className="mb-8">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#2B5C92]">
-                    Registration Form
+                <div className="mb-12">
+                  <p className="text-[11px] font-black uppercase tracking-[0.5em] text-primary mb-6 opacity-60">
+                    Registration_Protocol_v4
                   </p>
-                  <h2 className="mt-3 text-2xl font-bold text-[#0B1220] md:text-3xl">Request access</h2>
-                  <p className="mt-3 text-sm text-[#4A5568] md:text-base">
-                    Use a real inbox. This flow sends the registration confirmation to the email entered below.
+                  <h2 className="text-5xl font-black text-foreground italic tracking-tight mb-6 leading-tight">Request <br /><span className="text-primary italic">Secure Access</span></h2>
+                  <p className="text-xl text-body font-medium opacity-80">
+                    Omen currently prioritizes builders with a verifiable Sui mainnet history.
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="space-y-2 sm:col-span-2">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Email address
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid gap-8">
+                    <div className="space-y-4">
+                      <label className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/60 px-1">
+                        Secure Alias (Email)
                       </label>
                       <input
                         type="email"
                         name="email"
-                        placeholder="founder@project.xyz"
+                        placeholder="founder@omen.protocol"
                         required
-                        className="omen-input"
+                        className="omen-input h-16 bg-white/5 border-white/10 px-8 text-lg"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Project or team
+                    <div className="space-y-4">
+                      <label className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/60 px-1">
+                        Designation (Project Name)
                       </label>
                       <input
                         type="text"
                         name="project"
-                        placeholder="Omen Core"
-                        className="omen-input"
+                        placeholder="Omen Protocol"
+                        className="omen-input h-16 bg-white/5 border-white/10 px-8 text-lg"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Sui wallet
+                    <div className="space-y-4">
+                      <label className="text-[11px] font-black uppercase tracking-[0.3em] text-primary/60 px-1">
+                        Sui Identity (Wallet/NS)
                       </label>
                       <input
                         type="text"
                         name="wallet"
-                        placeholder="0x... or name.sui"
-                        className="omen-input"
+                        placeholder="0x... or pseudonym.sui"
+                        className="omen-input h-16 bg-white/5 border-white/10 px-8 text-lg"
                       />
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-[#0E2F76]/8 bg-[#F8FBFE] px-4 py-4 text-sm text-[#4A5568]">
-                    You will see an in-app success state immediately. Email delivery depends on your EmailJS
-                    service ID, public key, and template IDs being configured in the environment.
+                  <div className="rounded-[28px] border border-primary/10 bg-primary/5 px-8 py-6 text-base text-body leading-relaxed font-medium">
+                    <span className="text-primary font-black uppercase text-[10px] tracking-widest block mb-2 opacity-60">Security Notice</span>
+                    Your credentials will be reviewed by the Omen Core triage team. Approved operators will receive a secure ingress link.
                   </div>
 
                   <AnimatePresence>
                     {submitState.status === "error" && (
                       <motion.p
-                        initial={{ opacity: 0, y: 4 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0 }}
-                        className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"
+                        className="rounded-2xl border border-red-500/20 bg-red-500/10 px-6 py-4 text-sm font-black text-red-500 uppercase tracking-widest text-center"
                         role="alert"
                       >
                         {submitState.message}
@@ -218,10 +225,10 @@ export default function EarlyAccessPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full"
+                    className="w-full h-20 text-xl font-black italic shadow-[0_0_40px_rgba(67,182,213,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98]"
                     isLoading={submitState.status === "submitting"}
                   >
-                    {submitState.status === "submitting" ? "Registering..." : "Request early access"}
+                    {submitState.status === "submitting" ? "Encrypting Signal..." : "Transmit Application"}
                   </Button>
                 </form>
               </motion.div>
@@ -232,3 +239,4 @@ export default function EarlyAccessPage() {
     </div>
   );
 }
+

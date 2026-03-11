@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { scrollToId } from "@/utils/scroll";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
+import { Logo } from "@/components/ui/Logo";
 
 export function Nav() {
   const [isOpen, setIsOpen]   = React.useState(false);
@@ -40,15 +41,10 @@ export function Nav() {
           scrolled ? "glass-panel" : "bg-transparent",
         ].join(" ")}>
           
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Omen home">
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="absolute inset-0 border-[3px] border-[#2B5C92] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-200" />
-              <div className="w-3 h-3 bg-gradient-to-tr from-[#0C1446] to-[#B3CDE0] rounded-sm" />
-            </div>
-            <span className="text-xl font-bold font-plus-jakarta tracking-tight text-[#0B1220]">
-              Omen
-            </span>
+          <Link href="/" className="flex items-center group py-1" aria-label="Omen home">
+            <Logo className="h-10 w-auto text-primary group-hover:scale-105 transition-transform duration-300" />
           </Link>
 
           {/* Desktop links */}
@@ -66,7 +62,7 @@ export function Nav() {
                       setIsOpen(false);
                     }
                   }}
-                  className="text-[15px] font-medium text-[#4A5568] hover:text-[#0E2F76] transition-colors duration-200"
+                  className="text-[11px] font-black uppercase tracking-[0.3em] text-body hover:text-primary transition-all duration-300 italic"
                 >
                   {link.name}
                 </Link>
@@ -76,18 +72,18 @@ export function Nav() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button size="sm" onClick={openModal}>
-              Request Early Access
+            <Button size="sm" onClick={openModal} className="px-8 italic font-black">
+              JOIN ALPHA
             </Button>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-[#0B1220] rounded-md hover:bg-black/5 transition-colors"
+            className="lg:hidden p-3 text-foreground rounded-2xl hover:bg-white/5 transition-colors border border-white/5"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5 text-primary" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
@@ -98,10 +94,10 @@ export function Nav() {
               initial={{ height: 0, opacity: 0, y: -10 }}
               animate={{ height: "auto", opacity: 1, y: 0 }}
               exit={{ height: 0, opacity: 0, y: -10 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="lg:hidden overflow-hidden glass-panel mt-4"
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden overflow-hidden glass-panel mt-4 rounded-[32px] border border-white/10"
             >
-              <div className="flex flex-col gap-4 py-6 px-6">
+              <div className="flex flex-col gap-6 py-10 px-8">
                 {navLinks.map((link) => {
                   const isAnchor = link.href.startsWith("#");
                   return (
@@ -115,13 +111,13 @@ export function Nav() {
                         }
                         setIsOpen(false);
                       }}
-                      className="text-lg font-medium text-[#0B1220] hover:text-[#0E2F76] transition-colors"
+                      className="text-2xl font-black italic text-foreground hover:text-primary transition-all tracking-tight"
                     >
                       {link.name}
                     </Link>
                   );
                 })}
-                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-[rgba(11,18,32,0.1)]">
+                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-white/10">
                   <Button 
                     className="w-full" 
                     onClick={() => {
@@ -140,3 +136,4 @@ export function Nav() {
     </nav>
   );
 }
+

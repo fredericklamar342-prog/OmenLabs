@@ -5,67 +5,79 @@ import { Github, Twitter, ShieldCheck } from "lucide-react";
 
 export function TeamSection() {
   return (
-    <section className="py-24 bg-transparent relative z-10 border-t border-[rgba(14,47,118,0.08)]">
+    <section className="py-40 bg-transparent relative z-10 border-t border-white/5">
       <div className="max-container">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16 animate-fade-up">
-          <span className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4" /> Built on Trust
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0B1220] mb-4">
-            The Team Behind Omen
-          </h2>
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0] rounded-full" />
+        <div className="flex flex-col items-center text-center mb-24">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-[11px] font-black tracking-[0.6em] text-primary uppercase mb-6 flex items-center gap-3 italic"
+          >
+            <ShieldCheck className="w-4 h-4" /> Built_on_Trust
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-4 italic"
+          >
+            Core_Engineers
+          </motion.h2>
+          <div className="h-px w-24 bg-primary/30 mt-8" />
         </div>
 
         {/* Team Cards Container */}
-        <div className="flex justify-center animate-fade-up stagger-1">
+        <div className="flex justify-center">
           {/* Founder Card */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="glass-card p-8 md:p-10 border border-[#0E2F76]/10 flex flex-col items-center text-center max-w-[400px] w-full rounded-3xl"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative glass-card p-12 md:p-20 border border-white/5 flex flex-col items-center text-center max-w-[500px] w-full rounded-[48px] bg-panel/30 hover:bg-panel/50 transition-all duration-700 shadow-[0_0_80px_rgba(0,0,0,0.5)]"
           >
+             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
             {/* Avatar / Initials */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#0C1446] to-[#B3CDE0] p-[2px] mb-6">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center border-2 border-white">
-                <span className="text-3xl font-bold font-plus-jakarta text-[#0E2F76]">OM</span>
+            <div className="w-32 h-32 rounded-[32px] bg-white/5 p-[1px] mb-10 relative overflow-hidden group-hover:scale-110 transition-transform duration-700">
+              <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-full h-full rounded-[32px] bg-[#060A0D] flex items-center justify-center border border-white/10 relative z-10">
+                <span className="text-5xl font-black text-primary italic">OM</span>
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-[#0B1220] mb-1">Founder Name</h3>
-            <p className="text-[15px] text-[#4A5568] font-medium tracking-wide uppercase mb-6">
-              Creator & Lead Builder
+            <h3 className="text-4xl font-black text-foreground mb-3 group-hover:text-primary transition-colors italic uppercase tracking-tighter">Founder</h3>
+            <p className="text-[11px] text-primary/40 font-black tracking-[0.4em] uppercase mb-10 italic">
+              Creator & Lead_Architect
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-8">
               <a 
-                href="https://x.com" 
+                href="https://x.com/OmenLabs" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#0E2F76]/20 bg-white/50 hover:bg-[#0E2F76] hover:text-white hover:border-[#0E2F76] text-[#4A5568] transition-all duration-300 shadow-sm"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 bg-white/3 hover:bg-primary hover:text-black hover:border-primary text-body/40 transition-all duration-500 shadow-xl"
                 aria-label="X Profile"
               >
-                <Twitter className="w-4 h-4" />
+                <Twitter className="w-6 h-6 fill-current" />
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/OmenLabs" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-[#0E2F76]/20 bg-white/50 hover:bg-[#0B1220] hover:text-white hover:border-[#0B1220] text-[#4A5568] transition-all duration-300 shadow-sm"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 bg-white/3 hover:bg-white hover:text-black hover:border-white text-body/40 transition-all duration-500 shadow-xl"
                 aria-label="GitHub Profile"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-6 h-6 fill-current" />
               </a>
             </div>
             
-            <div className="mt-8 pt-6 border-t border-[rgba(14,47,118,0.1)] w-full">
-               <p className="text-[13px] text-[#5B6B82] leading-relaxed">
-                 Building the minimal, programmable trust layer for the Sui economy. Real identity. Real security.
+            <div className="mt-12 pt-10 border-t border-white/5 w-full">
+               <p className="text-xl text-body leading-relaxed font-medium italic opacity-40 group-hover:opacity-60 transition-opacity duration-500">
+                 Building the minimal, programmable trust layer for the decentralized economy. Real identity. Real security.
                </p>
             </div>
           </motion.div>
@@ -75,3 +87,4 @@ export function TeamSection() {
     </section>
   );
 }
+

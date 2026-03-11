@@ -26,21 +26,21 @@ function AnimatedStat({ label, numericEnd, prefix = "", suffix = "", decimals = 
   const [ref, count] = useCountUp({ end: numericEnd, duration: 400, delay: delay * 1000, decimals });
 
   return (
-    <div className="space-y-4 group" ref={ref as React.RefObject<HTMLDivElement>}>
-      <div className="text-5xl font-bold tracking-tight text-[#0B1220] font-mono tabular-nums group-hover:text-[#0E2F76] transition-colors">
+    <div className="space-y-6 group" ref={ref as React.RefObject<HTMLDivElement>}>
+      <div className="text-6xl md:text-8xl font-black tracking-tighter text-foreground group-hover:text-primary transition-all duration-500 italic">
         {prefix}{count}{suffix}
       </div>
-      <div className="h-[2px] w-full bg-black/5 relative overflow-hidden rounded-full">
+      <div className="h-px w-full bg-white/5 relative overflow-hidden">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0]"
+          className="absolute inset-0 bg-primary shadow-[0_0_10px_#43B6D5]"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay, ease: "easeOut" }}
+          transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
           style={{ transformOrigin: "left center" }}
         />
       </div>
-      <div className="text-[11px] font-bold uppercase tracking-widest text-[#4A5568]">
+      <div className="text-[11px] font-black uppercase tracking-[0.4em] text-body/40 group-hover:text-primary transition-colors italic">
         {label}
       </div>
     </div>
@@ -52,50 +52,53 @@ export function MetricsBar() {
   const { openModal } = useEarlyAccessModal();
 
   return (
-    <section className="py-24 bg-transparent relative z-10 w-full">
+    <section className="py-40 bg-transparent relative z-10 w-full mb-20">
       <div className="max-container">
 
         {/* Animated stat grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-24 animate-fade-up">
-          <AnimatedStat label="Always Online"         numericEnd={99.99} suffix="%" decimals={2} delay={0}    />
-          <AnimatedStat label="Fake Projects Flagged" numericEnd={1.2}    suffix="M+" decimals={1} prefix="" delay={0.1} />
-          <AnimatedStat label="Verified Builders"     numericEnd={4820}   suffix="" delay={0.2} />
-          <AnimatedStat label="Protected User Funds"  numericEnd={2.4}    prefix="$" suffix="B+" decimals={1} delay={0.3} />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-48">
+          <AnimatedStat label="Uptime_Sync"         numericEnd={99.99} suffix="%" decimals={2} delay={0}    />
+          <AnimatedStat label="Registry_Violations" numericEnd={1.2}    suffix="M+" decimals={1} prefix="" delay={0.1} />
+          <AnimatedStat label="Verified_Shards"     numericEnd={4820}   suffix="" delay={0.2} />
+          <AnimatedStat label="Locked_Liquidity"  numericEnd={2.4}    prefix="$" suffix="B+" decimals={1} delay={0.3} />
         </div>
 
         {/* Final CTA card */}
-        <div className="relative glass-card p-12 md:p-20 flex flex-col items-center text-center overflow-hidden rounded-[32px] animate-fade-up border border-black/5">
+        <div className="relative glass-card p-12 md:p-32 flex flex-col items-center text-center overflow-hidden rounded-[48px] border border-white/5 bg-panel/30 backdrop-blur-3xl shadow-[0_0_80px_rgba(0,0,0,0.5)] group">
+          {/* Decorative Glow */}
+          <div className="absolute inset-0 bg-primary/5 blur-[150px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-700" aria-hidden="true" />
+          
           {/* Shield watermark */}
-          <div className="absolute top-0 right-0 p-8 pointer-events-none opacity-5" aria-hidden="true">
-            <Shield className="w-64 h-64 text-[#2B5C92]" />
+          <div className="absolute -top-10 -right-10 pointer-events-none opacity-[0.03] rotate-12" aria-hidden="true">
+            <Shield className="w-96 h-96 text-primary" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 max-w-2xl text-[#0B1220] relative z-10">
-            Ready to protect{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#0B1220] to-[#0E2F76]">your users?</span>
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 max-w-4xl text-foreground relative z-10 leading-[0.85] italic">
+            Secure your <br />
+            <span className="text-primary italic">Protocol_Legacy</span>
           </h2>
-          <p className="text-lg text-[#4A5568] mb-10 max-w-xl leading-relaxed relative z-10">
-            Join Omen Labs and give your community the one thing they need most — the ability to trust who is building for them.
+          <p className="text-2xl text-body mb-16 max-w-3xl leading-relaxed relative z-10 font-medium italic opacity-60">
+            Join the Omen ecosystem and synchronize your trust telemetry directly into the decentralized execution handshake.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 relative z-10">
-            <Button size="lg" className="px-12" onClick={openModal}>
-              Get Early Access
+          <div className="flex flex-col sm:flex-row gap-8 relative z-10">
+            <Button size="lg" className="px-16 h-20 text-xl font-black italic shadow-[0_0_40px_rgba(67,182,213,0.3)]" onClick={openModal}>
+              INITIALIZE_SHARD
             </Button>
-            <Button variant="secondary" size="lg" className="px-12">
-              See How It Works
+            <Button variant="secondary" size="lg" className="px-16 h-20 text-xl font-black italic glass-panel border-white/10">
+              Access_Docs
             </Button>
           </div>
 
           {/* Status badges */}
-          <div className="absolute bottom-6 left-8 flex gap-6 relative z-10 mt-16 md:mt-0 md:absolute">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-              <span className="text-[11px] font-bold text-[#4A5568] uppercase tracking-widest">Live Now</span>
+          <div className="flex flex-wrap justify-center gap-12 relative z-10 mt-24 border-t border-white/5 pt-12 w-full max-w-lg">
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_15px_#43B6D5]" />
+              <span className="text-[11px] font-black text-primary uppercase tracking-[0.4em] italic">OMEN_AUTH: STABLE</span>
             </div>
-            <div className="flex items-center gap-2 text-[#4A5568]">
-              <Lock className="w-3 h-3" />
-              <span className="text-[11px] font-bold uppercase tracking-widest">Secure & Private</span>
+            <div className="flex items-center gap-3 text-body">
+              <Lock className="w-4 h-4 text-primary" />
+              <span className="text-[11px] font-black uppercase tracking-[0.4em] italic opacity-40">mTLS_ENCRYPTION: ACTIVE</span>
             </div>
           </div>
         </div>
@@ -104,3 +107,4 @@ export function MetricsBar() {
     </section>
   );
 }
+

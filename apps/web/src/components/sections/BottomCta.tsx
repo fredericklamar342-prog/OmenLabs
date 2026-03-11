@@ -5,17 +5,17 @@ import { EarlyAccessForm } from "./EarlyAccessForm";
 
 export function BottomCta() {
   return (
-    <section className="py-24 md:py-40 relative flex flex-col items-center justify-center text-center overflow-hidden bg-transparent z-10 w-full">
+    <section className="py-24 md:py-40 relative flex flex-col items-center justify-center text-center overflow-hidden bg-transparent z-10 w-full border-t border-border">
       <div className="max-container relative z-10">
         <div className="animate-fade-up space-y-10">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-[#0B1220]">
-            Omen verifies{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B1220] to-[#0E2F76]">
+          <h2 className="text-5xl md:text-[84px] font-black tracking-tighter text-foreground leading-[0.9] mb-8">
+            Omen verifies <br />
+            <span className="text-primary italic">
               the people behind projects.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-[#4A5568] max-w-[560px] mx-auto leading-relaxed">
-            So you always know who to trust. Join the waitlist and be first to try Omen Labs.
+          <p className="text-xl md:text-2xl text-body max-w-[650px] mx-auto leading-relaxed mb-6">
+            So you always know who to trust. Join the waitlist and be first to try Omen.
           </p>
 
           <div className="max-w-[560px] mx-auto w-full">
@@ -23,6 +23,10 @@ export function BottomCta() {
           </div>
         </div>
       </div>
+      
+      {/* Decorative Blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[300px] bg-primary/10 blur-[150px] -z-10 rounded-full" />
     </section>
   );
 }
+

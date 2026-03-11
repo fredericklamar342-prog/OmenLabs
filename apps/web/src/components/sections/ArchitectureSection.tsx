@@ -5,75 +5,87 @@ import { Cpu, Fingerprint, Layers, Activity } from "lucide-react";
 
 const items = [
   {
-    title:       "Step 1: Join the Waitlist",
-    description: "Start by joining our private alpha waitlist. We will notify you as soon as identity verification is ready.",
+    title:       "STEP_01: REGISTRY_QUEUE",
+    description: "Initialize your presence by joining our private alpha registry queue. Peer verification nodes prioritize early adopters.",
     icon:        Cpu,
   },
   {
-    title:       "Step 2: Verify Your Identity",
-    description: "Link your GitHub or X (Twitter) account. Omen confirms you are a real person — without storing your personal data.",
+    title:       "STEP_02: IDENTITY_HANDSHAKE",
+    description: "Link your cryptographically-signed social handles. Omen confirms entity legitimacy without compromising private telemetry.",
     icon:        Fingerprint,
   },
   {
-    title:       "Step 3: Get Your Verified Badge",
-    description: "Once verified, you receive a secure Omen Badge. It appears on your profile and shows users that a real, confirmed person is behind it.",
+    title:       "STEP_03: BADGE_EMISSION",
+    description: "Upon verification, a secure Omen Shard is minted. This Soulbound primitive serves as a non-transferable proof of build-trust.",
     icon:        Layers,
   },
   {
-    title:       "Step 4: Users Can Trust You",
-    description: "Your community can now see your badge and feel safe. No more guessing — they know exactly who built the project.",
+    title:       "STEP_04: NETWORK_TRUST_SYNC",
+    description: "The global registry synchronizes your status. Users instantly recognize your authorized node across the Sui ecosystem.",
     icon:        Activity,
   },
 ];
 
 export function ArchitectureSection() {
   return (
-    <section
-      className="py-24 md:py-32 relative z-10 bg-transparent"
-      aria-labelledby="arch-title"
-    >
+    <section className="py-40 md:py-60 relative z-10 bg-transparent">
       <div className="max-container">
         {/* Header */}
-        <div className="flex flex-col mb-16 items-center text-center animate-fade-up">
-          <span className="text-[11px] font-bold tracking-widest text-[#2B5C92] uppercase mb-4">
-            How Omen Works
-          </span>
-          <h2
-            id="arch-title"
-            className="text-3xl md:text-5xl font-bold tracking-tight text-[#0B1220] mb-6"
+        <div className="flex flex-col mb-24 items-center text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-[11px] font-black tracking-[0.6em] text-primary uppercase mb-6 italic"
           >
-            4 Simple Steps to <br />Get Verified.
-          </h2>
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#0C1446] to-[#B3CDE0] rounded-full" />
+            PROTOCOL_DEPLOYMENT_FLOW
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-8 italic leading-none"
+          >
+            Four_Stages_of <br />Verification.
+          </motion.h2>
+          <div className="h-px w-24 bg-primary/30 mt-8" />
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {items.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="group relative glass-card p-10 hover:shadow-lg transition-all duration-300 rounded-[22px] overflow-hidden"
-              style={{ animationDelay: `${i * 100}ms` }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative glass-card p-12 md:p-16 transition-all duration-700 rounded-[48px] overflow-hidden border border-white/5 hover:border-primary/20 bg-panel/30 hover:bg-panel/50 shadow-[0_0_80px_rgba(0,0,0,0.5)] cursor-default backdrop-blur-3xl"
             >
-              <div className="flex flex-col gap-5 relative z-10 animate-fade-up">
+              <div className="flex flex-col gap-10 relative z-10">
                 {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center border border-[#0C1446]/20 bg-gradient-to-tr from-[#0C1446]/5 to-[#B3CDE0]/5 transition-colors duration-300 rounded-xl group-hover:scale-110">
-                  <item.icon className="w-6 h-6 text-[#2B5C92] transition-colors duration-200" />
+                <div className="w-16 h-16 flex items-center justify-center border border-primary/20 bg-primary/5 transition-all duration-700 rounded-2xl group-hover:scale-110 group-hover:rotate-6 group-hover:bg-primary/20 shadow-2xl">
+                  <item.icon className="w-8 h-8 text-primary shadow-[0_0_15px_#43B6D5]" />
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-[#0B1220] tracking-tight">
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-black text-foreground tracking-tighter group-hover:text-primary transition-colors italic uppercase">
                     {item.title}
                   </h3>
-                  <p className="text-base text-[#4A5568] leading-relaxed max-w-sm">
+                  <p className="text-xl text-body italic leading-relaxed opacity-40 group-hover:opacity-80 transition-opacity duration-500">
                     {item.description}
                   </p>
                 </div>
               </div>
-            </div>
+              
+              {/* Decorative Step Number */}
+              <div className="absolute -bottom-10 -right-10 text-[10rem] font-black text-primary/5 italic select-none pointer-events-none group-hover:text-primary/10 transition-colors duration-700 group-hover:-translate-x-4 group-hover:-translate-y-4 transition-transform font-mono">
+                {i + 1}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

@@ -17,33 +17,30 @@ export interface ButtonProps
 
 const variants = {
   primary: [
-    "bg-gradient-to-r from-[#0C1446] via-[#2B5C92] to-[#B3CDE0]",
-    "bg-[length:200%_auto]",
-    "text-white border-none",
-    "shadow-[0_8px_20px_rgba(43,92,146,0.25)]",
-    "hover:bg-[position:right_center]",
-    "hover:scale-[1.03]",
-    "hover:shadow-[0_12px_30px_rgba(43,92,146,0.35)]",
-    "active:scale-100 active:shadow-[0_8px_20px_rgba(43,92,146,0.25)]",
+    "bg-primary",
+    "text-background border-none",
+    "shadow-[0_10px_30px_rgba(67,182,213,0.3)]",
+    "hover:scale-[1.03] hover:bg-omen-accent",
+    "hover:shadow-[0_15px_40px_rgba(67,182,213,0.5)]",
+    "active:scale-95",
   ].join(" "),
 
   secondary: [
-    "bg-white/62 backdrop-blur-[20px]",
-    "text-[#0C1446]",
-    "border border-white/85",
-    "shadow-[0_4px_12px_rgba(11,18,32,0.05)]",
-    "hover:-translate-y-[2px]",
-    "hover:shadow-[0_8px_24px_rgba(43,92,146,0.15)] hover:border-white",
+    "bg-white/5 backdrop-blur-3xl",
+    "text-foreground font-black italic uppercase tracking-widest",
+    "border border-white/10",
+    "hover:bg-white/10 hover:border-primary/40",
+    "hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]",
     "active:translate-y-0",
   ].join(" "),
 
-  link: "bg-transparent text-[#2B5C92] hover:text-[#0C1446] p-0 h-auto",
+  link: "bg-transparent text-primary hover:text-omen-accent px-0 h-auto font-black italic uppercase tracking-widest",
 };
 
 const sizes = {
-  default: "h-12 px-8 text-sm font-semibold rounded-full",
-  sm:      "h-10 px-6 text-xs font-semibold rounded-full",
-  lg:      "h-14 px-10 text-base font-semibold rounded-full",
+  default: "h-14 px-10 text-[13px] font-black uppercase tracking-[0.2em] rounded-2xl",
+  sm:      "h-12 px-8 text-[11px] font-black uppercase tracking-[0.2em] rounded-xl",
+  lg:      "h-20 px-14 text-[16px] font-black uppercase tracking-[0.3em] rounded-3xl",
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -54,9 +51,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Component
         className={cn(
           "inline-flex items-center justify-center whitespace-nowrap",
-          "transition-all duration-150 ease-out",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2B5C92]/40 focus-visible:ring-offset-2",
-          "disabled:pointer-events-none disabled:opacity-40",
+          "transition-all duration-300 var(--ease-premium)",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
+          "disabled:pointer-events-none disabled:opacity-30",
           variants[variant],
           variant !== "link" && sizes[size],
           className
@@ -83,3 +80,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button };
+

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, X, CheckCircle, AlertCircle, Info } from "lucide-react";
+import { Shield, X, CheckCircle, AlertCircle } from "lucide-react";
 
 type ToastType = "success" | "error" | "info";
 
@@ -76,3 +76,4 @@ export function useToast() {
   }
   return context;
 }
+

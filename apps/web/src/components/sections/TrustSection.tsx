@@ -3,50 +3,64 @@
 import { motion } from "framer-motion";
 
 const pillars = [
-  "Verified founders",
-  "Identity confirmed",
-  "Omen trust score",
-  "Safer Web3 interactions",
+  "Founder_Auth",
+  "Identity_Sync",
+  "Trust_Score_Init",
+  "Secure_Handshake",
 ];
 
 const partners = [
-  { name: "ShieldLink", icon: "circle", delay: 0.1, x: "-15%", y: "-20%" },
-  { name: "EtherGuard", icon: "square", delay: 0.3, x: "20%", y: "-15%" },
-  { name: "zkProof",    icon: "circle", delay: 0.5, x: "-10%", y: "25%" },
-  { name: "SafeVault",  icon: "square", delay: 0.7, x: "25%", y: "20%" },
+  { name: "SHIELD_CLUSTER_v2", icon: "circle", delay: 0.1, x: "-20%", y: "-15%" },
+  { name: "ETHER_GUARD_INIT", icon: "square", delay: 0.3, x: "25%", y: "-10%" },
+  { name: "ZK_PROOF_SHARD",    icon: "circle", delay: 0.5, x: "-15%", y: "25%" },
+  { name: "SAFE_VAULT_EVAL",  icon: "square", delay: 0.7, x: "30%", y: "20%" },
 ];
 
 export function TrustSection() {
   return (
-    <section className="py-24 md:py-32 border-y border-[rgba(14, 47, 118, 0.08)] bg-transparent relative z-10 overflow-hidden">
+    <section className="py-40 md:py-60 border-y border-white/5 bg-transparent relative z-10 overflow-hidden">
       <div className="max-container">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-24 lg:gap-40 items-center">
           
           {/* Text Content */}
-          <div className="space-y-6 animate-fade-up text-center lg:text-left">
-            <span className="text-[11px] font-bold tracking-[0.3em] text-[#2B5C92] uppercase">
-              Why Omen matters
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0B1220] leading-[1.1]">
-              Trust should be clear <br />before users interact.
-            </h2>
-            <p className="text-[#4A5568] text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Omen helps people see which builders are real, which identities are confirmed, and which projects deserve confidence.
-            </p>
+          <div className="space-y-10 text-center lg:text-left">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-[11px] font-black tracking-[0.6em] text-primary uppercase italic"
+            >
+              PROTOCOL_RATIONALE
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-6xl md:text-8xl font-black tracking-tighter text-foreground leading-[0.85] italic"
+            >
+              Trust_Sync: <br />Absolute_Clarity.
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-2xl text-body italic opacity-60 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+            >
+              Omen synchronizes verified identities directly into the decentralized handshake, ensuring every interaction is anchored in cryptographic trust.
+            </motion.p>
             
             {/* Trust Points (Pillars) */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 pt-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 pt-6">
               {pillars.map((text, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, duration: 0.3, ease: "easeOut" }}
-                  className="flex items-center gap-2.5"
+                  transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-4"
                 >
-                  <div className="w-1.5 h-1.5 bg-[#2B5C92] rounded-full" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#4A5568] whitespace-nowrap">
+                  <div className="w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#43B6D5]" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary italic whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">
                     {text}
                   </span>
                 </motion.div>
@@ -55,10 +69,10 @@ export function TrustSection() {
           </div>
 
           {/* Creative Ecosystem Visual */}
-          <div className="relative min-h-[400px] flex items-center justify-center animate-fade-up">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-[10px] font-bold text-[#4A5568]/20 uppercase tracking-[0.5em] select-none">
-                Trusted Ecosystem
+          <div className="relative min-h-[500px] flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center opacity-20">
+              <div className="text-[11px] font-black text-primary/10 uppercase tracking-[1em] select-none italic animate-pulse">
+                TRUST_NETWORK_ACTIVE
               </div>
             </div>
 
@@ -70,32 +84,32 @@ export function TrustSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 animate={{ 
-                  y: ["0%", i % 2 === 0 ? "5%" : "-5%", "0%"],
-                  x: ["0%", i % 2 === 0 ? "-3%" : "3%", "0%"]
+                  y: ["0%", i % 2 === 0 ? "8%" : "-8%", "0%"],
+                  x: ["0%", i % 2 === 0 ? "-5%" : "5%", "0%"]
                 }}
                 transition={{ 
                   delay: p.delay, 
-                  duration: 6 + i, 
+                  duration: 8 + i, 
                   repeat: Infinity, 
                   ease: "easeInOut" 
                 }}
-                className="absolute glass-panel p-4 md:p-6 flex flex-col items-center gap-3 md:backdrop-blur-md border border-white/50 shadow-xl group cursor-pointer hover:bg-white/40 transition-colors"
+                className="absolute glass-card p-6 md:p-10 flex flex-col items-center gap-5 border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group cursor-pointer hover:bg-white/5 transition-all duration-700 rounded-[32px] backdrop-blur-3xl"
                 style={{ left: `calc(50% + ${p.x})`, top: `calc(50% + ${p.y})` }}
               >
-                <div className="w-10 h-10 border border-[#2B5C92]/10 flex items-center justify-center p-2 rounded-xl group-hover:scale-110 group-hover:bg-[#2B5C92]/5 transition-all duration-500">
-                  <div className={`w-full h-full bg-[#2B5C92]/20 group-hover:bg-[#2B5C92]/40 transition-colors ${p.icon === "circle" ? "rounded-full" : "rounded-sm"}`} />
+                <div className="w-14 h-14 border border-primary/20 bg-primary/5 flex items-center justify-center p-3 rounded-2xl group-hover:scale-125 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-700 shadow-2xl">
+                  <div className={`w-full h-full bg-primary/30 group-hover:bg-primary/50 transition-colors shadow-[0_0_15px_#43B6D5] ${p.icon === "circle" ? "rounded-full" : "rounded-lg"}`} />
                 </div>
-                <span className="text-[11px] font-bold tracking-tight text-[#4A5568]/60 group-hover:text-[#0B1220] transition-colors whitespace-nowrap">
+                <span className="text-[12px] font-black tracking-widest text-foreground group-hover:text-primary transition-all duration-500 whitespace-nowrap italic uppercase">
                   {p.name}
                 </span>
                 
                 {/* Connecting light (visual only) */}
-                <div className="absolute -z-10 w-24 h-24 bg-[#AAC0E1]/10 blur-xl md:blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -z-10 w-32 h-32 bg-primary/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               </motion.div>
             ))}
 
             {/* Background Glow */}
-            <div className="absolute w-64 h-64 bg-[#AAC0E1]/15 blur-3xl md:blur-[100px] rounded-full -z-10" />
+            <div className="absolute w-96 h-96 bg-primary/5 blur-[150px] rounded-full -z-10 animate-pulse" />
           </div>
 
         </div>
@@ -103,3 +117,4 @@ export function TrustSection() {
     </section>
   );
 }
+

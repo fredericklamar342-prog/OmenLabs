@@ -24,8 +24,9 @@ export function SoftShine({ className }: SoftShineProps) {
       />
       
       {/* glows - cyber aesthetic */}
-      <div className="absolute -top-60 left-1/4 h-[800px] w-[800px] rounded-full bg-accent/5 blur-[120px] opacity-20" />
-      <div className="absolute top-1/2 -right-40 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#2F81F7]/5 blur-[100px] opacity-20" />
+      <div className="absolute -top-60 left-1/4 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[150px] opacity-30" />
+      <div className="absolute top-1/2 -right-40 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/5 blur-[120px] opacity-20" />
     </div>
   );
 }
+

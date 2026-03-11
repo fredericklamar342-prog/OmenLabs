@@ -1,25 +1,27 @@
 
+import dynamic from "next/dynamic";
 import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { EverydayUsersSection } from "@/components/sections/EverydayUsersSection";
-import { BenefitsGrid } from "@/components/sections/BenefitsGrid";
-import { TrustSection } from "@/components/sections/TrustSection";
-import { SdkSection } from "@/components/sections/SdkSection";
-import { DeveloperEcosystemSection } from "@/components/sections/DeveloperEcosystemSection";
-import { ArchitectureSection } from "@/components/sections/ArchitectureSection";
-import { BottomCta } from "@/components/sections/BottomCta";
-import { MetricsBar } from "@/components/sections/MetricsBar";
-import { TeamSection } from "@/components/sections/TeamSection";
-import { VisionSection } from "@/components/sections/VisionSection";
+
+// Dynamically import sections below the fold to improve performance
+const EverydayUsersSection = dynamic(() => import("@/components/sections/EverydayUsersSection").then(mod => mod.EverydayUsersSection), { ssr: true });
+const BenefitsGrid = dynamic(() => import("@/components/sections/BenefitsGrid").then(mod => mod.BenefitsGrid), { ssr: true });
+const TrustSection = dynamic(() => import("@/components/sections/TrustSection").then(mod => mod.TrustSection), { ssr: true });
+const SdkSection = dynamic(() => import("@/components/sections/SdkSection").then(mod => mod.SdkSection), { ssr: true });
+const DeveloperEcosystemSection = dynamic(() => import("@/components/sections/DeveloperEcosystemSection").then(mod => mod.DeveloperEcosystemSection), { ssr: true });
+const ArchitectureSection = dynamic(() => import("@/components/sections/ArchitectureSection").then(mod => mod.ArchitectureSection), { ssr: true });
+const BottomCta = dynamic(() => import("@/components/sections/BottomCta").then(mod => mod.BottomCta), { ssr: true });
+const MetricsBar = dynamic(() => import("@/components/sections/MetricsBar").then(mod => mod.MetricsBar), { ssr: true });
+const TeamSection = dynamic(() => import("@/components/sections/TeamSection").then(mod => mod.TeamSection), { ssr: true });
+const VisionSection = dynamic(() => import("@/components/sections/VisionSection").then(mod => mod.VisionSection), { ssr: true });
 
 /**
  * PRODUCTION-READY LANDING PAGE
  * 
- * Features:
- * - Fully Responsive (Tailwind + Custom Breakpoints)
- * - Optimized Framer Motion Transitions (60fps focus)
- * - Accessible ARIA structures
- * - Modular Component-based Design
+ * Performance Optimized:
+ * - Above-the-fold content (Hero) loaded normally
+ * - Below-the-fold content loaded dynamically
+ * - Optimized Framer Motion Transitions
  */
 export default function Home() {
   return (
@@ -40,3 +42,4 @@ export default function Home() {
     </Layout>
   );
 }
+

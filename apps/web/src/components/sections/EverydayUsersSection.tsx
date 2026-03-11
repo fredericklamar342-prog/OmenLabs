@@ -9,100 +9,107 @@ export function EverydayUsersSection() {
     <section className="py-24 md:py-32 relative z-10 bg-transparent" aria-labelledby="everyday-title">
       <div className="max-container flex flex-col items-center text-center relative z-10">
         
-        {/* Headline */}
-        <motion.h2
-          id="everyday-title"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-bold tracking-tight text-[#0B1220] mb-6"
-        >
-          Stop guessing. Start knowing.
-        </motion.h2>
-
-        {/* Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-          className="text-lg md:text-xl text-[#4A5568] max-w-[800px] mb-16 leading-relaxed"
-        >
-          In Web3 a beautiful interface can still hide a malicious team. Omen Labs helps you verify who is behind a protocol before connecting your wallet.
-        </motion.p>
+        {/* Headline Area */}
+        <div className="flex flex-col items-center mb-24">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-[11px] font-black tracking-[0.6em] text-primary uppercase mb-6 italic"
+          >
+            PEER_VERIFICATION_RATIONALE
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-8 italic"
+          >
+            Protocol_Security_vs <br />Obscurity.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-2xl text-body italic opacity-60 max-w-4xl mb-16 leading-relaxed"
+          >
+            In the decentralized economy, a professional UI can mask a malicious entity. Omen synchronizes technical audit trails with real-world identity to ensure every transaction is safe.
+          </motion.p>
+        </div>
 
         {/* Visual comparison */}
-        <div className="grid md:grid-cols-2 gap-8 w-full max-w-[900px] mb-16">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 w-full max-w-[1100px] mb-24">
           {/* Left card: Unverified */}
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-            className="glass-card p-10 border border-red-500/10 flex flex-col items-center text-center relative overflow-hidden group shadow-md"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="glass-card p-12 md:p-20 border border-red-500/10 flex flex-col items-center text-center relative overflow-hidden group shadow-2xl rounded-[48px] bg-panel/20 backdrop-blur-3xl"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500/20 to-red-500/50" />
-            <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-6">
-              <AlertTriangle className="w-8 h-8 text-red-500" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
+            <div className="w-20 h-20 rounded-3xl bg-red-500/10 flex items-center justify-center mb-10 border border-red-500/20">
+              <AlertTriangle className="w-10 h-10 text-red-500" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0B1220] mb-4">Unverified</h3>
-            <p className="text-[#4A5568] text-lg font-medium px-4">
-              Caution: Unverified contract. Proceed at your own risk.
+            <h3 className="text-4xl font-black text-foreground mb-4 italic uppercase tracking-tighter">System_Alert: <br />UNVERIFIED</h3>
+            <p className="text-xl text-body/40 italic font-medium">
+              Critically low identity anchor. Malicious telemetry detected.
             </p>
           </motion.div>
 
           {/* Right card: Verified */}
           <motion.div
-            initial={{ opacity: 0, x: 10 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
-            className="glass-card p-10 border border-[#0E2F76]/10 flex flex-col items-center text-center relative overflow-hidden group shadow-xl"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="glass-card p-12 md:p-20 border border-primary/20 flex flex-col items-center text-center relative overflow-hidden group shadow-[0_0_100px_rgba(67,182,213,0.15)] rounded-[48px] bg-panel/40 backdrop-blur-3xl"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#AAC0E1] to-[#0E2F76]" />
-            <div className="w-16 h-16 rounded-full bg-[#EAF3FA] flex items-center justify-center mb-6 relative">
-              <div className="absolute inset-0 bg-[#0E2F76]/10 rounded-full animate-ping" />
-              <ShieldCheck className="w-8 h-8 text-[#0E2F76] relative z-10" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mb-10 relative border border-primary/20">
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl animate-ping" />
+              <ShieldCheck className="w-10 h-10 text-primary relative z-10 drop-shadow-[0_0_15px_#43B6D5]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0B1220] mb-4">Omen Verified</h3>
-            <p className="text-[#4A5568] text-lg font-medium px-4">
-              Verified Builder. Identity and audit history confirmed.
+            <h3 className="text-4xl font-black text-foreground mb-4 italic uppercase tracking-tighter">System_Auth: <br />AUTHORIZED</h3>
+            <p className="text-xl text-body italic font-medium">
+              Verified_Builder. Cryptographic identity and audit trail confirmed.
             </p>
           </motion.div>
         </div>
 
-        {/* Text below cards */}
+        {/* Text Area below cards */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-          className="max-w-[850px] bg-white/50 border border-black/5 rounded-2xl p-6 md:p-8 mb-12 shadow-[0_4px_24px_-4px_rgba(11,18,32,0.05)]"
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-5xl glass-card border border-white/5 bg-panel/30 p-12 md:p-16 mb-24 rounded-[48px] shadow-2xl backdrop-blur-3xl"
         >
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-6 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-full bg-[#EAF3FA] shrink-0 flex items-center justify-center border border-[#0E2F76]/10">
-              <Lock className="w-6 h-6 text-[#2B5C92]" />
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 text-center md:text-left">
+            <div className="w-20 h-20 rounded-3xl bg-primary/10 shrink-0 flex items-center justify-center border border-primary/20 shadow-2xl group-hover:scale-110 transition-transform">
+              <Lock className="w-10 h-10 text-primary" />
             </div>
-            <p className="text-[17px] md:text-[19px] text-[#0B1220] font-medium leading-relaxed mt-1">
-              Just like you look for the lock icon before entering your card online, look for the Omen Badge before signing a Sui transaction. <span className="font-bold text-[#0E2F76]">If it's not verified, it's not safe.</span>
-            </p>
+            <div className="space-y-4">
+               <p className="text-2xl md:text-3xl text-foreground font-medium leading-tight italic">
+                Just as you rely on established TLS handshakes for secure browsing, look for the <span className="text-primary font-black shadow-[0_0_20px_#43B6D5]">Omen_Shard</span> before execution. 
+              </p>
+              <p className="text-[11px] font-black uppercase tracking-[0.6em] text-primary/40 italic">
+                IF_NOT_AUTHORIZED_NOT_SECURE
+              </p>
+            </div>
           </div>
         </motion.div>
 
-        {/* Buttons */}
+        {/* Action Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-          className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto"
         >
-          <Button size="lg" className="w-full sm:w-auto px-10 gap-2">
-            <Search className="w-4 h-4" /> Search the Registry
+          <Button size="lg" className="w-full sm:w-auto h-20 px-20 text-xl font-black italic shadow-[0_0_40px_rgba(67,182,213,0.3)] tracking-tighter">
+            <Search className="w-6 h-6 mr-3" /> Search_Registry
           </Button>
-          <Button variant="secondary" size="lg" className="w-full sm:w-auto px-10 gap-2 glass-panel">
-            <ShieldCheck className="w-4 h-4" /> Demand the Badge
+          <Button variant="secondary" size="lg" className="w-full sm:w-auto h-20 px-20 text-xl font-black italic border-white/5 bg-white/3 glass-panel rounded-full tracking-tighter">
+            <ShieldCheck className="w-6 h-6 mr-3" /> Demand_Auth
           </Button>
         </motion.div>
 
@@ -110,3 +117,4 @@ export function EverydayUsersSection() {
     </section>
   );
 }
+

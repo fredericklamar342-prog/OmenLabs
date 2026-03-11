@@ -62,7 +62,7 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-[#0E2F76]/20 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#43B6D5]/20 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -70,14 +70,14 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="relative z-10 w-full max-w-[540px] overflow-hidden rounded-[32px] border border-[rgba(14,47,118,0.1)] bg-white shadow-2xl"
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 w-full max-w-[540px] overflow-hidden rounded-[40px] border border-white/10 bg-[#0A0F14] shadow-[0_0_80px_rgba(0,0,0,0.8)]"
           >
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(170,192,225,0.5),transparent_70%)]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(67,182,213,0.15),transparent_80%)]" />
 
             <button
               onClick={onClose}
-              className="absolute right-6 top-6 z-20 rounded-full p-2 text-[#4A5568] transition-colors hover:bg-[rgba(14,47,118,0.05)]"
+              className="absolute right-8 top-8 z-20 rounded-2xl p-3 text-body/40 transition-all hover:bg-white/5 hover:text-primary active:scale-95 border border-white/5"
               aria-label="Close"
             >
               <X className="h-5 w-5" />
@@ -87,80 +87,80 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
               {!isSuccess ? (
                 <motion.div
                   key="form"
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  className="w-full p-6 sm:p-8 md:p-10"
+                  exit={{ opacity: 0, x: 20 }}
+                  className="w-full p-8 sm:p-12 md:p-14"
                 >
-                  <div className="mb-8 text-center">
-                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#0E2F76]/10 bg-[#F8FBFE] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#2B5C92]">
+                  <div className="mb-10 text-center relative z-10">
+                    <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-[10px] font-black uppercase tracking-[0.4em] text-primary">
                       <MailCheck className="h-4 w-4" />
-                      Fast Onboarding
+                      Registry_v2.0
                     </div>
-                    <h2 className="mb-3 text-2xl font-bold tracking-tight text-[#0B1220] md:text-3xl">
-                      Secure Your Spot in the Omen Registry
+                    <h2 className="mb-4 text-3xl font-black italic tracking-tighter text-foreground md:text-5xl leading-tight">
+                      Secure your <br /> <span className="text-primary italic">Node_Shard</span>
                     </h2>
-                    <p className="text-[15px] leading-relaxed text-[#4A5568]">
-                      We are onboarding high-trust protocols and developers for Testnet V2.
+                    <p className="text-lg font-medium text-body opacity-60">
+                      Onboarding high-trust protocols for Omen Alpha.
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="w-full space-y-5">
-                    <div className="space-y-1.5">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Email (required)
+                  <form onSubmit={handleSubmit} className="w-full space-y-6 relative z-10">
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-black uppercase tracking-[0.6em] text-primary/40 ml-1">
+                        Endpoint_Auth
                       </label>
                       <input
                         type="email"
                         name="email"
                         placeholder="founder@yourproject.com"
                         required
-                        className="omen-input"
+                        className="omen-input w-full bg-white/3 border-white/5 focus:border-primary/40 rounded-2xl px-6 py-4 transition-all"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Project Name or X Handle
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-black uppercase tracking-[0.6em] text-primary/40 ml-1">
+                        Handle_Identity
                       </label>
                       <input
                         type="text"
                         name="project"
                         placeholder="@YourProject"
-                        className="omen-input"
+                        className="omen-input w-full bg-white/3 border-white/5 focus:border-primary/40 rounded-2xl px-6 py-4 transition-all"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-[#5B6B82]">
-                        Sui Wallet Address
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-black uppercase tracking-[0.6em] text-primary/40 ml-1">
+                        Shard_Target
                       </label>
                       <input
                         type="text"
                         name="wallet"
                         placeholder="0x... or alias.sui"
-                        className="omen-input"
+                        className="omen-input w-full bg-white/3 border-white/5 focus:border-primary/40 rounded-2xl px-6 py-4 transition-all"
                       />
                     </div>
 
-                    <div className="pt-4">
+                    <div className="pt-6">
                       <Button
                         type="submit"
                         size="lg"
-                        className="h-12 w-full text-[15px]"
+                        className="w-full h-18 text-xl font-black italic shadow-[0_0_40px_rgba(67,182,213,0.3)]"
                         isLoading={isLoading}
                       >
-                        Request Testnet Access
+                        Initialize Onboarding
                       </Button>
                     </div>
 
                     <AnimatePresence>
                       {error && (
                         <motion.p
-                          initial={{ opacity: 0, y: 4 }}
+                          initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0 }}
-                          className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"
+                          className="rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-4 text-sm font-bold text-red-400 italic"
                           role="alert"
                         >
                           {error}
@@ -172,38 +172,38 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
               ) : (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex w-full flex-col items-center p-6 py-10 text-center sm:p-8 md:p-10"
+                  className="flex w-full flex-col items-center p-8 py-14 text-center sm:p-12 md:p-16"
                 >
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
+                    initial={{ scale: 0, rotate: -45 }}
+                    animate={{ scale: 1, rotate: 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
-                    className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#2B5C92]/10 bg-[#EAF3FA]"
+                    className="mb-8 flex h-24 w-24 items-center justify-center rounded-[32px] border border-primary/20 bg-primary/10 shadow-[0_0_50px_rgba(67,182,213,0.3)]"
                   >
-                    <CheckCircle2 className="h-8 w-8 text-[#2B5C92]" />
+                    <CheckCircle2 className="h-12 w-12 text-primary" />
                   </motion.div>
 
-                  <h3 className="mb-3 text-2xl font-bold text-[#0B1220]">Application Received</h3>
-                  <p className="mb-10 max-w-[360px] text-[15px] leading-relaxed text-[#4A5568]">
-                    {message || "You are on the list. Testnet V2 access will be rolled out in batches."}
+                  <h3 className="mb-4 text-4xl font-black italic tracking-tighter text-foreground">Handshake_Success</h3>
+                  <p className="mb-12 max-w-[360px] text-xl font-medium leading-relaxed text-body opacity-60 italic">
+                    {message || "Telemetry received. Testnet V2 access will be synchronized in batches."}
                   </p>
 
-                  <div className="flex w-full flex-col gap-3">
-                    <Button variant="secondary" size="lg" className="glass-panel h-12 w-full gap-2" asChild>
+                  <div className="flex w-full flex-col gap-4">
+                    <Button variant="secondary" size="lg" className="h-16 w-full gap-3 rounded-[24px]" asChild>
                       <a href="/docs">
-                        <FileText className="h-4 w-4" /> Read the Docs
+                        <FileText className="h-5 w-5" /> Read Terminal Docs
                       </a>
                     </Button>
                     <Button
                       variant="secondary"
                       size="lg"
-                      className="h-12 w-full gap-2 border-0 bg-[#000000] text-white hover:bg-[#1A1A1A] hover:text-white"
+                      className="h-16 w-full gap-3 rounded-[24px] border-0 bg-[#000000] text-white hover:bg-[#1A1A1A]"
                       asChild
                     >
                       <a href="https://x.com/OmenLabs" target="_blank" rel="noopener noreferrer">
-                        <Twitter className="h-4 w-4" /> Follow Omen Labs on X
+                        <Twitter className="h-5 w-5" /> Follow System_Update
                       </a>
                     </Button>
                   </div>
@@ -216,3 +216,4 @@ export function EarlyAccessModal({ isOpen, onClose }: EarlyAccessModalProps) {
     </AnimatePresence>
   );
 }
+

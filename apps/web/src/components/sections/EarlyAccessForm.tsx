@@ -59,25 +59,30 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
 
   if (status === "success") {
     return (
-      <div className="flex w-full items-center justify-center py-8 sm:py-10">
+      <div className="flex w-full items-center justify-center py-8 sm:py-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-          className="relative w-full max-w-xl rounded-3xl border border-white/20 bg-white/10 p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-10"
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full max-w-xl glass-card border border-primary/20 bg-panel/30 p-10 text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-3xl rounded-[40px] overflow-hidden"
         >
-          <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-30 blur-xl" />
-
-          <div className="relative mb-6 flex justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
-              <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+          
+          <div className="relative mb-8 flex justify-center">
+            <motion.div 
+              initial={{ scale: 0, rotate: -45 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
+              className="flex h-20 w-20 items-center justify-center rounded-[24px] bg-primary/20 shadow-[0_0_30px_rgba(67,182,213,0.3)] border border-primary/30"
+            >
+              <svg className="h-10 w-10 text-primary" fill="none" stroke="currentColor" strokeWidth="4" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
-            </div>
+            </motion.div>
           </div>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-white">You&apos;re on the list</h2>
-          <p className="mt-3 text-base text-white/75 sm:text-lg">{message}</p>
+          <h2 className="text-4xl font-black tracking-tighter text-foreground italic">Registry_Synced</h2>
+          <p className="mt-6 text-xl text-body opacity-60 italic leading-relaxed">{message}</p>
         </motion.div>
       </div>
     );
@@ -86,15 +91,15 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={["relative w-full", layout === "bottom" ? "max-w-2xl" : ""].join(" ")}
+      className={["relative w-full", layout === "bottom" ? "max-w-3xl mx-auto" : ""].join(" ")}
       noValidate
     >
-      <div className="flex flex-col gap-3 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row">
         <input
           id="waitlist-email"
           type="email"
           name="email"
-          placeholder="Enter your email"
+          placeholder="ENTER_EP_AUTH"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -103,8 +108,8 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
           required
           disabled={status === "submitting"}
           className={[
-            "omen-input flex-1",
-            status === "error" ? "border-[#FF3B30] focus:border-[#FF3B30] focus:ring-[#FF3B30]/10" : "",
+            "omen-input h-18 text-lg font-bold italic tracking-tight flex-1 bg-white/3 border-white/5 text-foreground placeholder:text-body/20 rounded-[24px] px-8 transition-all duration-300",
+            status === "error" ? "border-red-500/30 focus:border-red-500/50" : "focus:border-primary/40 focus:bg-white/5",
           ].join(" ")}
           aria-label="Email address"
         />
@@ -113,9 +118,9 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
           type="submit"
           isLoading={status === "submitting"}
           size="lg"
-          className="w-full shrink-0 md:w-auto"
+          className="w-full shrink-0 md:w-auto h-18 px-12 text-lg font-black italic shadow-[0_0_30px_rgba(67,182,213,0.3)] transition-all duration-500"
         >
-          {status === "submitting" ? "Joining..." : "Request Access"}
+          {status === "submitting" ? "SYNCHRONIZING..." : "INITIALIZE_AUTH"}
         </Button>
       </div>
 
@@ -123,11 +128,10 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
         {status === "error" && (
           <motion.p
             key="error"
-            initial={{ opacity: 0, y: 4 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-3 text-xs font-medium text-[#FF3B30]"
+            className="mt-4 text-[11px] font-black uppercase tracking-[0.4em] text-red-400 italic ml-2"
             role="alert"
           >
             {message}
@@ -135,14 +139,16 @@ export function EarlyAccessForm({ layout = "hero" }: EarlyAccessFormProps) {
         )}
       </AnimatePresence>
 
-      <div className="mt-4 flex items-center gap-4 px-1">
+      <div className="mt-8 flex items-center justify-center md:justify-start gap-8 px-2">
         <a
           href="/docs"
-          className="text-[11px] font-semibold uppercase tracking-widest text-[#5B6B82] underline decoration-black/10 underline-offset-4 transition-colors duration-200 hover:text-[#2B5C92] hover:decoration-[#2B5C92]/40"
+          className="text-[11px] font-black uppercase tracking-[0.4em] text-body/30 hover:text-primary transition-all flex items-center gap-3 group italic"
         >
-          SDK Documentation
+          <span className="w-2 h-2 bg-primary/20 rounded-full group-hover:bg-primary group-hover:scale-150 transition-all shadow-[0_0_10px_rgba(67,182,213,0.5)]" />
+          SYSTEM_TERMINAL
         </a>
       </div>
     </form>
   );
 }
+

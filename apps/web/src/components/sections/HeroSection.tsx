@@ -1,134 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
-import { ShieldCheck, Fingerprint, CheckCircle2, Droplet } from "lucide-react";
+import { ShieldCheck, Fingerprint, CheckCircle2, Droplet, ArrowRight } from "lucide-react";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
 
 export function HeroSection() {
   const { openModal } = useEarlyAccessModal();
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <section
       id="hero"
-      className="relative pt-24 pb-16 md:pt-44 md:pb-28 overflow-hidden bg-transparent"
+      className="relative pt-40 pb-24 md:pt-64 md:pb-48 overflow-hidden bg-transparent"
       aria-labelledby="hero-title"
     >
-      <div className="max-container flex flex-col items-center text-center relative z-10">
-        
-        {/* Floating Verification Cards (Visual elements) */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden hidden lg:block">
-
-          {/* Card 2: Identity Verification */}
+      <div className="max-container relative z-10">
+        <motion.div 
+          className="flex flex-col items-center text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Trust Badge */}
           <motion.div
-            initial={{ opacity: 0, x: 100, y: -50, rotate: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0, rotate: 8 }}
-            transition={{ duration: 1.4, ease: "easeOut", delay: 0.4 }}
-            className="absolute right-[8%] top-[15%] glass-card p-5 flex flex-col gap-3 shadow-2xl w-56"
-          >
-            <div className="flex items-center gap-3">
-              <Fingerprint className="w-6 h-6 text-[#0E2F76]" />
-              <div className="font-bold text-sm">Identity Linked</div>
-            </div>
-            <div className="space-y-2">
-              <div className="h-1.5 w-full bg-[#AAC0E1]/20 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="h-full bg-gradient-to-r from-[#AAC0E1] to-[#0E2F76]" 
-                />
-              </div>
-              <div className="flex justify-between text-[9px] font-bold text-[#4A5568]">
-                <span>VERIFYING...</span>
-                <span>100%</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Verified Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 150 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-            className="absolute left-[12%] bottom-[10%] glass-card px-6 py-4 flex items-center gap-4 border-l-4 border-l-[#0E2F76] shadow-xl"
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass-panel border border-primary/20 mb-12 hardware-accel group hover:border-primary/40 transition-all duration-500"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-[#0E2F76]/20 blur-md md:blur-lg rounded-full" />
-              <CheckCircle2 className="w-8 h-8 text-[#0E2F76] relative z-10" />
+              <div className="absolute inset-0 bg-primary/40 blur-md rounded-full animate-pulse" />
+              <Droplet className="w-5 h-5 text-primary relative z-10 fill-primary/20 group-hover:scale-110 transition-transform" />
             </div>
-            <div className="text-left">
-              <div className="text-sm font-bold text-[#0B1220]">Badge Issued</div>
-              <div className="text-[10px] text-[#4A5568]">SECURE ON-CHAIN</div>
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">
+              Built on Sui_Mainnet
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            id="hero-title"
+            variants={itemVariants}
+            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] max-w-[1200px] mb-12 hardware-accel italic"
+          >
+            Forge the <br className="hidden md:block" />
+            <span className="text-primary italic">Reputation</span> Shard
+          </motion.h1>
+
+          {/* Sub-headline */}
+          <motion.p
+            variants={itemVariants}
+            className="text-2xl md:text-3xl text-body max-w-[900px] mb-16 leading-relaxed font-medium italic opacity-80 hardware-accel"
+          >
+            Omen is a programmable trust layer that encodes builder identity and security telemetry directly into the execution handshake.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center gap-8 w-full sm:w-auto hardware-accel"
+          >
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto px-16 h-20 text-xl italic font-black shadow-[0_0_50px_rgba(67,182,213,0.3)] group"
+              onClick={openModal}
+            >
+              INITIALIZE_ALPHA
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+            </Button>
+            
+            <a 
+              href="/whitepaper" 
+              className="text-[14px] font-black italic uppercase tracking-[0.4em] text-body hover:text-primary flex items-center gap-4 group transition-all"
+            >
+              Whitepaper_v2
+              <span className="w-8 h-[2px] bg-primary/20 group-hover:bg-primary group-hover:w-12 transition-all" />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Decorative Visual elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden hidden xl:block">
+          
+          {/* Card 1: Identity */}
+          <motion.div
+            initial={{ opacity: 0, x: -150, rotate: -20, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, rotate: -12, scale: 1 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            className="absolute left-[5%] top-[25%] glass-card p-10 flex flex-col gap-6 shadow-[0_0_60px_rgba(0,0,0,0.5)] w-80 border-primary/20 rounded-[40px] bg-panel/40 backdrop-blur-3xl"
+          >
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(67,182,213,0.1)]">
+                <Fingerprint className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <div className="font-black italic text-lg text-foreground tracking-tight">Identity_Shard</div>
+                <div className="text-[10px] text-primary uppercase tracking-[0.4em] font-black opacity-60">Status: ENCRYPTED</div>
+              </div>
+            </div>
+            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+               <motion.div 
+                 initial={{ width: 0 }}
+                 animate={{ width: "85%" }}
+                 transition={{ duration: 2, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+                 className="h-full bg-primary shadow-[0_0_15px_#43B6D5]" 
+               />
+            </div>
+          </motion.div>
+
+          {/* Card 2: Status */}
+          <motion.div
+            initial={{ opacity: 0, y: 150, rotate: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, rotate: 8, scale: 1 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+            className="absolute right-[8%] bottom-[20%] glass-card p-10 flex items-center gap-6 border-l-[6px] border-l-primary shadow-[0_0_60px_rgba(0,0,0,0.5)] border-primary/20 rounded-[40px] bg-panel/40 backdrop-blur-3xl"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full" />
+              <CheckCircle2 className="w-14 h-14 text-primary relative z-10 drop-shadow-[0_0_20px_#43B6D5]" />
+            </div>
+            <div>
+              <div className="text-xl font-black italic text-foreground tracking-tight">Handshake_Verified</div>
+              <div className="text-[10px] text-body uppercase tracking-[0.4em] font-black opacity-40">NODE_AUTH: PASS</div>
             </div>
           </motion.div>
         </div>
 
-        {/* Trust Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-black/5 mb-8"
-        >
-          <Droplet className="w-4 h-4 text-[#2B5C92] fill-[#2B5C92]/20" />
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#0E2F76]">
-            Native to Sui
-          </span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          id="hero-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-          className="text-4xl md:text-5xl lg:text-[72px] font-bold tracking-tight text-[#0B1220] leading-[1] max-w-[1000px] mb-8"
-        >
-          Programmable Trust <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#0B1220] via-[#0E2F76] to-[#AAC0E1]">for the Sui Economy</span>
-        </motion.h1>
-
-        {/* Sub-headline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-          className="text-xl text-[#0B1220] max-w-[800px] mb-6 leading-relaxed font-medium"
-        >
-          Omen Labs is a Sui-native trust and reputation layer that helps users, wallets, and applications verify the builders behind protocols, contracts, and AI agents without sacrificing privacy.
-        </motion.p>
-
-        {/* Supporting line */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          className="text-lg text-[#4A5568] max-w-[700px] mb-12 leading-relaxed"
-        >
-          In Web3 you can verify code, but you cannot verify who built it. Omen Labs creates a permanent, non-transferable reputation layer for builders on Sui.
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto"
-        >
-          <Button variant="secondary" size="lg" className="w-full sm:w-auto px-10 glass-panel" onClick={openModal}>
-            Request Early Access
-          </Button>
-        </motion.div>
-
-        {/* Decorative elements */}
-        <div className="mt-32 relative w-full max-w-[1000px] flex items-center justify-center">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-gradient-to-r from-transparent via-[#AAC0E1]/10 to-transparent -rotate-12 blur-xl md:blur-3xl" />
-          <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[#0E2F76]/20 to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0E2F76]/40 blur-sm" />
+        {/* Hero Bottom Glow Line */}
+        <div className="mt-64 relative w-full flex items-center justify-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[500px] bg-gradient-to-r from-transparent via-primary/5 to-transparent -rotate-3 blur-[100px] opacity-30" />
+          <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         </div>
-
       </div>
     </section>
   );
