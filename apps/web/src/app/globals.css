@@ -113,60 +113,15 @@ body {
   }
 }
 
-/* ─── Atmospheric Background ───────────────────────────────────────────── */
+
+/* ─── Atmospheric Background — static, CSS-only ────────────────────────── */
 .atmos-bg {
   position: fixed;
   inset: 0;
   z-index: -10;
-  background: transparent;
   overflow: hidden;
 }
 
-.atmos-glow {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(at 20% 20%, rgba(255, 255, 255, 0.4) 0px, transparent 40%),
-    radial-gradient(at 80% 40%, rgba(170, 192, 225, 0.3) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(14, 47, 118, 0.1) 0px, transparent 60%);
-  filter: blur(10px); /* Radically Reduced blur for mobile */
-  transform: translateZ(0); /* Hardware accelerate */
-}
-
-@media (min-width: 768px) {
-  .atmos-glow {
-    filter: blur(60px);
-    animation: atmosFlow 25s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes atmosFlow {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.05) translate(1%, 1%); }
-}
-
-.atmos-wave {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle at center, rgba(245, 254, 255, 0.2) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -5;
-}
-
-@media (min-width: 768px) {
-  .atmos-wave {
-    animation: waveMotion 15s linear infinite;
-  }
-}
-
-@keyframes waveMotion {
-  0% { transform: rotate(0deg) translate(0, 0); }
-  50% { transform: rotate(180deg) translate(-5%, -5%); }
-  100% { transform: rotate(360deg) translate(0, 0); }
-}
 
 @keyframes fadeUp {
   from {
@@ -180,56 +135,45 @@ body {
 }
 
 
-/* ─── Premium Glassmorphism Redux ──────────────────────────────────────── */
+/* ─── Premium Glassmorphism ─────────────────────────────────────────────── */
+/* Blur is capped at 12px for mobile perf, 16px on desktop. No transition on backdrop-filter. */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 6px 15px rgba(14, 47, 118, 0.06);
-  transition: transform 200ms var(--ease-premium), box-shadow 200ms var(--ease-premium);
+  box-shadow: 0 4px 20px rgba(14, 47, 118, 0.07);
+  transition: box-shadow 200ms ease;
 }
 
 @media (min-width: 768px) {
   .glass-panel {
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 10px 30px rgba(14, 47, 118, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 6px 15px rgba(14, 47, 118, 0.06);
-  transition: transform 200ms var(--ease-premium), box-shadow 200ms var(--ease-premium), border-color 200ms var(--ease-premium);
+  box-shadow: 0 4px 20px rgba(14, 47, 118, 0.07);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 @media (min-width: 768px) {
   .glass-card {
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 10px 30px rgba(14, 47, 118, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 }
 
 .glass-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 30px 60px rgba(11, 18, 32, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(11, 18, 32, 0.1);
 }
 
 /* ─── Form elements ─────────────────────────────────────────────────────── */
@@ -253,8 +197,8 @@ body {
 }
 
 .omen-input:focus {
-  border-color: #EF4444;
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+  border-color: #43B6D5;
+  box-shadow: 0 0 0 3px rgba(67, 182, 213, 0.15);
   background: #FFFFFF;
 }
 
