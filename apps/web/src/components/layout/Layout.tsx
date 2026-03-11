@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "./Nav";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
@@ -51,12 +52,14 @@ export function Layout({ children }: LayoutProps) {
       <main className="relative z-10 flex-1 pt-28 pb-20">{children}</main>
       <footer className="relative z-10 border-t border-[rgba(14,47,118,0.08)] bg-white/20 py-12 backdrop-blur-xl">
         <div className="max-container flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="group flex items-center gap-3">
-            <div className="relative flex h-6 w-6 items-center justify-center">
-              <div className="absolute inset-0 rotate-45 rounded-md border-[2px] border-[#43B6D5] transition-transform duration-200 group-hover:rotate-90" />
-              <div className="h-2 w-2 rounded-[1px] bg-[#AAC0E1]" />
-            </div>
-            <span className="font-bold tracking-tight text-[#0B1220]">Omen</span>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/omen-logo.png"
+              alt="Omen"
+              width={48}
+              height={40}
+              className="h-9 w-auto object-contain"
+            />
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6">

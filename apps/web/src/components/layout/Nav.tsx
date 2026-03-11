@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -65,14 +66,15 @@ export function Nav() {
         ].join(" ")}>
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Omen home">
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="absolute inset-0 border-[3px] border-[#43B6D5] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-200" />
-              <div className="w-3 h-3 bg-gradient-to-tr from-[#2A8FA8] to-[#B3CDE0] rounded-sm" />
-            </div>
-            <span className="text-xl font-bold font-plus-jakarta tracking-tight text-[#0B1220]">
-              Omen
-            </span>
+          <Link href="/" className="flex items-center gap-2 group" aria-label="Omen home">
+            <Image
+              src="/omen-logo.png"
+              alt="Omen"
+              width={48}
+              height={40}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop links */}
