@@ -45,65 +45,72 @@ export function Nav() {
   }, []);
 
   const navLinks = [
-    { name: "Product", href: "/product" },
+    { name: "Product", href: "/#benefits" },
+    { name: "How it Works", href: "/#how-it-works" },
     { name: "Dashboard", href: "/dashboard" },
     { name: "Developers", href: "/developer" },
     { name: "Docs", href: "/docs" },
-    { name: "Whitepaper", href: "/whitepaper" },
   ];
 
   return (
     <nav
       className={[
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "py-4" : "py-6",
+        "fixed top-0 z-50 w-full transition-all duration-500",
+        scrolled ? "py-4" : "py-8",
       ].join(" ")}
     >
       <div className="max-container">
         <div className={[
-          "flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300",
-          scrolled ? "glass-panel" : "bg-transparent",
+          "flex items-center justify-between px-8 py-4 rounded-2xl transition-all duration-500",
+          scrolled ? "glass-panel bg-white/70 shadow-2xl" : "bg-transparent",
         ].join(" ")}>
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group" aria-label="Omen home">
+          <Link href="/" className="flex items-center gap-3 group transition-transform hover:scale-105 active:scale-95" aria-label="Omen home">
             <Image
               src="/omen-logo.png"
               alt="Omen"
-              width={48}
+              width={40}
               height={40}
-              className="h-10 w-auto object-contain"
+              className="h-9 w-auto object-contain"
               priority
             />
+            <div className="flex flex-col">
+              <span className="font-extrabold text-xl tracking-tighter text-[#0B1220] leading-none">OMEN</span>
+              <div className="flex items-center gap-1.5">
+                 <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">V2.0 Protocol</span>
+                 <div className="h-1 w-1 bg-[#27C93F] rounded-full animate-pulse shadow-[0_0_4px_#27C93F]" />
+                 <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[#27C93F]/80">Mainnet Live</span>
+              </div>
+            </div>
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => {
-              const isAnchor = link.href.startsWith("#");
+              const isAnchor = link.href.includes("#");
               return (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={(e) => {
-                    if (isAnchor) {
+                    if (isAnchor && window.location.pathname === '/') {
                       e.preventDefault();
-                      scrollToId(link.href.replace("#", ""));
-                      setIsOpen(false);
+                      scrollToId(link.href.split("#")[1]);
                     }
                   }}
-                  className="text-[15px] font-medium text-[#4A5568] hover:text-[#43B6D5] transition-colors duration-200"
+                  className="text-[13px] font-black uppercase tracking-[0.1em] text-[#475569] hover:text-[#43B6D5] transition-all duration-300 relative group"
                 >
                   {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#43B6D5] transition-all duration-300 group-hover:w-full" />
                 </Link>
               );
             })}
           </div>
 
-          {/* Desktop CTA + socials */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Social icons */}
-            <div className="flex items-center gap-3 mr-1">
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-6">
+            <div className="flex items-center gap-4">
               {navSocials.map(({ href, label, icon }) => (
                 <a
                   key={href}
@@ -111,24 +118,23 @@ export function Nav() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-[#4A5568] transition-all duration-200 hover:text-[#43B6D5] hover:drop-shadow-[0_0_6px_rgba(67,182,213,0.5)]"
+                  className="text-[#94A3B8] transition-all duration-300 hover:text-[#43B6D5] hover:scale-110"
                 >
                   {icon}
                 </a>
               ))}
             </div>
 
-            {/* Divider */}
-            <div className="h-5 w-px bg-[#0B1220]/10" />
+            <div className="h-6 w-px bg-black/[0.05]" />
 
-            <Button size="sm" onClick={openModal}>
+            <Button size="sm" className="h-10 px-6 font-bold bg-[#0B1220] hover:bg-[#0B1220]/90 text-white rounded-xl shadow-md hover:shadow-lg transition-all" onClick={openModal}>
               Request Early Access
             </Button>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-[#0B1220] rounded-md hover:bg-black/5 transition-colors"
+            className="lg:hidden p-2 text-[#0B1220] rounded-xl hover:bg-black/5 transition-all"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -140,54 +146,34 @@ export function Nav() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0, y: -10 }}
-              animate={{ height: "auto", opacity: 1, y: 0 }}
-              exit={{ height: 0, opacity: 0, y: -10 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="lg:hidden overflow-hidden glass-panel mt-4"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden absolute top-full left-0 w-full px-4 mt-4"
             >
-              <div className="flex flex-col gap-4 py-6 px-6">
-                {navLinks.map((link) => {
-                  const isAnchor = link.href.startsWith("#");
-                  return (
+              <div className="glass-panel bg-white p-8 space-y-8 shadow-2xl border-white rounded-[32px]">
+                <div className="flex flex-col gap-6">
+                  {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       href={link.href}
-                      onClick={(e) => {
-                        if (isAnchor) {
-                          e.preventDefault();
-                          scrollToId(link.href.replace("#", ""));
-                        }
-                        setIsOpen(false);
-                      }}
-                      className="text-lg font-medium text-[#0B1220] hover:text-[#43B6D5] transition-colors"
+                      onClick={() => setIsOpen(false)}
+                      className="text-2xl font-extrabold text-[#0B1220] hover:text-[#43B6D5] transition-colors"
                     >
                       {link.name}
                     </Link>
-                  );
-                })}
-                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-[rgba(11,18,32,0.1)]">
-                  <Button 
-                    className="w-full" 
-                    onClick={() => {
-                      setIsOpen(false);
-                      openModal();
-                    }}
-                  >
+                  ))}
+                </div>
+                
+                <div className="pt-8 border-t border-black/[0.05] space-y-8">
+                  <Button className="w-full h-14 text-lg font-bold rounded-2xl" onClick={() => { setIsOpen(false); openModal(); }}>
                     Request Early Access
                   </Button>
-
-                  {/* Mobile social icons */}
-                  <div className="flex items-center justify-center gap-6 pt-2">
+                  
+                  <div className="flex items-center justify-center gap-8">
                     {navSocials.map(({ href, label, icon }) => (
-                      <a
-                        key={href}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={label}
-                        className="text-[#4A5568] transition-all duration-200 hover:text-[#43B6D5]"
-                      >
+                      <a key={href} href={href} className="text-[#94A3B8] hover:text-[#43B6D5] scale-125">
                         {icon}
                       </a>
                     ))}

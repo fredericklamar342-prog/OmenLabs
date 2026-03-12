@@ -19,165 +19,173 @@ const sections = [
 export default function WhitepaperPage() {
   return (
     <Layout>
-      <div className="max-container py-16 lg:py-24">
-        
-        {/* Header */}
-        <div className="mb-20 animate-fade-up">
-           <div className="inline-flex items-center gap-3 px-4 py-2 glass-panel rounded-full mb-8 border border-[#43B6D5]/20">
-             <FileText className="w-4 h-4 text-[#43B6D5]" />
-             <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#43B6D5]">Technical Specification V2.0</span>
+      <div className="max-container py-24 sm:py-32">
+        <div className="flex flex-col items-center text-center mb-24 animate-fade-up">
+           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#43B6D5]/5 border border-[#43B6D5]/20 rounded-full mb-8">
+             <FileText className="w-3.5 h-3.5 text-[#43B6D5]" />
+             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">V2.0 Protocol Specification</span>
            </div>
-           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-[#0B1220] mb-8 uppercase leading-[0.9]">
+           
+           <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter text-[#0B1220] mb-10 leading-[0.85] text-balance">
              The Trust Primitive <br />
              <span className="text-gradient">for the Sui Stack.</span>
            </h1>
-           <p className="text-xl sm:text-2xl text-[#5B6B82] leading-relaxed max-w-3xl font-bold italic border-l-4 border-black/5 pl-8">
+           
+           <p className="text-xl md:text-2xl text-[#475569] max-w-4xl leading-relaxed font-medium">
              Solving the accountability crisis in on-chain finance and the agentic economy through Move-native reputation infrastructure.
            </p>
         </div>
 
-        <div className="flex flex-col lg:grid lg:grid-cols-[300px_1fr_300px] gap-12 lg:gap-20">
-          
-          {/* Navigation */}
-          <aside className="order-2 lg:order-1">
-             <div className="sticky top-32 glass-panel p-6 border-black/5">
+        <div className="grid lg:grid-cols-[280px_1fr_280px] gap-16 lg:gap-24 relative">
+          {/* Navigation Sidebar */}
+          <aside className="hidden lg:block order-1">
+             <div className="sticky top-40 space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#94A3B8] px-5 mb-4 italic">Protocol Architecture</p>
                 <nav className="flex flex-col gap-1">
-                   {sections.map(section => (
-                      <a key={section.id} href={`#${section.id}`} className="flex items-center justify-between group py-3 border-b border-black/[0.03] text-[11px] font-bold uppercase tracking-widest text-[#5B6B82] hover:text-[#43B6D5] transition-colors">
+                   {sections.map((section, i) => (
+                      <a 
+                        key={section.id} 
+                        href={`#${section.id}`} 
+                        className="flex items-center justify-between group px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-[#64748B] hover:text-[#43B6D5] transition-all hover:bg-white rounded-xl shadow-sm hover:shadow-md border border-transparent hover:border-black/[0.03]"
+                      >
                          <span>{section.title}</span>
-                         <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <div className="w-1.5 h-1.5 rounded-full bg-[#43B6D5]/20 group-hover:bg-[#43B6D5] transition-all" />
                       </a>
                    ))}
                 </nav>
              </div>
           </aside>
 
-          {/* Core Content */}
-          <article className="order-1 lg:order-2 space-y-32">
-             
+          {/* Main Content */}
+          <article className="order-2 space-y-48">
              {/* 1 Abstract */}
-             <section id="abstract" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Globe className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">1. Abstract</h2>
+             <section id="abstract" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Globe className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Abstract</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed font-medium">
-                  The Omen Labs protocol provides a decentralized reputation layer for the Sui ecosystem. By linking human founders to their autonomous agents via zkLogin verified OmenBadges, we establish a permanent accountability layer. The system utilizes Walrus for secure storage of large audit metadata and Move PTBs for on-chain enforcement.
-                </p>
+                <div className="space-y-6">
+                  <p className="text-xl text-[#475569] leading-relaxed font-medium">
+                    The Omen protocol provides a decentralized reputation layer for the Sui ecosystem. By linking human founders to their autonomous agents via zkLogin verified OmenBadges, we establish a permanent accountability layer. The system utilizes Walrus for secure storage of large audit metadata and Move PTBs for on-chain enforcement.
+                  </p>
+                </div>
              </section>
 
              {/* 2 Identity Primitive */}
-             <section id="identity" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Shield className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">2. Identity Primitive</h2>
+             <section id="identity" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Shield className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Identity Primitive</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  The foundation of the protocol is the <strong>OmenBadge</strong>, a soulbound identity object that cannot be transferred or sold.
-                </p>
-                <div className="bg-white/50 p-6 border border-black/5 rounded-2xl italic text-sm text-[#0B1220]">
-                  "Reputation is not a commodity. By making the identity object immobile at the Move bytecode level, we ensure trust belongs to the builder, not the highest bidder."
+                <div className="space-y-8">
+                  <p className="text-xl text-[#475569] leading-relaxed font-medium">
+                    The foundation of the protocol is the <strong>OmenBadge</strong>, a soulbound identity object that cannot be transferred or sold.
+                  </p>
+                  <div className="p-10 glass-card border-white bg-white/40 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-[#43B6D5]" />
+                    <p className="text-lg md:text-xl font-bold text-[#0B1220] italic relative z-10">
+                      "Reputation is not a commodity. By making the identity object immobile at the Move bytecode level, we ensure trust belongs to the builder, not the highest bidder."
+                    </p>
+                  </div>
                 </div>
              </section>
 
              {/* 3 Seek / Remit Architecture */}
-             <section id="seek-remit" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Zap className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">3. Seek / Remit Architecture</h2>
+             <section id="seek-remit" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Zap className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Seek / Remit Architecture</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
                   The system operates as a read/write primitive. <strong>Seek</strong> refers to wallets and apps querying the OmenRegistry in real-time. <strong>Remit</strong> refers to security tools pushing audit results back into the builder's score.
                 </p>
              </section>
 
              {/* 4 Storage Layer */}
-             <section id="storage" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Server className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">4. Storage Layer</h2>
+             <section id="storage" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Server className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Storage Layer</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  Heavy metadata—such as raw JSON outputs from AI code audits—is stored on the <strong>Walrus Protocol</strong>. OmenBadges store a 256-bit hash and a Blob ID using Sui Dynamic Fields.
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
+                  Heavy metadata—such as raw JSON outputs from AI code audits—is stored via <strong>Walrus Protocol</strong>. OmenBadges store a 256-bit hash and a Blob ID using Sui Dynamic Fields, ensuring O(1) verification efficiency.
                 </p>
              </section>
 
              {/* 5 Execution Layer */}
-             <section id="execution" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Droplets className="w-5 h-5" style={{ color: '#43B6D5' }}/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">5. Execution Layer</h2>
+             <section id="execution" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Droplets className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Execution Layer</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  Omen integrates with <strong>DeepBook V3</strong> to gate trading pools. Protocols can enforce a minimum trust score before allowing a builder to create or manage a liquidity pool.
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
+                  Omen integrates with <strong>DeepBook V3</strong> to gate trading pools. Protocols can enforce a minimum trust score before allowing a builder to create or manage a liquidity pool, preventing initial seed attacks.
                 </p>
              </section>
 
              {/* 6 AI Oracle Interface */}
-             <section id="ai-oracle" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Cpu className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">6. AI Oracle Interface</h2>
+             <section id="ai-oracle" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Cpu className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">AI Oracle Interface</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  The <strong>MCP Server</strong> acts as an Oracle, translating complex on-chain reputation data into machine-readable scores for LLM-based agents and trading bots.
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
+                  The <strong>MCP Server</strong> acts as an Oracle, translating complex on-chain reputation data into machine-readable scores for LLM-based autonomous agents and trading bots.
                 </p>
              </section>
 
              {/* 7 Agent Lineage Graph */}
-             <section id="agent-lineage" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Users className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">7. Agent Lineage Graph</h2>
+             <section id="agent-lineage" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Users className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Agent Lineage Graph</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  AI child agents are cryptographically linked to their creators. Malicious behavior at the agent level results in automatic <strong>reputation slashing</strong> for the parent founder badge.
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
+                  AI child agents are cryptographically linked to their creators. Malicious behavior at the agent level results in automatic <strong>reputation slashing</strong> for the parent founder badge, maintaining cross-generational accountability.
                 </p>
              </section>
 
              {/* 8 Resilience Infrastructure */}
-             <section id="resilience" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Activity className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">8. Resilience Infrastructure</h2>
+             <section id="resilience" className="scroll-mt-48 space-y-12 animate-fade-up">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Activity className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Resilience Infrastructure</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  The OmenRegistry uses a hybrid indexing model with a custom PostgreSQL stack and failover RPC polling to ensure 100% data availability for B2B partners.
+                <p className="text-lg text-[#475569] leading-relaxed font-medium">
+                  The OmenRegistry uses a hybrid indexing model with a custom PostgreSQL stack and failover RPC polling to ensure high data availability for institutional B2B partners.
                 </p>
              </section>
 
              {/* 9 Conclusion */}
-             <section id="conclusion" className="scroll-mt-32 space-y-6">
-                <div className="flex items-center gap-4 mb-8 border-b border-black/5 pb-4">
-                   <div className="w-10 h-10 bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] rounded-xl"><Bookmark className="w-5 h-5"/></div>
-                   <h2 className="text-3xl font-black text-[#0B1220] uppercase m-0">9. Conclusion</h2>
+             <section id="conclusion" className="scroll-mt-48 space-y-12 animate-fade-up pb-32">
+                <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Bookmark className="w-6 h-6"/></div>
+                   <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Conclusion</h2>
                 </div>
-                <p className="text-lg text-subtext leading-relaxed">
-                  Omen Labs is the trust infrastructure standard for the sui-native agentic economy. By making reputation programmatic and non-transferable, we ensure that as the ecosystem grows, accountability remains central to every transaction.
+                <p className="text-xl text-[#475569] leading-relaxed font-medium">
+                  Omen is the trust infrastructure standard for the sui-native agentic economy. By making reputation programmatic and non-transferable, we ensure that as the ecosystem grows, accountability remains central to every transaction.
                 </p>
              </section>
-
           </article>
 
-          {/* Resources & Download */}
-          <aside className="order-3 block">
-             <div className="sticky top-32 space-y-6">
-                <div className="glass-panel p-6 border-black/5 space-y-4">
-                   <h4 className="text-xs font-black uppercase text-[#0B1220] tracking-widest">Resources</h4>
-                   <p className="text-xs text-subtext leading-relaxed">Get the full cryptographic proof and implementation details as a PDF.</p>
-                   <Button className="w-full bg-[#43B6D5] text-white border-none text-[11px] h-10 flex gap-2">
+          {/* Resources Sidebar */}
+          <aside className="hidden xl:block order-3">
+             <div className="sticky top-40 space-y-6">
+                <div className="glass-card p-8 border-white bg-white/40 shadow-xl space-y-6">
+                   <h4 className="text-[10px] font-black uppercase text-[#0B1220] tracking-[0.3em]">Documentation</h4>
+                   <p className="text-xs text-[#475569] font-medium leading-relaxed">Download the complete cryptographic proof of the Omen Reputation V2.0 standard.</p>
+                   <Button className="w-full bg-[#0B1220] hover:bg-[#0B1220]/90 text-white border-none text-[11px] font-bold h-12 rounded-xl flex gap-2 shadow-lg transition-all">
                       <Download className="w-4 h-4" /> Download PDF
                    </Button>
                 </div>
-                <div className="glass-panel p-6 border-black/5 space-y-4">
-                   <h4 className="text-xs font-black uppercase text-[#0B1220] tracking-widest">Share Spec</h4>
-                   <Button variant="secondary" className="w-full text-[11px] h-10 flex gap-2 glass-panel border-black/5 bg-transparent shadow-none hover:bg-black/5">
-                      <Share2 className="w-4 h-4" /> Copy Link
+                <div className="glass-card p-8 border-white bg-white/40 shadow-xl space-y-6">
+                   <h4 className="text-[10px] font-black uppercase text-[#0B1220] tracking-[0.3em]">Institutional Access</h4>
+                   <Button variant="secondary" className="w-full text-[11px] font-bold h-12 rounded-xl flex gap-2 border-black/[0.03] bg-white shadow-sm hover:shadow-md transition-all">
+                      <Share2 className="w-4 h-4" /> Share Specification
                    </Button>
                 </div>
              </div>
           </aside>
-
         </div>
       </div>
     </Layout>

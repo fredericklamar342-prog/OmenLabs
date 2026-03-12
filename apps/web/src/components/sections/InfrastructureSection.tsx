@@ -5,26 +5,30 @@ import { UserCheck, Zap, Database, Droplets } from "lucide-react";
 
 const pillars = [
   {
-    title: "Identity Layer",
-    description: "zkLogin verifies builder identities without compromising privacy.",
+    title: "Identity",
+    subtitle: "zkLogin connects real developer reputation",
+    description: "Verified builder identities are linked securely to on-chain reputation objects.",
     icon: UserCheck,
     tag: "zkLogin",
   },
   {
-    title: "Execution Layer",
-    description: "Move PTBs enforce trust checks before any transaction executes.",
+    title: "Execution",
+    subtitle: "Move PTBs enforce trust checks",
+    description: "Programmable Transaction Blocks ensure no code execution happens without a reputation audit.",
     icon: Zap,
     tag: "Move PTB",
   },
   {
-    title: "Storage Layer",
-    description: "Walrus Protocol stores heavy security audit data off-chain.",
+    title: "Storage",
+    subtitle: "Walrus stores audit data",
+    description: "High-integrity security audits are stored with cryptographic proofs of existence.",
     icon: Database,
     tag: "Walrus",
   },
   {
-    title: "Liquidity Layer",
-    description: "DeepBook V3 integrations protect traders through score gating.",
+    title: "Liquidity",
+    subtitle: "DeepBook integrations protect traders",
+    description: "DEX protocols utilize reputation scores to protect capital from malicious actors.",
     icon: Droplets,
     tag: "DeepBook",
   },
@@ -32,43 +36,45 @@ const pillars = [
 
 export function InfrastructureSection() {
   return (
-    <section className="py-24 md:py-32 border-y border-black/[0.05] bg-transparent relative z-10 overflow-hidden">
+    <section className="py-32 md:py-48 bg-[#F8FAFC]/50 relative z-10 overflow-hidden border-y border-black/[0.02]" aria-labelledby="infra-title">
       <div className="max-container flex flex-col items-center">
         
-        {/* Header */}
-        <div className="text-center mb-20 animate-fade-up">
-           <span className="text-[11px] font-bold tracking-widest text-[#43B6D5] uppercase mb-4 inline-block">Integrations</span>
-           <h2 className="text-3xl md:text-5xl font-bold text-[#0B1220] uppercase tracking-tighter">Built on the Sui Stack.</h2>
+        <div className="text-center mb-24 animate-fade-up">
+          <span className="text-[10px] font-black tracking-[0.2em] text-[#43B6D5] uppercase mb-6 inline-block">
+            Ecosystem Integration
+          </span>
+          <h2 id="infra-title" className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#0B1220]">
+            Built on the Sui Stack
+          </h2>
         </div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {pillars.map((pillar, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card p-6 border border-white/50 group hover:bg-white/40 transition-colors shadow-sm"
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card p-8 group hover:bg-white transition-all duration-500 border-white/40"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 border border-[#43B6D5]/10 flex items-center justify-center rounded-xl bg-[#43B6D5]/5">
-                  <pillar.icon className="w-5 h-5 text-[#43B6D5]" />
+              <div className="flex items-center justify-between mb-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#43B6D5]/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#43B6D5] transition-all duration-500">
+                  <pillar.icon className="w-6 h-6 text-[#43B6D5] group-hover:text-white transition-colors" />
                 </div>
-                <div className="bg-[#43B6D5]/10 px-2 py-0.5 rounded text-[10px] font-bold text-[#43B6D5] uppercase">
+                <div className="px-3 py-1 bg-white border border-black/5 rounded-full text-[10px] font-black text-[#94A3B8] group-hover:text-[#43B6D5] transition-colors">
                   {pillar.tag}
                 </div>
               </div>
               
-              <h3 className="text-xl font-bold text-[#0B1220] mb-3">{pillar.title}</h3>
-              <p className="text-sm text-[#4A5568] leading-relaxed">
+              <h3 className="text-2xl font-black text-[#0B1220] mb-2">{pillar.title}</h3>
+              <div className="text-xs font-bold text-[#43B6D5] uppercase tracking-wide mb-6">{pillar.subtitle}</div>
+              <p className="text-sm text-[#475569] leading-relaxed font-medium">
                 {pillar.description}
               </p>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

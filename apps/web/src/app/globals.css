@@ -73,43 +73,44 @@ body {
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-plus-jakarta);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    font-family: var(--font-inter);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
     color: var(--foreground);
   }
 
   h1 {
-    font-size: clamp(34px, 8vw, 64px);
+    font-size: clamp(40px, 8vw, 84px);
     margin-bottom: 24px;
-    background: linear-gradient(135deg, #0B1220 0%, #0E2F76 100%);
+    background: linear-gradient(to bottom, #0B1220 0%, #4A5568 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   h2 {
-    font-size: clamp(28px, 5vw, 40px);
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 24px;
+    font-weight: 800;
   }
 
   h3 {
-    font-size: clamp(20px, 3vw, 24px);
+    font-size: clamp(24px, 3vw, 28px);
     margin-bottom: 16px;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   p {
     line-height: 1.6;
     color: var(--body);
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: 16px;
   }
 
   a {
-    transition: color var(--duration-interaction) var(--ease-premium);
-    color: #0E2F76;
+    transition: all var(--duration-interaction) var(--ease-premium);
+    color: #43B6D5;
+    text-decoration: none;
   }
 }
 
@@ -136,70 +137,61 @@ body {
 
 
 /* ─── Premium Glassmorphism ─────────────────────────────────────────────── */
-/* Blur is capped at 12px for mobile perf, 16px on desktop. No transition on backdrop-filter. */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(14, 47, 118, 0.07);
-  transition: box-shadow 200ms ease;
-}
-
-@media (min-width: 768px) {
-  .glass-panel {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s var(--ease-premium);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(14, 47, 118, 0.07);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-@media (min-width: 768px) {
-  .glass-card {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s var(--ease-premium);
 }
 
 .glass-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(11, 18, 32, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  border-color: rgba(67, 182, 213, 0.2);
+}
+
+/* ─── Utils ────────────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #43B6D5 0%, #2B5C92 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ─── Form elements ─────────────────────────────────────────────────────── */
 .omen-input {
   width: 100%;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid #E5E7EB;
+  padding: 14px 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 15px;
   color: #0B1220;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   outline: none;
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s var(--ease-premium);
 }
 
 .omen-input::placeholder {
-  color: #5B6B82;
+  color: #94A3B8;
 }
 
 .omen-input:focus {
   border-color: #43B6D5;
-  box-shadow: 0 0 0 3px rgba(67, 182, 213, 0.15);
-  background: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(67, 182, 213, 0.1);
 }
 
 /* ─── Layout Utils ──────────────────────────────────────────────────────── */

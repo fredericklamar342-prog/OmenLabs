@@ -69,7 +69,7 @@ export function Layout({ children }: LayoutProps) {
                   height={40}
                   className="h-10 w-auto object-contain"
                 />
-                <span className="text-xl font-black uppercase tracking-tighter">Omen <span className="text-[#43B6D5]">Labs</span></span>
+                <span className="text-xl font-black uppercase tracking-tighter">OMEN</span>
               </div>
               <p className="text-sm text-[#5B6B82] font-medium leading-relaxed max-w-sm">
                 The trust primitive for the Sui Stack. Solving accountability in on-chain finance and the agentic economy through Move-native reputation infrastructure.
@@ -142,7 +142,7 @@ export function Layout({ children }: LayoutProps) {
 
           <div className="flex flex-col md:flex-row items-center justify-between border-t border-black/5 pt-12 gap-8">
             <div className="flex flex-col md:flex-row items-center gap-6">
-               <p className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40">&copy; {new Date().getFullYear()} Omen Labs. All Rights Reserved.</p>
+               <p className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40">&copy; {new Date().getFullYear()} Omen. All Rights Reserved.</p>
                <Link href="/privacy" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Privacy</Link>
                <Link href="/terms" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Terms</Link>
             </div>
