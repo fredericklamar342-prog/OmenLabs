@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock } from "lucide-react";
+import { Lock01 } from "@untitled-ui/icons-react";
 
 export function VisionSection() {
   return (
     <section className="py-24 md:py-48 bg-transparent flex flex-col items-center text-center px-4 relative z-10">
       <div className="flex flex-col items-center animate-fade-up">
-        <Lock className="w-10 h-10 text-[#43B6D5]/10 mb-8" aria-hidden="true" />
+        <Lock01 className="w-10 h-10 text-[#43B6D5]/10 mb-8" aria-hidden="true" />
         <h2 className="text-3xl md:text-6xl font-black tracking-tight max-w-5xl mb-12 text-[#0B1220] uppercase leading-[1.1]">
           "Programmatic <span className="text-gradient">Accountability</span> <br /> 
           for the Agentic Web."
@@ -30,7 +30,7 @@ export function VisionSection() {
 
         <div className="h-[2px] w-16 bg-gradient-to-r from-[#2A8FA8] to-[#43B6D5] rounded-full mb-6" />
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4A5568]">
-          The Omen Labs V2.0 Vision
+          The Omen Labs Private Alpha V1.0 Vision
         </p>
       </div>
     </section>

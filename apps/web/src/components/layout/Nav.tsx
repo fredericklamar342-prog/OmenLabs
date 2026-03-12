@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { Menu, X } from "lucide-react";
+import { Menu01, XClose } from "@untitled-ui/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { scrollToId } from "@/utils/scroll";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
@@ -76,11 +76,9 @@ export function Nav() {
               priority
             />
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tighter text-[#0B1220] leading-none">OMEN</span>
+              <span className="font-black text-xl tracking-tighter text-[#0B1220] leading-none">OMEN</span>
               <div className="flex items-center gap-1.5">
-                 <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">V2.0 Protocol</span>
-                 <div className="h-1 w-1 bg-[#27C93F] rounded-full animate-pulse shadow-[0_0_4px_#27C93F]" />
-                 <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[#27C93F]/80">Mainnet Live</span>
+                 <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">Private Alpha V1.0</span>
               </div>
             </div>
           </Link>
@@ -138,7 +136,7 @@ export function Nav() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <XClose className="w-6 h-6" /> : <Menu01 className="w-6 h-6" />}
           </button>
         </div>
 

@@ -2,38 +2,38 @@
 
 import { motion } from "framer-motion";
 import { FeatureCard } from "@/components/ui/FeatureCard";
-import { Users, ShieldAlert, BadgeCheck, Network } from "lucide-react";
+import { UserCheck01, AlertCircle, CheckCircle, CpuChip01 } from "@untitled-ui/icons-react";
 
 const benefits = [
   {
     title: "Know Who Built a Protocol",
     description: "Omen links developer reputation to on-chain identities so users can verify the builders behind any protocol.",
-    icon: Users,
+    icon: UserCheck01,
     tag: "Transparency"
   },
   {
     title: "Stop Risky Transactions",
     description: "Wallets and apps can check a protocol’s trust score before executing transactions, preventing interaction with malicious code.",
-    icon: ShieldAlert,
+    icon: AlertCircle,
     tag: "Security"
   },
   {
     title: "Build Verifiable Reputation",
     description: "Developers receive a permanent soulbound identity badge proving their credibility across the entire Sui ecosystem.",
-    icon: BadgeCheck,
+    icon: CheckCircle,
     tag: "Identity"
   },
   {
     title: "Accountable AI Agents",
     description: "Autonomous agents inherit the reputation of their creators to prevent anonymous algorithmic attacks.",
-    icon: Network,
+    icon: CpuChip01,
     tag: "Agentic Economy"
   },
 ];
 
 export function BenefitsSection() {
   return (
-    <section className="py-32 md:py-48 relative overflow-hidden bg-white/30 backdrop-blur-sm border-y border-black/[0.03]" aria-labelledby="benefits-title">
+    <section id="benefits" className="py-32 md:py-48 relative overflow-hidden bg-white/30 backdrop-blur-sm border-y border-black/[0.03]" aria-labelledby="benefits-title">
       <div className="max-container">
         <div className="flex flex-col items-center text-center mb-24 animate-fade-up">
           <span className="text-[10px] font-black tracking-[0.2em] text-[#43B6D5] uppercase mb-6">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Layout } from "@/components/layout/Layout";
-import { Download, Share2, Globe, Shield, Zap, Server, Cpu, Users, Activity, FileText, ChevronRight, Bookmark, Droplets } from "lucide-react";
+import { File02, UserCheck01, LayersThree01, Database01, Zap, CpuChip01, Activity, ShieldTick, CheckCircle, Download01, Share01, Users01 } from "@untitled-ui/icons-react";
 import { Button } from "@/components/ui/Button";
 
 const sections = [
@@ -22,8 +22,8 @@ export default function WhitepaperPage() {
       <div className="max-container py-24 sm:py-32">
         <div className="flex flex-col items-center text-center mb-24 animate-fade-up">
            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#43B6D5]/5 border border-[#43B6D5]/20 rounded-full mb-8">
-             <FileText className="w-3.5 h-3.5 text-[#43B6D5]" />
-             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">V2.0 Protocol Specification</span>
+             <File02 className="w-3.5 h-3.5 text-[#43B6D5]" />
+             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">Private Alpha V1.0 Specification</span>
            </div>
            
            <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter text-[#0B1220] mb-10 leading-[0.85] text-balance">
@@ -61,7 +61,7 @@ export default function WhitepaperPage() {
              {/* 1 Abstract */}
              <section id="abstract" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Globe className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><File02 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Abstract</h2>
                 </div>
                 <div className="space-y-6">
@@ -74,7 +74,7 @@ export default function WhitepaperPage() {
              {/* 2 Identity Primitive */}
              <section id="identity" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Shield className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><UserCheck01 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Identity Primitive</h2>
                 </div>
                 <div className="space-y-8">
@@ -104,7 +104,7 @@ export default function WhitepaperPage() {
              {/* 4 Storage Layer */}
              <section id="storage" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Server className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Database01 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Storage Layer</h2>
                 </div>
                 <p className="text-lg text-[#475569] leading-relaxed font-medium">
@@ -115,7 +115,7 @@ export default function WhitepaperPage() {
              {/* 5 Execution Layer */}
              <section id="execution" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Droplets className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><LayersThree01 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Execution Layer</h2>
                 </div>
                 <p className="text-lg text-[#475569] leading-relaxed font-medium">
@@ -126,7 +126,7 @@ export default function WhitepaperPage() {
              {/* 6 AI Oracle Interface */}
              <section id="ai-oracle" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Cpu className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><CpuChip01 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">AI Oracle Interface</h2>
                 </div>
                 <p className="text-lg text-[#475569] leading-relaxed font-medium">
@@ -137,7 +137,7 @@ export default function WhitepaperPage() {
              {/* 7 Agent Lineage Graph */}
              <section id="agent-lineage" className="scroll-mt-48 space-y-12 animate-fade-up">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Users className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Users01 className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Agent Lineage Graph</h2>
                 </div>
                 <p className="text-lg text-[#475569] leading-relaxed font-medium">
@@ -159,7 +159,7 @@ export default function WhitepaperPage() {
              {/* 9 Conclusion */}
              <section id="conclusion" className="scroll-mt-48 space-y-12 animate-fade-up pb-32">
                 <div className="flex items-center gap-6 pb-6 border-b border-black/[0.05]">
-                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><Bookmark className="w-6 h-6"/></div>
+                   <div className="w-12 h-12 bg-[#0B1220] flex items-center justify-center text-white rounded-xl shadow-xl"><CheckCircle className="w-6 h-6"/></div>
                    <h2 className="text-4xl font-extrabold text-[#0B1220] tracking-tight">Conclusion</h2>
                 </div>
                 <p className="text-xl text-[#475569] leading-relaxed font-medium">
@@ -173,15 +173,15 @@ export default function WhitepaperPage() {
              <div className="sticky top-40 space-y-6">
                 <div className="glass-card p-8 border-white bg-white/40 shadow-xl space-y-6">
                    <h4 className="text-[10px] font-black uppercase text-[#0B1220] tracking-[0.3em]">Documentation</h4>
-                   <p className="text-xs text-[#475569] font-medium leading-relaxed">Download the complete cryptographic proof of the Omen Reputation V2.0 standard.</p>
+                   <p className="text-xs text-[#475569] font-medium leading-relaxed">Download the complete cryptographic proof of the Omen Reputation Private Alpha V1.0 standard.</p>
                    <Button className="w-full bg-[#0B1220] hover:bg-[#0B1220]/90 text-white border-none text-[11px] font-bold h-12 rounded-xl flex gap-2 shadow-lg transition-all">
-                      <Download className="w-4 h-4" /> Download PDF
+                      <Download01 className="w-4 h-4" /> Download PDF
                    </Button>
                 </div>
                 <div className="glass-card p-8 border-white bg-white/40 shadow-xl space-y-6">
                    <h4 className="text-[10px] font-black uppercase text-[#0B1220] tracking-[0.3em]">Institutional Access</h4>
                    <Button variant="secondary" className="w-full text-[11px] font-bold h-12 rounded-xl flex gap-2 border-black/[0.03] bg-white shadow-sm hover:shadow-md transition-all">
-                      <Share2 className="w-4 h-4" /> Share Specification
+                      <Share01 className="w-4 h-4" /> Share Specification
                    </Button>
                 </div>
              </div>

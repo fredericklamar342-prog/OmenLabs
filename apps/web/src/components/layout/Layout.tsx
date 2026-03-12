@@ -52,26 +52,25 @@ export function Layout({ children }: LayoutProps) {
       
       <main className="relative z-10 flex-1 pt-28 pb-20">{children}</main>
 
-      <footer className="relative z-10 bg-white/40 border-t border-black/5 backdrop-blur-3xl pt-24 pb-12 overflow-hidden">
+      <footer className="relative z-10 bg-white/60 border-t border-black/[0.03] backdrop-blur-3xl pt-32 pb-16 overflow-hidden">
         {/* Subtle Background Accent */}
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-[#43B6D5]/5 to-transparent -z-10" />
+        <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-[#43B6D5]/10 to-transparent -z-10" />
         
         <div className="max-container">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 mb-24">
             
-            {/* Brand Column */}
-            <div className="col-span-2 lg:col-span-2 space-y-8 pr-8">
-              <div className="flex items-center gap-3">
+            <div className="col-span-2 lg:col-span-2 space-y-10 pr-12">
+              <div className="flex items-center gap-3.5 group/logo cursor-default">
                 <Image
                   src="/omen-logo.png"
                   alt="Omen"
                   width={48}
                   height={40}
-                  className="h-10 w-auto object-contain"
+                  className="h-11 w-auto object-contain transition-transform group-hover/logo:scale-110"
                 />
-                <span className="text-xl font-black uppercase tracking-tighter">OMEN</span>
+                <span className="text-2xl font-black uppercase tracking-tighter text-[#0B1220]">OMEN</span>
               </div>
-              <p className="text-sm text-[#5B6B82] font-medium leading-relaxed max-w-sm">
+              <p className="text-[13px] text-[#5B6B82] font-semibold leading-relaxed max-w-sm">
                 The trust primitive for the Sui Stack. Solving accountability in on-chain finance and the agentic economy through Move-native reputation infrastructure.
               </p>
               <div className="flex items-center gap-4">
@@ -91,9 +90,9 @@ export function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Sitemap Columns */}
-            <div className="space-y-6">
-              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Protocol</h4>
-              <ul className="space-y-3">
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#0B1220]">Protocol</h4>
+              <ul className="space-y-4">
                 {[
                   { name: "Overview", href: "/product" },
                   { name: "Dashboard", href: "/dashboard" },
@@ -101,15 +100,18 @@ export function Layout({ children }: LayoutProps) {
                   { name: "Audit Trail", href: "/dashboard" }
                 ].map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                    <Link href={link.href} className="text-[13px] font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-all flex items-center gap-2 group/link">
+                      <span className="w-0 h-px bg-[#43B6D5] transition-all group-hover/link:w-2" />
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-6">
-              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Developers</h4>
-              <ul className="space-y-3">
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#0B1220]">Developers</h4>
+              <ul className="space-y-4">
                 {[
                   { name: "Documentation", href: "/docs" },
                   { name: "SDK Reference", href: "/docs#sdk" },
@@ -117,15 +119,18 @@ export function Layout({ children }: LayoutProps) {
                   { name: "MCP Server", href: "/docs#mcp" }
                 ].map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                    <Link href={link.href} className="text-[13px] font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-all flex items-center gap-2 group/link">
+                      <span className="w-0 h-px bg-[#43B6D5] transition-all group-hover/link:w-2" />
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-6">
-              <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Company</h4>
-              <ul className="space-y-3">
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#0B1220]">Company</h4>
+              <ul className="space-y-4">
                 {[
                   { name: "About Omen", href: "/" },
                   { name: "Whitepaper", href: "/whitepaper" },
@@ -133,27 +138,30 @@ export function Layout({ children }: LayoutProps) {
                   { name: "Blog", href: "/blog" }
                 ].map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-xs font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-colors">{link.name}</Link>
+                    <Link href={link.href} className="text-[13px] font-bold text-[#5B6B82] hover:text-[#43B6D5] transition-all flex items-center gap-2 group/link">
+                      <span className="w-0 h-px bg-[#43B6D5] transition-all group-hover/link:w-2" />
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between border-t border-black/5 pt-12 gap-8">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-               <p className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40">&copy; {new Date().getFullYear()} Omen. All Rights Reserved.</p>
-               <Link href="/privacy" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Privacy</Link>
-               <Link href="/terms" className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/40 hover:text-[#43B6D5]">Terms</Link>
+          <div className="flex flex-col md:flex-row items-center justify-between border-t border-black/[0.03] pt-12 gap-8">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-10 gap-y-4">
+               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5B6B82]/50 italic">&copy; {new Date().getFullYear()} OMEN. ALL RIGHTS RESERVED.</p>
+               <div className="flex gap-8">
+                 <Link href="/privacy" className="text-[11px] font-black uppercase tracking-[0.15em] text-[#5B6B82]/60 hover:text-[#43B6D5] transition-colors underline decoration-transparent hover:decoration-[#43B6D5] underline-offset-4">Privacy</Link>
+                 <Link href="/terms" className="text-[11px] font-black uppercase tracking-[0.15em] text-[#5B6B82]/60 hover:text-[#43B6D5] transition-colors underline decoration-transparent hover:decoration-[#43B6D5] underline-offset-4">Terms</Link>
+               </div>
             </div>
             
-            <div className="flex items-center gap-6">
-               <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#5B6B82]/60">Sui Mainnet Live</span>
-               </div>
-               <div className="h-4 w-px bg-black/5 hidden md:block" />
-               <span className="text-[10px] font-black uppercase tracking-widest text-[#43B6D5]/80 hover:scale-105 transition-transform cursor-default">Status: OMEN_PROTOCOL_V2_STABLE</span>
+            <div className="flex items-center">
+                <div className="flex items-center gap-3 px-5 py-2.5 bg-[#43B6D5]/5 border border-[#43B6D5]/10 rounded-full hover:bg-[#43B6D5]/10 transition-all group cursor-default shadow-sm">
+                  <div className="w-2 h-2 rounded-full bg-[#43B6D5] animate-pulse shadow-[0_0_8px_#43B6D5]" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#43B6D5] group-hover:scale-105 transition-all">Status: OMEN_TESTNET_ACTIVE</span>
+                </div>
             </div>
           </div>
         </div>

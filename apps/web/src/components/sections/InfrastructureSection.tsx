@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserCheck, Zap, Database, Droplets } from "lucide-react";
+import { UserCheck01, Zap, Database01, Activity } from "@untitled-ui/icons-react";
 
 const pillars = [
   {
     title: "Identity",
     subtitle: "zkLogin connects real developer reputation",
     description: "Verified builder identities are linked securely to on-chain reputation objects.",
-    icon: UserCheck,
+    icon: UserCheck01,
     tag: "zkLogin",
   },
   {
@@ -22,14 +22,14 @@ const pillars = [
     title: "Storage",
     subtitle: "Walrus stores audit data",
     description: "High-integrity security audits are stored with cryptographic proofs of existence.",
-    icon: Database,
+    icon: Database01,
     tag: "Walrus",
   },
   {
     title: "Liquidity",
     subtitle: "DeepBook integrations protect traders",
     description: "DEX protocols utilize reputation scores to protect capital from malicious actors.",
-    icon: Droplets,
+    icon: Activity,
     tag: "DeepBook",
   },
 ];

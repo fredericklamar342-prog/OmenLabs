@@ -38,7 +38,7 @@ export function BottomCta() {
 
           <div className="flex flex-col items-center gap-12 mt-32">
             <div className="h-32 w-px bg-gradient-to-b from-black/[0.08] to-transparent" />
-            <p className="text-[10px] font-black uppercase tracking-[0.6em] text-[#94A3B8]">Production V2.0 Pulse — Verified by Sui Mainnet</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.6em] text-[#94A3B8]">Private Alpha V1.0 Pulse — Verified by Sui Testnet</p>
           </div>
         </div>
       </div>

@@ -4,34 +4,34 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  ShieldCheck, 
-  LayoutDashboard, 
+  ShieldTick, 
+  LayoutGrid02, 
   CheckCircle, 
-  FileText, 
-  Settings, 
-  UploadCloud, 
+  File02, 
+  Settings01, 
+  UploadCloud01, 
   Activity,
-  Menu,
-  X,
-  LogOut,
-  Bell,
+  Menu01,
+  XClose,
+  LogOut01,
+  Bell01,
   ChevronRight,
-  GitBranch,
-  Database,
-  Search,
-  AlertTriangle,
-  Info
-} from "lucide-react";
+  GitBranch01,
+  Database01,
+  SearchLg,
+  AlertCircle,
+  HelpCircle
+} from "@untitled-ui/icons-react";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SIDEBAR_LINKS = [
-  { name: "Overview",       icon: LayoutDashboard, href: "#", active: true },
-  { name: "OmenBadge",      icon: ShieldCheck,     href: "#" },
-  { name: "Agent Lineage",  icon: GitBranch,       href: "#" },
-  { name: "Walrus Storage", icon: Database,        href: "#" },
+  { name: "Overview",       icon: LayoutGrid02,      href: "#", active: true },
+  { name: "OmenBadge",      icon: ShieldTick,      href: "#" },
+  { name: "Agent Lineage",  icon: GitBranch01,     href: "#" },
+  { name: "Walrus Storage", icon: Database01,      href: "#" },
   { name: "My Protocols",   icon: Activity,        href: "#" },
-  { name: "Developer Settings", icon: Settings,    href: "#" },
+  { name: "Developer Settings", icon: Settings01,  href: "#" },
 ];
 
 const RECENT_ALERTS = [
@@ -73,7 +73,7 @@ export default function DashboardPage() {
             <Image src="/omen-logo.png" alt="Omen" width={32} height={32} className="h-8 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="font-black text-lg tracking-tighter uppercase leading-none">Omen</span>
-              <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">V2.0 Protocol</span>
+              <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#43B6D5]">Private Alpha V1.0</span>
             </div>
           </Link>
           <button
@@ -81,7 +81,7 @@ export default function DashboardPage() {
             onClick={() => setSidebarOpen(false)}
             aria-label="Close menu"
           >
-            <X className="w-5 h-5" />
+            <XClose className="w-5 h-5" />
           </button>
         </div>
 
@@ -123,7 +123,7 @@ export default function DashboardPage() {
             href="/"
             className="flex items-center gap-2.5 pt-4 border-t border-black/[0.05] text-[10px] font-black uppercase tracking-widest text-[#64748B] hover:text-[#FF5F56] transition-colors"
           >
-            <LogOut className="w-3.5 h-3.5" />
+            <LogOut01 className="w-3.5 h-3.5" />
             <span>Sign Out</span>
           </Link>
         </div>
@@ -138,11 +138,11 @@ export default function DashboardPage() {
             className="lg:hidden p-2 rounded-xl hover:bg-black/5 transition-colors"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="w-6 h-6 text-[#0B1220]" />
+            <Menu01 className="w-6 h-6 text-[#0B1220]" />
           </button>
           
           <div className="hidden lg:flex items-center gap-4 bg-[#F8FAFC] px-5 py-3 rounded-2xl border border-black/[0.03] w-full max-w-lg transition-all focus-within:ring-2 focus-within:ring-[#43B6D5]/20 focus-within:bg-white group">
-            <Search className="w-4 h-4 text-[#94A3B8] group-focus-within:text-[#43B6D5] transition-colors" />
+            <SearchLg className="w-4 h-4 text-[#94A3B8] group-focus-within:text-[#43B6D5] transition-colors" />
             <input 
               type="text" 
               placeholder="Query protocol registry..." 
@@ -157,14 +157,14 @@ export default function DashboardPage() {
           <div className="ml-auto flex items-center gap-8">
              <div className="flex items-center gap-6 pr-6 border-r border-black/[0.05]">
                 <button className="relative group" aria-label="Notifications">
-                   <Bell className="w-5 h-5 text-[#64748B] group-hover:text-[#0B1220] transition-colors" />
+                   <Bell01 className="w-5 h-5 text-[#64748B] group-hover:text-[#0B1220] transition-colors" />
                    <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF5F56] border-2 border-white rounded-full group-hover:scale-125 transition-transform" />
                 </button>
              </div>
              <div className="hidden sm:flex flex-col items-end">
                 <div className="flex items-center gap-2">
                    <div className="w-1.5 h-1.5 rounded-full bg-[#27C93F] animate-pulse" />
-                   <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Mainnet Online</span>
+                   <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#0B1220]">Sui Testnet Online</span>
                 </div>
                 <span className="text-[10px] font-bold text-[#94A3B8] uppercase">Sync Latency: 42ms</span>
              </div>
@@ -179,26 +179,31 @@ export default function DashboardPage() {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 animate-fade-up">
               <div className="space-y-4">
                  <div className="flex items-center gap-3">
-                   <div className="h-px w-8 bg-[#43B6D5]" />
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#43B6D5]">Protocol Overview</span>
+                   <div className="h-px w-10 bg-[#43B6D5]" />
+                   <span className="text-[11px] font-black uppercase tracking-[0.4em] text-[#43B6D5]">Protocol Overview</span>
                  </div>
-                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tighter uppercase leading-none">Identity Console</h1>
-                 <p className="text-lg text-[#64748B] font-medium max-w-xl">Master view of your soulbound reputational primitives and deep-graph agent lineage.</p>
+                 <h1 className="text-5xl md:text-7xl font-black text-[#0B1220] tracking-tighter uppercase leading-[0.9] font-outfit">Identity Console</h1>
+                 <p className="text-xl text-[#475569] font-bold max-w-xl leading-relaxed">Master view of your soulbound reputational primitives and deep-graph agent lineage.</p>
               </div>
-              <div className="flex gap-4">
-                 <Button variant="secondary" className="glass-card bg-white border-black/[0.03] text-[10px] px-6 h-12 shadow-sm hover:shadow-md transition-all">Audit History</Button>
-                 <Button className="bg-[#0B1220] hover:bg-[#0B1220]/90 text-white border-none px-8 h-12 shadow-xl hover:shadow-2xl transition-all group">
-                   Manage Badge <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                 </Button>
+              <div className="flex gap-5">
+                 <Link href="/dashboard/history">
+                    <Button variant="secondary" className="glass-card bg-white border-black/[0.03] text-[11px] font-black uppercase tracking-widest px-8 h-14 shadow-sm hover:shadow-xl hover:scale-105 transition-all">Audit History</Button>
+                 </Link>
+                 <Link href="/alpha">
+                    <Button className="bg-[#0B1220] hover:bg-[#0B1220]/90 text-white border-none px-10 h-14 rounded-2xl text-[11px] font-black uppercase tracking-widest shadow-2xl hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)] transition-all group hover:scale-105">
+                      Manage Badge <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                 </Link>
               </div>
             </div>
+
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up delay-100">
               {[
-                { label: "Omen Trust Score", value: "92 / 100", sub: "Institutional Prime", icon: ShieldCheck, color: "text-[#43B6D5]", bg: "bg-[#43B6D5]/5" },
-                { label: "Active Lineage", value: "08", sub: "Verified Entities", icon: GitBranch, color: "text-[#0B1220]", bg: "bg-[#0B1220]/5" },
-                { label: "Storage Pinned", value: "24.8 GB", sub: "Walrus Network", icon: Database, color: "text-[#0B1220]", bg: "bg-[#0B1220]/5" },
+                { label: "Omen Trust Score", value: "92 / 100", sub: "Institutional Prime", icon: ShieldTick, color: "text-[#43B6D5]", bg: "bg-[#43B6D5]/5" },
+                { label: "Active Lineage", value: "08", sub: "Verified Entities", icon: GitBranch01, color: "text-[#0B1220]", bg: "bg-[#0B1220]/5" },
+                { label: "Storage Pinned", value: "24.8 GB", sub: "Walrus Network", icon: Database01, color: "text-[#0B1220]", bg: "bg-[#0B1220]/5" },
                 { label: "Security Health", value: "Optimal", sub: "No active risk", icon: Activity, color: "text-[#27C93F]", bg: "bg-[#27C93F]/5" },
               ].map((stat, i) => (
                 <div key={i} className="bg-white p-8 rounded-[32px] border border-black/[0.03] shadow-sm hover:shadow-xl transition-all duration-500 group relative overflow-hidden">
@@ -208,7 +213,7 @@ export default function DashboardPage() {
                         <stat.icon className="w-6 h-6" />
                       </div>
                       <div className="flex flex-col items-end">
-                         <span className="text-[10px] font-black uppercase text-[#94A3B8] tracking-widest">v2.0</span>
+                         <span className="text-[10px] font-black uppercase text-[#94A3B8] tracking-widest">Alpha V1.0</span>
                          <span className="text-[8px] font-bold text-[#27C93F] uppercase tracking-tighter">Live</span>
                       </div>
                    </div>
@@ -231,7 +236,7 @@ export default function DashboardPage() {
                   <div className="glass-card bg-white border-white overflow-hidden shadow-2xl rounded-[40px]">
                      <div className="px-10 py-8 border-b border-black/[0.03] flex items-center justify-between bg-white/50">
                         <div className="space-y-1">
-                           <h3 className="text-xl font-black uppercase tracking-tight text-[#0B1220]">Walrus Storage Blobs</h3>
+                           <h3 className="text-2xl font-black uppercase tracking-tighter text-[#0B1220]">Walrus Storage Blobs</h3>
                            <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest italic">Immutable encryption layer</p>
                         </div>
                         <Button size="sm" className="bg-[#0B1220] hover:bg-[#0B1220]/90 text-white border-none text-[10px] font-black uppercase tracking-widest px-6 h-10 rounded-xl shadow-lg">Upload Data</Button>
@@ -245,7 +250,7 @@ export default function DashboardPage() {
                           <div key={i} className="flex items-center justify-between p-6 bg-[#F8FAFC] rounded-2xl border border-black/[0.03] group hover:bg-white hover:shadow-xl hover:border-black/[0.08] transition-all duration-300">
                              <div className="flex items-center gap-5">
                                 <div className="w-12 h-12 rounded-xl bg-white border border-black/[0.03] flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                                   <FileText className="w-5 h-5 text-[#64748B] group-hover:text-[#43B6D5] transition-colors" />
+                                   <File02 className="w-5 h-5 text-[#64748B] group-hover:text-[#43B6D5] transition-colors" />
                                 </div>
                                 <div>
                                    <p className="text-[13px] font-black text-[#0B1220] mb-0.5">{file.name}</p>
@@ -271,10 +276,10 @@ export default function DashboardPage() {
                   <div className="glass-card bg-white border-white p-10 shadow-2xl rounded-[40px]">
                      <div className="flex items-center justify-between mb-10">
                         <div className="space-y-1">
-                           <h3 className="text-xl font-black uppercase tracking-tight text-[#0B1220]">Deep-Graph Lineage</h3>
-                           <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest italic">Encrypted entity relationships</p>
+                           <h3 className="text-2xl font-black uppercase tracking-tighter text-[#0B1220]">Deep-Graph Lineage</h3>
+                           <p className="text-[11px] font-black text-[#94A3B8] uppercase tracking-[0.25em] italic">Encrypted entity relationships</p>
                         </div>
-                        <GitBranch className="w-6 h-6 text-[#43B6D5]" />
+                        <GitBranch01 className="w-6 h-6 text-[#43B6D5]" />
                      </div>
                      <div className="relative p-10 border border-black/[0.03] rounded-[32px] bg-[#F8FAFC] overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 rotate-12 -mr-32 -mt-32 rounded-[64px]" />
@@ -282,7 +287,7 @@ export default function DashboardPage() {
                            <div className="w-20 h-20 rounded-[28px] bg-[#0B1220] flex items-center justify-center text-white font-black text-2xl shadow-2xl relative">
                               OM
                               <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-[#43B6D5] border-4 border-[#F8FAFC] flex items-center justify-center">
-                                 <ShieldCheck className="w-3.5 h-3.5 text-white" />
+                                 <ShieldTick className="w-3.5 h-3.5 text-white" />
                               </div>
                            </div>
                            <div className="flex-1 space-y-1">
@@ -330,7 +335,7 @@ export default function DashboardPage() {
                      <div className="relative z-10 space-y-12">
                         <div className="flex justify-between items-start">
                            <div className="w-14 h-14 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-center">
-                              <ShieldCheck className="w-8 h-8 text-[#43B6D5]" />
+                              <ShieldTick className="w-8 h-8 text-[#43B6D5]" />
                            </div>
                            <div className="flex flex-col items-end">
                               <span className="text-[9px] font-black tracking-[0.4em] text-white/40 uppercase">Sui Network</span>
@@ -373,7 +378,7 @@ export default function DashboardPage() {
                   <div className="glass-card bg-white border-white p-10 shadow-2xl rounded-[40px]">
                      <div className="flex items-center justify-between mb-8">
                         <h3 className="text-sm font-black uppercase tracking-widest text-[#0B1220]">Security Ledger</h3>
-                        <Bell className="w-4 h-4 text-[#94A3B8]" />
+                        <Bell01 className="w-4 h-4 text-[#94A3B8]" />
                      </div>
                      <div className="space-y-8">
                         {RECENT_ALERTS.map((alert, i) => (
@@ -398,9 +403,9 @@ export default function DashboardPage() {
                      <div className="relative z-10 space-y-6">
                         <div className="flex items-center gap-3">
                            <Activity className="w-5 h-5 text-[#43B6D5]" />
-                           <h4 className="text-lg font-black uppercase tracking-tight">System Status</h4>
+                           <h4 className="text-xl font-black uppercase tracking-tighter">System Status</h4>
                         </div>
-                        <p className="text-sm font-medium leading-relaxed text-white/70">Registry V2.0 is fully synced with Sui Mainnet. DeepBook V3 integration is active for all gated liquidity pools.</p>
+                        <p className="text-sm font-medium leading-relaxed text-white/70">Registry Alpha V1.0 is fully synced with Sui Testnet. DeepBook V3 integration is active for all gated liquidity pools.</p>
                         <Button className="w-full bg-[#43B6D5] hover:bg-[#3AA0BD] text-white border-none text-[10px] font-black uppercase tracking-widest h-12 rounded-2xl shadow-lg shadow-[#43B6D5]/20">Protocol Terminal</Button>
                      </div>
                   </div>

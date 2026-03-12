@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, CheckCircle2, MailCheck, Shield, Sparkles } from "lucide-react";
+import { ArrowLeft, CheckCircle, Mail01, ShieldTick, Stars01 } from "@untitled-ui/icons-react";
 import { Button } from "@/components/ui/Button";
 import { submitEarlyAccessRegistration } from "@/utils/emailjs";
 
@@ -77,7 +77,7 @@ export default function EarlyAccessPage() {
             </motion.div>
 
             <div className="mb-10 inline-flex items-center gap-3 px-4 py-1.5 border border-[#43B6D5]/20 bg-[#43B6D5]/5 rounded-full shadow-sm">
-              <Sparkles className="h-4 w-4 text-[#43B6D5]" />
+              <Stars01 className="h-4 w-4 text-[#43B6D5]" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#43B6D5]">Registry Induction</span>
             </div>
 
@@ -106,7 +106,7 @@ export default function EarlyAccessPage() {
                 className="flex items-start gap-4 p-6 glass-card bg-white/40 border-black/[0.03] rounded-3xl"
               >
                 <div className="rounded-2xl bg-[#F8FAFC] border border-black/[0.03] p-3 text-[#43B6D5] shadow-sm">
-                  <Shield className="h-5 w-5" />
+                  <ShieldTick className="h-5 w-5" />
                 </div>
                 <p className="text-sm font-bold text-[#64748B] leading-relaxed uppercase tracking-tight">{item}</p>
               </motion.div>
@@ -136,14 +136,14 @@ export default function EarlyAccessPage() {
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                   className="mb-10 flex h-24 w-24 items-center justify-center rounded-[32px] border border-[#27C93F]/20 bg-[#27C93F]/10 shadow-xl shadow-[#27C93F]/5"
                 >
-                  <CheckCircle2 className="h-12 w-12 text-[#27C93F]" />
+                  <CheckCircle className="h-12 w-12 text-[#27C93F]" />
                 </motion.div>
                 <h2 className="text-4xl font-black text-[#0B1220] uppercase tracking-tighter">Registration complete</h2>
                 <p className="mt-6 max-w-sm text-lg font-medium text-[#64748B] leading-relaxed">{submitState.message}</p>
                 <div className="mt-12 flex w-full max-w-sm flex-col gap-4">
                   <Button variant="secondary" size="lg" className="h-14 rounded-2xl border-black/[0.03] text-xs font-black uppercase tracking-widest bg-white shadow-sm" asChild>
                     <Link href="/docs">
-                      <MailCheck className="mr-3 h-4 w-4" />
+                      <Mail01 className="mr-3 h-4 w-4" />
                       Protocol Documentation
                     </Link>
                   </Button>
@@ -242,7 +242,7 @@ export default function EarlyAccessPage() {
                       {submitState.status === "submitting" ? "Synchronizing..." : "Initiate Handshake"}
                     </Button>
                     <p className="text-center mt-6 text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest italic leading-relaxed">
-                       Security verified by Omen Protocol V2.0 <br /> Guaranteed end-to-end cryptographic transit.
+                       Security verified by Omen Protocol Private Alpha V1.0 <br /> Guaranteed end-to-end cryptographic transit.
                     </p>
                   </div>
                 </form>

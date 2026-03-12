@@ -3,7 +3,7 @@
 @theme {
   /* Fonts */
   --font-inter: var(--font-inter), sans-serif;
-  --font-plus-jakarta: var(--font-plus-jakarta-sans), sans-serif;
+  --font-outfit: var(--font-outfit), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 
   /* Brand Gradients & Colors - Starry Night */
@@ -64,8 +64,11 @@ body {
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-inter);
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   line-height: 1.6;
   position: relative;
   min-height: 100vh;
@@ -73,11 +76,12 @@ body {
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter);
-    font-weight: 800;
+    font-family: var(--font-outfit);
+    font-weight: 900;
     letter-spacing: -0.04em;
     line-height: 1;
     color: var(--foreground);
+    text-rendering: optimizeLegibility;
   }
 
   h1 {
@@ -105,6 +109,7 @@ body {
     line-height: 1.6;
     color: var(--body);
     font-size: 16px;
+    font-weight: 500;
   }
 
   a {

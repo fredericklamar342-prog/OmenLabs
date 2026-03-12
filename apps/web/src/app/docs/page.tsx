@@ -5,28 +5,28 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import React from "react";
 import { 
   Terminal, 
-  BookOpen, 
-  ShieldCheck, 
+  BookOpen01, 
+  ShieldTick, 
   Activity, 
-  CheckCircle2, 
+  CheckCircle, 
   ChevronRight,
-  Code,
-  Globe,
-  Users,
-  Database,
-  Lock,
-  Cpu,
+  Code01,
+  File02,
+  Users01,
+  Database01,
+  Lock01,
+  CpuChip01,
   Zap,
-  ShieldAlert,
-  Network
-} from "lucide-react";
+  AlertCircle,
+  LayersThree01
+} from "@untitled-ui/icons-react";
 
 export default function DocsPage() {
   const sections = [
     {
       id: "overview",
       title: "Overview",
-      icon: <BookOpen className="w-5 h-5" />,
+      icon: <BookOpen01 className="w-5 h-5" />,
       tag: "CORE_CONCEPT",
       content: (
         <div className="space-y-8">
@@ -36,13 +36,13 @@ export default function DocsPage() {
           <div className="grid sm:grid-cols-2 gap-8 my-12">
             <div className="p-8 glass-card border-white/40 bg-white/40 space-y-4">
                <h4 className="text-[#0B1220] font-black flex items-center gap-3 uppercase tracking-widest text-xs">
-                 <ShieldCheck className="w-4 h-4 text-[#43B6D5]" /> The Trust Gap
+                 <ShieldTick className="w-4 h-4 text-[#43B6D5]" /> The Trust Gap
                </h4>
                <p className="text-sm text-[#475569] leading-relaxed font-medium">Web3 lacks a non-transferable reputation layer. Omen fills this by linking real-world credibility to soulbound on-chain identities.</p>
             </div>
             <div className="p-8 glass-card border-white/40 bg-white/40 space-y-4">
                <h4 className="text-[#0B1220] font-black flex items-center gap-3 uppercase tracking-widest text-xs">
-                 <Cpu className="w-4 h-4 text-[#43B6D5]" /> Agentic Web
+                 <CpuChip01 className="w-4 h-4 text-[#43B6D5]" /> Agentic Web
                </h4>
                <p className="text-sm text-[#475569] leading-relaxed font-medium">As AI agents take over trading and governance, Omen provides the "Proof of Creator" layer needed for autonomous safety.</p>
             </div>
@@ -54,7 +54,7 @@ export default function DocsPage() {
       id: "installation",
       title: "Installation",
       icon: <Terminal className="w-5 h-5" />,
-      tag: "SETUP_v2.0",
+      tag: "SETUP_PRIVATE_ALPHA",
       content: (
         <div className="space-y-8">
           <p className="text-[#475569] leading-relaxed font-medium">Install the Omen SDK and MCP server tools to begin integrating trust checks into your application.</p>
@@ -82,8 +82,8 @@ export default function DocsPage() {
     {
       id: "sdk-setup",
       title: "SDK Setup",
-      icon: <Code className="w-5 h-5" />,
-      tag: "CONFIG_v2.0",
+      icon: <Code01 className="w-5 h-5" />,
+      tag: "CONFIG_PRIVATE_ALPHA",
       content: (
         <div className="space-y-8">
           <p className="text-[#475569] leading-relaxed font-medium">Initialize the Omen provider with your Sui RPC and registry package IDs.</p>
@@ -96,7 +96,7 @@ export default function DocsPage() {
 {`import { OmenProvider } from "@omen-protocol/sdk";
 
 const omen = new OmenProvider({
-  rpcUrl: "https://fullnode.mainnet.sui.io:443",
+  rpcUrl: "https://fullnode.testnet.sui.io:443",
   packageId: OMEN_PACKAGE_ID,
   registryId: REGISTRY_OBJECT_ID
 });`}
@@ -133,7 +133,7 @@ if (trustScore < 85) {
     {
       id: "security-thresholds",
       title: "Security Thresholds",
-      icon: <CheckCircle2 className="w-5 h-5" />,
+      icon: <CheckCircle className="w-5 h-5" />,
       tag: "GOVERNANCE",
       content: (
         <div className="space-y-10">
@@ -162,10 +162,10 @@ if (trustScore < 85) {
       content: (
         <div className="grid sm:grid-cols-2 gap-8">
            {[
-             { title: "DeepBook Firewall", desc: "Gate trading pool access based on Omen badges to protect liquidity from anonymous predators.", icon: <Database className="w-4 h-4" /> },
-             { title: "Wallet Warning", desc: "Inject a 'Verified Builder' badge into the transaction approval screen in your wallet extension.", icon: <ShieldCheck className="w-4 h-4" /> },
-             { title: "AI Agent Safety", desc: "Force autonomous bots to check creator reputation before engaging with new pools.", icon: <Network className="w-4 h-4" /> },
-             { title: "Soulbound Index", desc: "Index move-native identities to create a leaderboard of the most trusted Sui developers.", icon: <Users className="w-4 h-4" /> }
+             { title: "DeepBook Firewall", desc: "Gate trading pool access based on Omen badges to protect liquidity from anonymous predators.", icon: <Database01 className="w-4 h-4" /> },
+             { title: "Wallet Warning", desc: "Inject a 'Verified Builder' badge into the transaction approval screen in your wallet extension.", icon: <ShieldTick className="w-4 h-4" /> },
+             { title: "AI Agent Safety", desc: "Force autonomous bots to check creator reputation before engaging with new pools.", icon: <LayersThree01 className="w-4 h-4" /> },
+             { title: "Soulbound Index", desc: "Index move-native identities to create a leaderboard of the most trusted Sui developers.", icon: <Users01 className="w-4 h-4" /> }
            ].map((ex, i) => (
              <div key={i} className="p-8 glass-card border-white/40 bg-white/40 space-y-4 group hover:bg-white transition-all duration-300">
                 <div className="w-10 h-10 rounded-xl bg-[#43B6D5]/10 flex items-center justify-center text-[#43B6D5] group-hover:bg-[#43B6D5] group-hover:text-white transition-all">
@@ -181,8 +181,8 @@ if (trustScore < 85) {
     {
       id: "api-reference",
       title: "API Reference",
-      icon: <Database className="w-5 h-5" />,
-      tag: "SDK_v2.0_SPEC",
+      icon: <Database01 className="w-5 h-5" />,
+      tag: "SDK_ALPHA_SPEC",
       content: (
         <div className="space-y-8">
            <div className="glass-card p-0 border-white overflow-hidden shadow-xl">

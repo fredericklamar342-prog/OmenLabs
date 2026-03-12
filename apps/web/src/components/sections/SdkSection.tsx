@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Terminal, ArrowRight } from "lucide-react";
+import { Terminal, ArrowRight } from "@untitled-ui/icons-react";
 
 export function SdkSection() {
   return (
@@ -66,7 +66,8 @@ export function SdkSection() {
               
               <div className="p-8 bg-[#F8FAFC]">
                 <div className="text-[14px] leading-relaxed font-mono text-[#0B1220] overflow-x-auto whitespace-pre">
-{`const trustScore = await omen.getTrustScore(protocol)
+{`// Sui Testnet Environment
+const trustScore = await omen.getTrustScore(protocol)
 
 if (trustScore < 85) {
   abortTransaction()
@@ -86,10 +87,7 @@ if (trustScore < 85) {
               </div>
             </div>
 
-            {/* Status Floating Label */}
-            <div className="absolute -bottom-6 -right-6 bg-[#0B1220] px-5 py-3 rounded-xl shadow-2xl z-20 border border-white/10">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Sui Mainnet Live</div>
-            </div>
+
           </div>
         </div>
       </div>

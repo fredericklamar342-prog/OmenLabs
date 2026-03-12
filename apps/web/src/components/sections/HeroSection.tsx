@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { ShieldCheck, Fingerprint, CheckCircle2, Droplet } from "lucide-react";
+import Image from "next/image";
+import { ShieldTick, LayersThree01, ArrowRight, CheckCircle, Zap, Terminal } from "@untitled-ui/icons-react";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
 
 export function HeroSection() {
@@ -26,7 +27,7 @@ export function HeroSection() {
             className="absolute right-[10%] top-[20%] glass-card p-4 flex flex-col gap-3 shadow-xl w-52 bg-white/60"
           >
             <div className="flex items-center gap-2">
-              <Fingerprint className="w-5 h-5 text-[#43B6D5]" />
+              <LayersThree01 className="w-5 h-5 text-[#43B6D5]" />
               <div className="font-bold text-xs">Identity linked</div>
             </div>
             <div className="h-1 w-full bg-[#E5E7EB] rounded-full overflow-hidden">
@@ -45,9 +46,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="absolute left-[12%] bottom-[15%] glass-card px-5 py-3 flex items-center gap-3 border-l-2 border-[#43B6D5] shadow-lg bg-white/60"
           >
-            <CheckCircle2 className="w-6 h-6 text-[#43B6D5]" />
+            <CheckCircle className="w-6 h-6 text-[#43B6D5]" />
             <div className="text-left">
-              <div className="text-xs font-bold text-[#0B1220]">V2.0 badge issued</div>
+              <div className="text-xs font-bold text-[#0B1220]">Private Alpha V1.0</div>
               <div className="text-[10px] text-[#94A3B8] font-medium uppercase tracking-wider">Secured by Walrus</div>
             </div>
           </motion.div>
@@ -58,12 +59,27 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-[#E2E8F0] rounded-full mb-10"
+          className="flex flex-col md:flex-row items-center gap-4 mb-10"
         >
-          <Droplet className="w-3.5 h-3.5 text-[#43B6D5]" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#475569]">
-            Native to the Sui Stack
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-[#E2E8F0] rounded-full">
+            <Image
+              src="/sui-logo.png"
+              alt="Sui"
+              width={14}
+              height={14}
+              className="w-3.5 h-3.5 object-contain"
+            />
+            <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#475569]">
+              Native to the Sui Stack
+            </span>
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#27C93F]/5 border border-[#27C93F]/20 rounded-full">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#27C93F] animate-pulse shadow-[0_0_8px_#27C93F]" />
+            <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#27C93F]">
+              Sui Testnet Live
+            </span>
+          </div>
         </motion.div>
 
         {/* Headline */}
@@ -72,11 +88,20 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#0B1220] leading-[1.05] max-w-5xl mb-10 text-balance"
+          className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#0B1220] leading-[1.05] max-w-5xl mb-10 text-balance"
         >
-          Trust the <span className="text-gradient">Builders</span> <br className="hidden md:block" />
-          Before You Trust the Code.
+          The <span className="text-gradient">Programmable Trust</span> <br className="hidden md:block" />
+          Primitive for Sui.
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl md:text-2xl font-black text-[#43B6D5] uppercase tracking-[0.2em] mb-8"
+        >
+          Stop guessing. Start knowing.
+        </motion.p>
 
         {/* Sub-headline */}
         <motion.p
@@ -95,14 +120,14 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-4"
         >
-          <Button size="lg" className="h-14 px-8 text-base font-bold bg-[#0B1220] hover:bg-[#0B1220]/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all" asChild>
-            <Link href="/docs">View Docs</Link>
+          <Button size="lg" className="h-14 px-8 text-base font-bold bg-[#0B1220] hover:bg-[#0B1220]/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2" asChild>
+            <Link href="/docs">View Docs <ArrowRight className="w-4 h-4" /></Link>
           </Button>
-          <Button variant="secondary" size="lg" className="h-14 px-8 text-base font-bold glass-panel bg-white/40 hover:bg-white/60 text-[#0B1220] rounded-xl border border-[#E2E8F0] transition-all" asChild>
-            <Link href="/whitepaper">Read Whitepaper</Link>
+          <Button variant="secondary" size="lg" className="h-14 px-8 text-base font-bold glass-panel bg-white/40 hover:bg-white/60 text-[#0B1220] rounded-xl border border-[#E2E8F0] transition-all flex items-center gap-2" asChild>
+            <Link href="/whitepaper">Read Whitepaper <ArrowRight className="w-4 h-4" /></Link>
           </Button>
-          <Button variant="secondary" size="lg" className="h-14 px-8 text-base font-bold bg-transparent text-[#43B6D5] hover:bg-[#43B6D5]/5 rounded-xl border-2 border-[#43B6D5] transition-all shadow-none" onClick={openModal}>
-            Request Early Access
+          <Button variant="secondary" size="lg" className="h-14 px-8 text-base font-bold bg-transparent text-[#43B6D5] hover:bg-[#43B6D5]/5 rounded-xl border-2 border-[#43B6D5] transition-all shadow-none flex items-center gap-2" onClick={openModal}>
+            Request Early Access <ArrowRight className="w-4 h-4" />
           </Button>
         </motion.div>
 
