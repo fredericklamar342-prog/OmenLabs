@@ -49,11 +49,25 @@ omen.injectSecurityAssertion(tx, {
 });
 ```
 
-## Design System: White Canvas Protocol
+## Production Stack
 
-A minimalist, high-contrast design system:
+The Omen platform uses a production-grade infrastructure for user onboarding:
 
-- **Zero Gradients**: Use solid values only.
-- **Zero Neon**: High-contrast black, white, and oxblood red.
-- **Inter Font**: Strong typographic hierarchy.
-- **Whitespace**: Heavy use of spacing to focus on intent.
+- **Database**: [Supabase](https://supabase.com) (PostgreSQL) for secure, scalable waitlist storage.
+- **Notifications**: [EmailJS](https://emailjs.com) for instant user confirmations and admin alerts.
+- **Deployment**: [Vercel](https://vercel.com) for high-performance global delivery.
+
+### Environment Configuration
+
+To enable the waitlist system, ensure the following variables are configured:
+
+```env
+# Supabase (OMEN Project)
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+
+# EmailJS
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=...
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=...
+NEXT_PUBLIC_EMAILJS_CONFIRM_TEMPLATE_ID=...
+```
