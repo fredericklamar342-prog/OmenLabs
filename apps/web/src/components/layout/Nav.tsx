@@ -21,16 +21,9 @@ const XIcon = () => (
   </svg>
 );
 
-const DiscordIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
-    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
-  </svg>
-);
-
 const navSocials = [
   { href: "https://x.com/OmenLabsHQ", label: "X (Twitter)", icon: <XIcon /> },
   { href: "https://github.com/omenprotocol", label: "GitHub", icon: <GitHubIcon /> },
-  { href: "https://discord.gg/jQp2hzym", label: "Discord", icon: <DiscordIcon /> },
 ];
 
 export function Nav() {
@@ -62,31 +55,31 @@ export function Nav() {
       <div className="max-container">
         <div className={[
           "flex items-center justify-between px-8 py-4 rounded-2xl transition-all duration-500",
-          scrolled ? "bg-[#FFFFFF] border-2 border-[#49A5BD] shadow-2xl" : "bg-transparent",
+          scrolled ? "glass-panel shadow-2xl" : "bg-transparent",
         ].join(" ")}>
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group transition-transform hover:scale-105 active:scale-95" aria-label="Omen home">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group transition-transform hover:scale-105 active:scale-95 shrink-0" aria-label="Omen home">
             <Image
               src="/omen-logo.png"
               alt="Omen"
-              width={40}
-              height={40}
-              className="h-9 w-auto object-contain"
+              width={32}
+              height={32}
+              className="h-8 w-auto sm:h-9 object-contain"
               priority
             />
             <div className="flex flex-col">
-              <span className="font-black text-xl tracking-tighter text-[#49A5BD] leading-none">OMEN</span>
+              <span className="font-black text-lg sm:text-xl tracking-tighter text-foreground leading-none">OMEN</span>
               <div className="flex items-center gap-1.5">
-                 <span className="text-[8px] font-black uppercase tracking-[0.2em] text-[#49A5BD]">Private Alpha V1.0</span>
+                 <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-[0.2em] text-[#49A5BD] whitespace-nowrap">Security Infrastructure</span>
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation Group */}
-          <div className="hidden lg:flex items-center gap-12 xl:gap-16">
+          <div className="hidden lg:flex items-center gap-8 xl:gap-16">
             {/* Desktop links */}
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-8 xl:gap-10">
               {navLinks.map((link) => {
                 const isAnchor = link.href.includes("#");
                 return (
@@ -99,7 +92,7 @@ export function Nav() {
                         scrollToId(link.href.split("#")[1]);
                       }
                     }}
-                    className="text-[13px] font-black uppercase tracking-[0.1em] text-[#49A5BD] hover:opacity-70 transition-all duration-300 relative group"
+                    className="text-[12px] xl:text-[13px] font-black uppercase tracking-[0.1em] text-foreground hover:text-[#49A5BD] transition-all duration-300 relative group"
                   >
                     {link.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#49A5BD] transition-all duration-300 group-hover:w-full" />
@@ -109,8 +102,8 @@ export function Nav() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 xl:gap-6">
+              <div className="flex items-center gap-3 xl:gap-4">
                 {navSocials.map(({ href, label, icon }) => (
                   <a
                     key={href}
@@ -118,7 +111,7 @@ export function Nav() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="text-[#49A5BD] transition-all duration-300 hover:opacity-70 hover:scale-110"
+                    className="text-foreground transition-all duration-300 hover:text-[#49A5BD] hover:scale-110"
                   >
                     {icon}
                   </a>
@@ -127,19 +120,20 @@ export function Nav() {
 
               <div className="h-6 w-px bg-[#49A5BD]/10" />
 
-              <Button size="sm" className="h-10 px-6 font-bold bg-[#49A5BD] hover:bg-[#49A5BD]/90 text-[#FFFFFF] rounded-xl border-none" onClick={openModal}>
-                Request Early Access
+              <Button size="sm" className="h-10 px-4 xl:px-6 font-bold bg-[#49A5BD] hover:bg-[#49A5BD]/90 text-white rounded-xl border-none shadow-lg shadow-[#49A5BD]/10 whitespace-nowrap hover:scale-105 active:scale-95 transition-all" onClick={openModal}>
+                Early Access
               </Button>
             </div>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-[#49A5BD] rounded-xl hover:bg-[#49A5BD]/5 transition-all"
+            className="lg:hidden p-2 text-[#49A5BD] rounded-xl hover:bg-[#49A5BD]/5 transition-all focus:ring-2 focus:ring-[#49A5BD]/20 outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <XClose className="w-6 h-6 text-[#49A5BD]" /> : <Menu01 className="w-6 h-6 text-[#49A5BD]" />}
+            {isOpen ? <XClose className="w-6 h-6" /> : <Menu01 className="w-6 h-6" />}
           </button>
         </div>
 
@@ -147,34 +141,41 @@ export function Nav() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              initial={{ opacity: 0, scale: 0.98, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden absolute top-full left-0 w-full px-4 mt-4"
+              exit={{ opacity: 0, scale: 0.98, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden absolute top-full left-0 w-full px-4 mt-2"
             >
-              <div className="glass-panel bg-white p-8 space-y-8 shadow-2xl border-white rounded-[32px]">
-                <div className="flex flex-col gap-6">
+              <div className="glass-panel p-6 sm:p-8 space-y-6 sm:space-y-8 shadow-2xl rounded-[24px] sm:rounded-[32px] overflow-y-auto max-h-[80vh]">
+                <div className="flex flex-col gap-4 sm:gap-6">
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-2xl font-extrabold text-[#49A5BD] hover:opacity-70 transition-colors"
+                      className="text-xl sm:text-2xl font-extrabold text-foreground hover:text-[#49A5BD] transition-colors"
                     >
                       {link.name}
                     </Link>
                   ))}
                 </div>
                 
-                <div className="pt-8 border-t border-[#49A5BD]/10 space-y-8">
-                  <Button className="w-full h-14 text-lg font-bold rounded-2xl" onClick={() => { setIsOpen(false); openModal(); }}>
+                <div className="pt-6 sm:pt-8 border-t border-[#49A5BD]/10 space-y-6 sm:space-y-8">
+                  <Button className="w-full h-14 text-lg font-bold rounded-2xl shadow-lg shadow-[#49A5BD]/10 hover:scale-105 active:scale-95 transition-all" onClick={() => { setIsOpen(false); openModal(); }}>
                     Request Early Access
                   </Button>
                   
                   <div className="flex items-center justify-center gap-8">
                     {navSocials.map(({ href, label, icon }) => (
-                      <a key={href} href={href} className="text-[#49A5BD] hover:opacity-70 scale-125">
+                      <a 
+                        key={href} 
+                        href={href} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        className="text-foreground hover:text-[#49A5BD] scale-125 transition-all"
+                      >
                         {icon}
                       </a>
                     ))}
@@ -188,3 +189,4 @@ export function Nav() {
     </nav>
   );
 }
+

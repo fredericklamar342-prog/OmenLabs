@@ -20,12 +20,6 @@ const XIcon = () => (
   </svg>
 );
 
-const DiscordIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">
-    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
-  </svg>
-);
-
 const socialLinks = [
   {
     href: "https://x.com/OmenLabsHQ",
@@ -37,131 +31,129 @@ const socialLinks = [
     label: "View Omen on GitHub",
     icon: <GitHubIcon />,
   },
-  {
-    href: "https://discord.gg/jQp2hzym",
-    label: "Join Omen on Discord",
-    icon: <DiscordIcon />,
-  },
 ];
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#FFFFFF] text-[#49A5BD]">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background text-foreground">
       <AtmosphericBackground />
       <Nav />
       
       <main className="relative z-10 flex-1 pt-28 pb-20">{children}</main>
 
-      <footer className="relative z-10 bg-[#FFFFFF] border-t-2 border-[#49A5BD] pt-32 pb-16 overflow-hidden">
-        {/* Subtle Background Accent */}
-        <div className="absolute top-0 right-0 w-[60%] h-full bg-[#FFFFFF] -z-10" />
+      <footer className="relative z-10 bg-[#0B0C10] border-t border-white/5 pt-24 sm:pt-32 pb-16 overflow-hidden">
+        {/* Signal Lines Decor */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#49A5BD]/30 to-transparent" />
         
-        <div className="max-container">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 mb-24">
+        <div className="max-container px-6 sm:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-16 mb-24">
             
-            <div className="col-span-2 lg:col-span-2 space-y-10 pr-12">
-               <div className="flex items-center gap-3.5 group/logo cursor-default">
-                <Image
-                  src="/omen-logo.png"
-                  alt="Omen"
-                  width={48}
-                  height={40}
-                  className="h-11 w-auto object-contain transition-transform"
-                />
-                <span className="text-2xl font-black uppercase tracking-tighter text-[#49A5BD]">OMEN</span>
-              </div>
-              <p className="text-[13px] text-[#49A5BD] font-semibold leading-relaxed max-w-sm">
-                The trust primitive for the Sui Stack. Solving accountability in on-chain finance and the agentic economy through Move-native reputation infrastructure.
-              </p>
-              <div className="flex items-center gap-4">
-                {socialLinks.map(({ href, label, icon }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-10 h-10 rounded-full bg-[#FFFFFF] border-2 border-[#49A5BD] flex items-center justify-center text-[#49A5BD] transition-all hover:bg-[#49A5BD] hover:text-[#FFFFFF] hover:scale-110 shadow-sm"
-                  >
-                    {icon}
-                  </a>
-                ))}
-              </div>
+            {/* OMEN Brand Detail */}
+            <div className="sm:col-span-2 lg:col-span-2 space-y-10">
+               <div className="flex items-center gap-4 group/logo cursor-default">
+                  <Image
+                    src="/omen-logo.png"
+                    alt="Omen"
+                    width={56}
+                    height={48}
+                    className="h-12 w-auto object-contain"
+                  />
+                  <div className="flex flex-col">
+                     <span className="text-2xl font-black uppercase tracking-tighter text-white font-outfit">OMEN</span>
+                     <span className="text-[9px] font-mono font-black text-[#49A5BD] uppercase tracking-[0.4em]">Reputation Oracle</span>
+                  </div>
+               </div>
+               <p className="text-[14px] text-body font-bold leading-relaxed max-w-sm tracking-tight">
+                 Solving accountability in the agentic economy through Move-native reputation infrastructure. The deterministic trust primitive for the Sui Stack.
+               </p>
+               <div className="inline-flex items-center gap-6 px-6 py-3 bg-[#111418] border border-white/5 rounded-2xl">
+                 {socialLinks.map(({ href, label, icon }) => (
+                    <a
+                     key={href}
+                     href={href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={label}
+                     className="text-white/40 hover:text-[#49A5BD] hover:scale-110 transition-all duration-300"
+                   >
+                     {icon}
+                   </a>
+                 ))}
+               </div>
             </div>
 
             {/* Sitemap Columns */}
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#49A5BD]">Protocol</h4>
-              <ul className="space-y-4">
-                {[
-                  { name: "Overview", href: "/product" },
-                  { name: "Dashboard", href: "/dashboard" },
-                  { name: "Security", href: "/whitepaper#resilience" },
+            {[
+              { 
+                title: "Protocol", 
+                links: [
+                  { name: "Global Score", href: "/dashboard" },
+                  { name: "Security V3", href: "/whitepaper" },
+                  { name: "Lineage Graph", href: "/product" },
                   { name: "Audit Trail", href: "/dashboard" }
-                ].map(link => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-[13px] font-bold text-[#49A5BD] hover:opacity-70 transition-all flex items-center gap-2 group/link">
-                      <span className="w-0 h-px bg-[#49A5BD] transition-all group-hover/link:w-2" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#49A5BD]">Developers</h4>
-              <ul className="space-y-4">
-                {[
-                  { name: "Documentation", href: "/docs" },
-                  { name: "SDK Reference", href: "/docs#sdk" },
-                  { name: "API Access", href: "/developer" },
-                  { name: "MCP Server", href: "/docs#mcp" }
-                ].map(link => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-[13px] font-bold text-[#49A5BD] hover:opacity-70 transition-all flex items-center gap-2 group/link">
-                      <span className="w-0 h-px bg-[#49A5BD] transition-all group-hover/link:w-2" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-[#49A5BD]">Company</h4>
-              <ul className="space-y-4">
-                {[
-                  { name: "About Omen", href: "/" },
+                ] 
+              },
+              { 
+                title: "Developers", 
+                links: [
+                  { name: "Core SDK", href: "/docs" },
+                  { name: "Move Stubs", href: "/docs" },
+                  { name: "API Reference", href: "/docs" },
+                  { name: "MCP Scripts", href: "/docs" }
+                ] 
+              },
+              { 
+                title: "Ecosystem", 
+                links: [
+                  { name: "Sui Network", href: "https://sui.io" },
+                  { name: "Walrus Storage", href: "https://walrus.xyz" },
+                  { name: "zkLogin", href: "/" },
+                  { name: "DeepBook", href: "/" }
+                ] 
+              },
+              { 
+                title: "Technical", 
+                links: [
                   { name: "Whitepaper", href: "/whitepaper" },
-                  { name: "Early Access", href: "/" },
-                  { name: "Blog", href: "/blog" }
-                ].map(link => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-[13px] font-bold text-[#49A5BD] hover:opacity-70 transition-all flex items-center gap-2 group/link">
-                      <span className="w-0 h-px bg-[#49A5BD] transition-all group-hover/link:w-2" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  { name: "Audit Reports", href: "/docs" },
+                  { name: "Deterministic Fix", href: "/whitepaper" },
+                  { name: "Status", href: "/dashboard" }
+                ] 
+              }
+            ].map((col, idx) => (
+              <div key={idx} className="space-y-8">
+                <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-[#49A5BD] font-mono">{col.title}</h4>
+                <ul className="space-y-4">
+                  {col.links.map(link => (
+                    <li key={link.name}>
+                      <Link href={link.href} className="text-[13px] font-black text-white/40 hover:text-white transition-all flex items-center gap-2 group/link uppercase tracking-tight font-outfit">
+                        <span className="w-0 h-[2px] bg-[#49A5BD] transition-all group-hover/link:w-2" />
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-           <div className="flex flex-col md:flex-row items-center justify-between border-t-2 border-[#49A5BD]/20 pt-12 gap-8">
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-10 gap-y-4">
-               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#49A5BD] opacity-50 italic">&copy; {new Date().getFullYear()} OMEN. ALL RIGHTS RESERVED.</p>
-               <div className="flex gap-8">
-                 <Link href="/privacy" className="text-[11px] font-black uppercase tracking-[0.15em] text-[#49A5BD] opacity-60 hover:opacity-100 transition-colors underline decoration-transparent hover:decoration-[#49A5BD] underline-offset-4">Privacy</Link>
-                 <Link href="/terms" className="text-[11px] font-black uppercase tracking-[0.15em] text-[#49A5BD] opacity-60 hover:opacity-100 transition-colors underline decoration-transparent hover:decoration-[#49A5BD] underline-offset-4">Terms</Link>
+           <div className="flex flex-col lg:flex-row items-center justify-between border-t border-white/5 pt-12 gap-10">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-12 gap-y-6">
+               <p className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-white/20">&copy; {new Date().getFullYear()} OMEN LABS. ALL RIGHTS RESERVED.</p>
+               <div className="flex gap-10">
+                 {['Privacy', 'Terms', 'Security'].map(item => (
+                   <span key={item} className="text-[11px] font-black uppercase tracking-[0.2em] text-white/30 cursor-not-allowed hover:text-white/60 transition-colors" title="Institutional Review Pending">{item}</span>
+                 ))}
                </div>
             </div>
             
-            <div className="flex items-center">
-                <div className="flex items-center gap-3 px-5 py-2.5 border-2 border-[#49A5BD] rounded-full transition-all group cursor-default">
-                  <div className="w-2 h-2 rounded-full bg-[#49A5BD]" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#49A5BD]">Status: OMEN_TESTNET_ACTIVE</span>
-                </div>
+            <div className="flex items-center gap-4 px-6 py-2.5 bg-[#111418] border border-white/10 rounded-full shadow-2xl">
+               <div className="flex gap-1">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#49A5BD] animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
+                  ))}
+               </div>
+               <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-[#49A5BD]">REPUTATION_ENGINE_v4.0_STABLE</span>
             </div>
           </div>
         </div>

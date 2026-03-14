@@ -29,10 +29,10 @@ const SoftBlur = ({ color, size, top, left, delay = 0, duration = 20 }: { color:
 
 export function EcosystemVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none bg-[#49A5BD]">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
       {/* Static Atmosphere - Fixed Blurs */}
-      <div className="absolute rounded-full blur-[120px] w-[800px] h-[800px] top-[-10%] left-[-10%] bg-[#FFFFFF]/10" />
-      <div className="absolute rounded-full blur-[120px] w-[600px] h-[600px] top-[40%] left-[60%] bg-[#FFFFFF]/5" />
+      <div className="absolute rounded-full blur-[160px] w-[800px] h-[800px] top-[-10%] left-[-10%] bg-[#49A5BD]/10" />
+      <div className="absolute rounded-full blur-[140px] w-[600px] h-[600px] top-[40%] left-[60%] bg-[#49A5BD]/5" />
 
       {/* Connection Network (Simplified Static) */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.08]">

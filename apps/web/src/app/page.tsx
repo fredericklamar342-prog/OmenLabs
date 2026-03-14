@@ -7,7 +7,9 @@ import { InfrastructureSection } from "@/components/sections/InfrastructureSecti
 import { SdkSection } from "@/components/sections/SdkSection";
 import { AgentLineageSection } from "@/components/sections/AgentLineageSection";
 import { WalrusStorageSection } from "@/components/sections/WalrusStorageSection";
+import { ProtocolPrimitivesSection } from "@/components/sections/ProtocolPrimitivesSection";
 import { BottomCta } from "@/components/sections/BottomCta";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export default function Home() {
   return (
@@ -19,17 +21,32 @@ export default function Home() {
         {/* 2. Product Preview */}
         <EverydayUsersSection />
 
-        {/* 3. Benefits */}
+        <SectionDivider label="Core Primitives" metadata={['Move-Native Reputation', 'Deterministic Trust Oracles']} />
+
+        {/* 3. Core Primitives */}
+        <ProtocolPrimitivesSection />
+
+        <SectionDivider label="Institutional Benefits" metadata={['Firewall V3 Integration', 'Sub-Zero Latency Verifiers']} />
+
+        {/* 4. Benefits */}
         <BenefitsSection />
+
+        <SectionDivider label="Operational Flow" metadata={['Real-time Verification', 'O(1) Data Retrieval']} />
 
         {/* 4. How Omen Works */}
         <HowItWorksSection />
 
+        <SectionDivider label="Infrastructure Stack" metadata={['Sui Protocol Integration', 'Walrus Storage Anchors']} />
+
         {/* 5. Built on the Sui Stack (Infrastructure) */}
         <InfrastructureSection />
 
+        <SectionDivider label="Developer Hub" metadata={['Omen SDK', 'MCP Tooling']} />
+
         {/* 6. Developer Integration (SDK) */}
         <SdkSection />
+
+        <SectionDivider label="Persistence & Identity" metadata={['Agent Lineage Graphs', 'Soulbound OmenBadges']} />
 
         {/* Additional Protocol Context */}
         <AgentLineageSection />

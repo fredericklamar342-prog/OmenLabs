@@ -1,121 +1,158 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock01, SearchLg, AlertTriangle, ShieldTick } from "@untitled-ui/icons-react";
+import { Lock01, SearchLg, AlertTriangle, ShieldTick, BarChart05, CheckDone01, Database02 } from "@untitled-ui/icons-react";
 import SuiIcon from "@/components/icons/SuiIcon";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
+const stats = [
+  { label: "Trust Accuracy", value: "99.9%", icon: CheckDone01 },
+  { label: "Verified Teams", value: "450+", icon: Database02 },
+  { label: "Risky Blocked", value: "1.2M+", icon: BarChart05 },
+];
+
 export function EverydayUsersSection() {
   return (
-    <section id="product" className="py-32 md:py-64 relative z-10 bg-transparent" aria-labelledby="everyday-title">
-      <div className="max-container flex flex-col items-center text-center relative z-10">
+    <section id="product" className="py-24 md:py-32 xl:py-48 relative z-10 bg-[#0B0C10]" aria-labelledby="everyday-title">
+      <div className="max-container px-4 sm:px-6 relative z-10">
         
-        {/* Headline */}
-        <motion.h2
-          id="everyday-title"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-black tracking-tight text-[#49A5BD] mb-8 font-outfit uppercase leading-[1.1]"
-        >
-          Stop guessing. <br className="hidden md:block" /> Start knowing.
-        </motion.h2>
-
-        {/* Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-          className="text-lg md:text-xl text-[#49A5BD] max-w-2xl mb-20 leading-relaxed font-bold tracking-tight"
-        >
-          In Web3 a beautiful interface can still hide a malicious team. Omen Labs helps you verify who is behind a protocol before connecting your wallet.
-        </motion.p>
-
-        {/* Visual comparison */}
-        <div className="grid md:grid-cols-2 gap-8 w-full max-w-[900px] mb-16">
-          {/* Left card: Unverified */}
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-            className="glass-card p-12 md:p-14 border-2 border-[#49A5BD] flex flex-col items-center text-center relative overflow-hidden group transition-all duration-500 rounded-[40px] bg-[#FFFFFF]"
-          >
-            <div className="w-20 h-20 rounded-[28px] border-2 border-[#49A5BD] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-              <AlertTriangle className="w-10 h-10 text-[#49A5BD]" />
+        <div className="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-center mb-24 md:mb-32">
+          {/* Left Side: Content */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-[#111418] border border-white/10 rounded-full mb-8">
+              <ShieldTick className="w-4 h-4 text-[#49A5BD]" />
+              <span className="text-[10px] sm:text-[11px] font-mono font-black uppercase tracking-[0.25em] text-[#49A5BD]">User Protection Layer</span>
             </div>
-            <h3 className="text-2xl font-black text-[#49A5BD] mb-4 uppercase tracking-tighter">Unverified</h3>
-            <p className="text-[#49A5BD] text-[15px] font-bold leading-relaxed px-2">
-              Caution: Unverified contract. Proceed at your own risk.
-            </p>
-          </motion.div>
 
-          {/* Right card: Verified */}
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
-            className="glass-card p-12 md:p-14 border-2 border-[#49A5BD] flex flex-col items-center text-center relative overflow-hidden group transition-all duration-500 rounded-[40px] bg-[#FFFFFF]"
-          >
-            <div className="w-20 h-20 rounded-[28px] bg-[#49A5BD] flex items-center justify-center mb-8 relative group-hover:scale-110 transition-transform duration-500">
-              <ShieldTick className="w-10 h-10 text-[#FFFFFF] relative z-10" />
-            </div>
-            <h3 className="text-2xl font-black text-[#49A5BD] mb-4 uppercase tracking-tighter">Omen Verified</h3>
-            <p className="text-[#49A5BD] text-[15px] font-bold leading-relaxed px-2">
-              Verified Builder. Identity and audit history confirmed.
-            </p>
-          </motion.div>
-        </div>
+            <motion.h2
+              id="everyday-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tighter text-foreground mb-8 font-outfit uppercase leading-[0.95]"
+            >
+              Stop <span className="text-gradient">guessing.</span> <br /> Start <span className="text-white">knowing.</span>
+            </motion.h2>
 
-        {/* Text below cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-          className="max-w-4xl bg-[#FFFFFF] border-2 border-[#49A5BD] rounded-[32px] p-8 md:p-10 mb-20 group transition-all duration-500 hover:scale-[1.01]"
-        >
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 md:gap-8 text-center sm:text-left">
-            <div className="w-14 h-14 rounded-2xl bg-[#49A5BD] shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Lock01 className="w-7 h-7 text-[#FFFFFF]" />
-            </div>
-            <div className="space-y-4 flex-1">
-              <div className="flex items-center justify-center sm:justify-start gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-[#49A5BD]" />
-                 <span className="text-[11px] font-mono font-bold uppercase tracking-[0.3em] text-[#49A5BD]">Protocol Insight</span>
-              </div>
-              <p className="text-lg md:text-xl text-[#49A5BD] font-bold leading-relaxed tracking-tight">
-                Just like you look for the lock icon before entering your card online, look for the Omen Badge before signing a <span className="inline-flex items-center gap-1.5 text-[#49A5BD]"><SuiIcon className="w-5 h-5 text-[#49A5BD]" /> Sui</span> transaction. <span className="text-[#49A5BD]">If it's not verified, it's not safe.</span>
-              </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base sm:text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed font-bold tracking-tight"
+            >
+              In Web3, a beautiful interface can hide a malicious team. Omen Labs creates deterministic trust so you can verify who is behind a protocol before connecting your wallet.
+            </motion.p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <Button size="lg" className="h-12 sm:h-14 px-8 text-sm sm:text-base font-bold bg-[#49A5BD] text-white hover:bg-[#49A5BD]/90 rounded-xl shadow-lg transition-all hover:scale-105 active:scale-95" asChild>
+                <Link href="/dashboard">Search the Registry</Link>
+              </Button>
+              <Button variant="secondary" size="lg" className="h-12 sm:h-14 px-8 text-sm sm:text-base font-bold bg-[#111418] text-white rounded-xl border border-white/10 hover:bg-[#151922] transition-all hover:scale-105 active:scale-95" asChild>
+                <Link href="/whitepaper">View Trust Metrics</Link>
+              </Button>
             </div>
           </div>
-        </motion.div>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-          className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto"
-        >
-          <Link href="/dashboard" className="w-full sm:w-auto">
-             <Button size="lg" className="w-full px-12 py-7 rounded-2xl text-[13px] font-black uppercase tracking-widest gap-2.5 shadow-xl shadow-[#49A5BD]/10 hover:shadow-2xl hover:scale-[1.05] transition-all border-none">
-               <SearchLg className="w-5 h-5" /> Search the Registry
-             </Button>
-          </Link>
-          <Link href="/alpha" className="w-full sm:w-auto">
-              <Button variant="secondary" size="lg" className="w-full px-12 py-7 rounded-2xl text-[13px] font-black uppercase tracking-widest gap-2.5 bg-[#FFFFFF] border-2 border-[#49A5BD]/10 shadow-md shadow-[#49A5BD]/5 hover:shadow-xl hover:scale-[1.05] transition-all">
-                <ShieldTick className="w-5 h-5" /> Demand the Badge
-              </Button>
-          </Link>
-        </motion.div>
+          {/* Right Side: Visual Comparison (Layered) */}
+          <div className="relative w-full max-w-[500px] mx-auto lg:mx-0">
+             <div className="absolute inset-0 bg-[#49A5BD]/5 blur-[80px] rounded-full pointer-events-none" />
+             
+             <div className="relative space-y-4">
+                {/* Verified Card (Floating Top) */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-[#151922] border-2 border-[#49A5BD]/40 p-6 md:p-8 rounded-[32px] shadow-2xl relative z-20 group"
+                >
+                   <div className="flex items-center gap-5">
+                      <div className="w-14 h-14 rounded-2xl bg-[#49A5BD] flex items-center justify-center shadow-[0_0_20px_rgba(73,165,189,0.3)] shrink-0">
+                         <ShieldTick className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                         <div className="flex items-center justify-between mb-1">
+                            <span className="text-[10px] font-mono font-black text-[#49A5BD] uppercase tracking-widest">Omen Verified</span>
+                            <span className="text-[10px] font-mono font-bold text-teal-400 bg-teal-400/10 px-2 py-0.5 rounded">Trust: 98</span>
+                         </div>
+                         <h4 className="text-xl font-black text-white uppercase tracking-tight font-outfit">SuiSwap V3</h4>
+                         <div className="flex items-center gap-1.5 mt-1">
+                            <SuiIcon className="w-3.5 h-3.5" />
+                            <span className="text-[10px] text-body font-bold uppercase tracking-wider">Identities Linked</span>
+                         </div>
+                      </div>
+                   </div>
+                </motion.div>
+
+                {/* Unverified Card (Submerged Bottom) */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 0.5, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-[#111418] border border-white/5 p-6 md:p-8 rounded-[32px] opacity-50 blur-[1px] relative z-10"
+                >
+                   <div className="flex items-center gap-5 grayscale">
+                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                         <AlertTriangle className="w-8 h-8 text-white/40" />
+                      </div>
+                      <div className="flex-1">
+                         <div className="flex items-center justify-between mb-1">
+                            <span className="text-[10px] font-mono font-bold text-white/30 uppercase tracking-widest">Unverified</span>
+                         </div>
+                         <h4 className="text-xl font-black text-white/30 uppercase tracking-tight font-outfit italic">ShadowProtocol</h4>
+                         <span className="text-[10px] text-white/20 font-bold uppercase tracking-wider">Unknown Origin</span>
+                      </div>
+                   </div>
+                </motion.div>
+                
+                {/* Floating Signal */}
+                <motion.div 
+                   animate={{ y: [0, -10, 0] }}
+                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#151922] border border-[#49A5BD]/30 p-4 rounded-2xl shadow-xl z-30 flex items-center gap-3 hidden md:flex"
+                >
+                   <div className="w-8 h-8 rounded-lg bg-[#49A5BD]/10 flex items-center justify-center">
+                      <BarChart05 className="w-4 h-4 text-[#49A5BD]" />
+                   </div>
+                   <div className="pr-4">
+                      <div className="text-[8px] font-mono font-black text-[#49A5BD] uppercase tracking-widest">Reputation Flow</div>
+                      <div className="text-[10px] font-bold text-white uppercase tracking-tight whitespace-nowrap">Confirmed Integrity</div>
+                   </div>
+                </motion.div>
+             </div>
+          </div>
+        </div>
+
+        {/* Deterministic Trust Banner */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 border-t border-white/5 pt-16 mt-16">
+          {stats.map((stat, i) => (
+             <motion.div 
+               key={stat.label}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: i * 0.1 }}
+               className="bg-[#111418] border border-white/5 p-8 rounded-3xl group hover:border-[#49A5BD]/30 transition-all duration-300"
+             >
+                <div className="flex items-center gap-4 mb-4">
+                   <div className="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-[#49A5BD] group-hover:bg-[#49A5BD] group-hover:text-white transition-all">
+                      <stat.icon className="w-5 h-5" />
+                   </div>
+                   <span className="text-[10px] font-mono font-black text-body uppercase tracking-[0.2em] group-hover:text-[#49A5BD] transition-colors">{stat.label}</span>
+                </div>
+                <div className="text-4xl font-black text-white font-outfit uppercase tracking-tighter">
+                   {stat.value}
+                </div>
+             </motion.div>
+          ))}
+        </div>
 
       </div>
     </section>
   );
 }
+

@@ -100,67 +100,66 @@ const statuses = [
   {
     title: "Verified",
     description: "Eligible for default routing, featured placement, and green-path UX.",
-    tone: "border-emerald-200 bg-emerald-50/70 text-emerald-700",
+    tone: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
   },
   {
     title: "Watchlist",
     description: "Still queryable, but gated behind extra warnings or human approval.",
-    tone: "border-amber-200 bg-amber-50/70 text-amber-700",
+    tone: "border-amber-500/30 bg-amber-500/10 text-amber-400",
   },
   {
     title: "Revoked",
     description: "Automatically blocked by policy when score or evidence drops below threshold.",
-    tone: "border-rose-200 bg-rose-50/70 text-rose-700",
+    tone: "border-rose-500/30 bg-rose-500/10 text-rose-400",
   },
 ];
 
 export default function ProductPage() {
   return (
     <Layout>
-      <div className="max-container py-8 md:py-12">
-        <section className="glass-card overflow-hidden px-6 py-10 md:px-10 md:py-14 lg:px-14">
+      <div className="max-container py-8 md:py-12 font-outfit">
+        <section className="glass-card overflow-hidden px-6 py-10 md:px-10 md:py-14 lg:px-14 border-[#49A5BD]/20">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#43B6D5]/10 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#43B6D5]">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#49A5BD]/20 bg-surface/50 px-4 py-2 text-[11px] font-black uppercase tracking-[0.3em] text-[#49A5BD] font-mono">
                 <Sparkles className="h-4 w-4" />
                 Core Product
               </div>
-              <h1 className="max-w-4xl text-4xl leading-[1.02] md:text-5xl lg:text-6xl">
-                Trust infrastructure for wallets, apps, and autonomous agents on Sui.
+              <h1 className="max-w-4xl text-4xl leading-[1.02] md:text-5xl lg:text-6xl font-black text-foreground uppercase">
+                Trust infrastructure for wallets, apps, and agents on Sui.
               </h1>
-              <p className="max-w-3xl text-lg text-[#4A5568]">
+              <p className="max-w-3xl text-lg text-body font-bold leading-relaxed">
                 Omen is not just a badge. It is a programmable trust stack that links builder identity,
                 security evidence, and policy enforcement so users can evaluate who built a protocol before
                 they route value into it.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" asChild>
+                <Button size="lg" className="h-14 px-8 bg-[#49A5BD] text-white hover:bg-[#49A5BD]/90 rounded-xl shadow-xl shadow-[#49A5BD]/20 border-none font-bold" asChild>
                   <Link href="/developer">
                     Build With Omen
-                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
+                <Button variant="secondary" size="lg" className="h-14 px-8 bg-surface/80 text-[#49A5BD] border-[#49A5BD]/20 rounded-xl font-bold" asChild>
                   <Link href="/docs">Read Integration Docs</Link>
                 </Button>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold text-[#4A5568]">
-                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Sui-native scoring</span>
-                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">SDK policy assertions</span>
-                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Walrus audit storage</span>
-                <span className="rounded-full border border-[#43B6D5]/10 bg-white/60 px-3 py-1.5">Agent-aware enforcement</span>
+              <div className="mt-8 flex flex-wrap gap-3 text-[10px] font-black font-mono uppercase tracking-widest text-body">
+                <span className="rounded-full border border-[#49A5BD]/20 bg-surface/50 px-3 py-1.5 opacity-60">Sui-native scoring</span>
+                <span className="rounded-full border border-[#49A5BD]/20 bg-surface/50 px-3 py-1.5 opacity-60">SDK policy assertions</span>
+                <span className="rounded-full border border-[#49A5BD]/20 bg-surface/50 px-3 py-1.5 opacity-60">Walrus audit storage</span>
+                <span className="rounded-full border border-[#49A5BD]/20 bg-surface/50 px-3 py-1.5 opacity-60">Agent-aware enforcement</span>
               </div>
             </div>
 
-            <div className="glass-panel rounded-[28px] border border-white/80 p-6 md:p-8">
+            <div className="glass-panel rounded-[28px] border border-[#49A5BD]/30 p-6 md:p-8 bg-surface/30">
               <div className="mb-6 flex items-center justify-between">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
+                  <p className="text-[11px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">
                     Runtime Flow
                   </p>
-                  <p className="text-sm text-[#4A5568]">How the trust engine moves from data to enforcement.</p>
+                  <p className="text-sm text-body font-bold">How the trust engine moves from data to enforcement.</p>
                 </div>
-                <Workflow className="h-7 w-7 text-[#43B6D5]" />
+                <Workflow className="h-7 w-7 text-[#49A5BD]" />
               </div>
               <div className="space-y-4">
                 {[
@@ -171,14 +170,14 @@ export default function ProductPage() {
                 ].map(([title, text]) => (
                   <div
                     key={title}
-                    className="rounded-2xl border border-[#43B6D5]/8 bg-white/75 px-4 py-4"
+                    className="rounded-2xl border border-[#49A5BD]/10 bg-surface/50 px-4 py-4"
                   >
                     <div className="flex items-center justify-between gap-4">
                       <div>
-                        <p className="text-sm font-semibold text-[#0B1220]">{title}</p>
-                        <p className="text-sm text-[#4A5568]">{text}</p>
+                        <p className="text-sm font-black text-foreground uppercase tracking-tight">{title}</p>
+                        <p className="text-sm text-body font-bold">{text}</p>
                       </div>
-                      <div className="rounded-full bg-[#EAF3FA] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#43B6D5]">
+                      <div className="rounded-full bg-[#49A5BD]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em] text-[#49A5BD] font-mono">
                         Active
                       </div>
                     </div>
@@ -189,74 +188,78 @@ export default function ProductPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 lg:py-32">
           <div className="mb-10 max-w-3xl">
-            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
+            <p className="mb-4 text-[11px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">
               Trust Lifecycle
             </p>
-            <h2 className="mb-4">Explain the product like infrastructure, not marketing.</h2>
-            <p className="text-[#4A5568]">
+            <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-black text-foreground uppercase">Infrastructure over Marketing</h2>
+            <p className="text-lg text-body font-bold leading-relaxed">
               The strongest protocol sites make the mechanics legible. Omen now does the same: what gets
               collected, what gets scored, and where enforcement actually happens.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {lifecycle.map((item) => (
-              <div key={item.title} className="glass-card p-6">
-                <div className="mb-5 inline-flex rounded-2xl bg-[#EAF3FA] p-3 text-[#43B6D5]">
+              <div key={item.title} className="glass-card p-8 border-[#49A5BD]/10 hover:border-[#49A5BD]/30 transition-all duration-300">
+                <div className="mb-6 inline-flex rounded-2xl bg-surface border border-[#49A5BD]/20 p-4 text-[#49A5BD] shadow-xl">
                   <item.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-3 text-xl">{item.title}</h3>
-                <p className="text-base text-[#4A5568]">{item.description}</p>
+                <h3 className="mb-4 text-xl font-black text-foreground uppercase tracking-tight">{item.title}</h3>
+                <p className="text-base text-body font-bold leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="grid gap-8 py-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="glass-card p-6 md:p-8">
-            <div className="mb-8 flex items-center gap-3">
-              <Blocks className="h-6 w-6 text-[#43B6D5]" />
+          <div className="glass-card p-8 md:p-10 border-[#49A5BD]/10 shadow-2xl bg-surface/20">
+            <div className="mb-8 flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#49A5BD] rounded-xl flex items-center justify-center text-white shadow-xl shadow-[#49A5BD]/10 shrink-0">
+                <Blocks className="h-6 w-6" />
+              </div>
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Primitives</p>
-                <h2 className="mb-0 text-2xl md:text-3xl">Composable product surface</h2>
+                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">Primitives</p>
+                <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight leading-none">Composable surface</h2>
               </div>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-6">
               {primitives.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-[#43B6D5]/8 bg-white/65 p-5">
-                  <div className="mb-3 flex items-center gap-3">
-                    <item.icon className="h-5 w-5 text-[#43B6D5]" />
-                    <h3 className="mb-0 text-lg">{item.title}</h3>
+                <div key={item.title} className="rounded-2xl border border-[#49A5BD]/10 bg-surface/50 p-6 hover:border-[#49A5BD]/30 transition-all">
+                  <div className="mb-4 flex items-center gap-4">
+                    <item.icon className="h-5 w-5 text-[#49A5BD]" />
+                    <h3 className="text-lg font-black text-foreground uppercase tracking-tight">{item.title}</h3>
                   </div>
-                  <p className="text-base text-[#4A5568]">{item.description}</p>
+                  <p className="text-base text-body font-bold leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="glass-card p-6 md:p-8">
-            <div className="mb-8 flex items-center gap-3">
-              <CheckCheck className="h-6 w-6 text-[#43B6D5]" />
+          <div className="glass-card p-8 md:p-10 border-[#49A5BD]/10 shadow-2xl bg-surface/20">
+            <div className="mb-8 flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#49A5BD] rounded-xl flex items-center justify-center text-white shadow-xl shadow-[#49A5BD]/10 shrink-0">
+                <CheckCheck className="h-6 w-6" />
+              </div>
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Scoring Model</p>
-                <h2 className="mb-0 text-2xl md:text-3xl">Readable trust composition</h2>
+                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">Scoring Model</p>
+                <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight leading-none">Trust composition</h2>
               </div>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {scorecards.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-[#43B6D5]/8 bg-white/70 p-5">
-                  <div className="mb-3 flex items-center justify-between gap-4">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#43B6D5]">{item.label}</p>
-                    <span className="text-2xl font-bold text-[#0B1220]">{item.value}</span>
+                <div key={item.label} className="rounded-2xl border border-[#49A5BD]/10 bg-surface/50 p-6 hover:border-[#49A5BD]/30 transition-all">
+                  <div className="mb-4 flex items-center justify-between gap-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#49A5BD] font-mono">{item.label}</p>
+                    <span className="text-3xl font-black text-foreground">{item.value}</span>
                   </div>
-                  <p className="text-base text-[#4A5568]">{item.detail}</p>
+                  <p className="text-base text-body font-bold leading-relaxed">{item.detail}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-2xl border border-dashed border-[#43B6D5]/15 bg-[#F8FBFE] p-5">
-              <p className="text-sm font-semibold text-[#0B1220]">Operational result</p>
-              <p className="mt-2 text-base text-[#4A5568]">
+            <div className="mt-8 rounded-2xl border border-dashed border-[#49A5BD]/30 bg-[#49A5BD]/5 p-6">
+              <p className="text-sm font-black text-foreground uppercase tracking-tight mb-2">Operational Result</p>
+              <p className="text-base text-body font-bold leading-relaxed">
                 Policies consume the score as a runtime decision, not a vanity metric. That is the difference
                 between trust content and product functionality.
               </p>
@@ -264,44 +267,48 @@ export default function ProductPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-32 lg:py-48">
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-            <div className="glass-card p-6 md:p-8">
-              <div className="mb-8 flex items-center gap-3">
-                <ShieldCheck className="h-6 w-6 text-[#43B6D5]" />
+            <div className="glass-card p-8 md:p-10 border-[#49A5BD]/10 shadow-2xl">
+              <div className="mb-10 flex items-center gap-4">
+                <div className="w-12 h-12 bg-surface border border-[#49A5BD]/20 rounded-xl flex items-center justify-center text-[#49A5BD] shadow-xl shrink-0">
+                  <ShieldCheck className="h-6 w-6" />
+                </div>
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Policy States</p>
-                  <h2 className="mb-0 text-2xl md:text-3xl">Three operating modes</h2>
+                  <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">Policy States</p>
+                  <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Operating modes</h2>
                 </div>
               </div>
               <div className="space-y-4">
                 {statuses.map((status) => (
-                  <div key={status.title} className={`rounded-2xl border p-5 ${status.tone}`}>
-                    <p className="text-sm font-bold uppercase tracking-[0.25em]">{status.title}</p>
-                    <p className="mt-2 text-base">{status.description}</p>
+                  <div key={status.title} className={`rounded-2xl border p-6 ${status.tone} shadow-lg`}>
+                    <p className="text-sm font-black uppercase tracking-[0.25em] mb-2">{status.title}</p>
+                    <p className="text-base font-bold leading-relaxed">{status.description}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="glass-card p-6 md:p-8">
-              <div className="mb-8 flex items-center gap-3">
-                <Bot className="h-6 w-6 text-[#43B6D5]" />
+            <div className="glass-card p-8 md:p-10 border-[#49A5BD]/10 shadow-2xl">
+              <div className="mb-10 flex items-center gap-4">
+                <div className="w-12 h-12 bg-surface border border-[#49A5BD]/20 rounded-xl flex items-center justify-center text-[#49A5BD] shadow-xl shrink-0">
+                  <Bot className="h-6 w-6" />
+                </div>
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">Use Cases</p>
-                  <h2 className="mb-0 text-2xl md:text-3xl">Where this becomes visible to users</h2>
+                  <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">Use Cases</p>
+                  <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Ecosystem Surface</h2>
                 </div>
               </div>
               <div className="space-y-4">
                 {useCases.map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-4 rounded-2xl border border-[#43B6D5]/8 bg-white/70 p-5"
+                    className="flex items-start gap-4 rounded-2xl border border-[#49A5BD]/10 bg-surface/50 p-6 hover:border-[#49A5BD]/30 transition-all shadow-md"
                   >
-                    <div className="mt-1 rounded-full bg-[#EAF3FA] p-2 text-[#43B6D5]">
-                      <ArrowRight className="h-4 w-4" />
+                    <div className="mt-1 rounded-full bg-[#49A5BD]/10 p-2 text-[#49A5BD] shrink-0">
+                      <CheckCheck className="h-4 w-4" />
                     </div>
-                    <p className="text-base text-[#4A5568]">{item}</p>
+                    <p className="text-base text-body font-bold leading-relaxed">{item}</p>
                   </div>
                 ))}
               </div>
@@ -312,40 +319,49 @@ export default function ProductPage() {
         <section className="glass-card p-6 md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div>
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.35em] text-[#43B6D5]">
+              <p className="mb-4 text-[11px] font-black uppercase tracking-[0.35em] text-[#49A5BD] font-mono">
                 Developer Surface
               </p>
-              <h2 className="mb-4">The product page should hand developers an obvious next step.</h2>
-              <p className="text-[#4A5568]">
-                Your SDK already exposes trust reads, verification checks, audit report retrieval, and
-                transaction assertions. This page now points developers toward that surface instead of hiding it.
+              <h2 className="mb-4 text-foreground font-outfit">Seamless Integration</h2>
+              <p className="text-body font-bold leading-relaxed">
+                The Omen SDK exposes trust reads, verification checks, audit report retrieval, and
+                transaction assertions. Integrate trust into your protocol in minutes.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button asChild>
+                <Button asChild className="bg-[#49A5BD] hover:opacity-80 text-white rounded-xl px-8 h-12 shadow-lg shadow-[#49A5BD]/20">
                   <Link href="/developer">Request SDK Access</Link>
                 </Button>
-                <Button variant="secondary" asChild>
-                  <Link href="/dashboard">Open Dashboard</Link>
+                <Button variant="secondary" asChild className="bg-surface border border-[#49A5BD]/20 text-foreground rounded-xl px-8 h-12 hover:bg-[#49A5BD]/5">
+                  <Link href="/dashboard">Open Console</Link>
                 </Button>
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[28px] border border-[#43B6D5]/10 bg-[#0B1220] p-5 text-sm text-white shadow-[0_20px_50px_rgba(11,18,32,0.18)]">
-              <div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-white/50">
-                <Braces className="h-4 w-4" />
-                sdk.ts
+            <div className="overflow-hidden rounded-[28px] border border-[#49A5BD]/20 bg-surface/50 p-6 text-sm text-white shadow-2xl backdrop-blur-xl">
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#49A5BD] font-mono">
+                  <Braces className="h-4 w-4" />
+                  omen_integration.ts
+                </div>
+                <div className="flex gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-white/10" />
+                  <div className="w-2 h-2 rounded-full bg-white/10" />
+                  <div className="w-2 h-2 rounded-full bg-white/10" />
+                </div>
               </div>
-              <pre className="overflow-x-auto whitespace-pre-wrap font-mono text-[13px] leading-6 text-white/85">
+              <pre className="overflow-x-auto whitespace-pre-wrap font-mono text-[13px] leading-6 text-white/90 selection:bg-[#49A5BD]/30">
 {`import { OmenSDK } from "@omen-labs/sdk";
 
 const omen = new OmenSDK({ network: "mainnet" });
 
+// Query trust for any protocol address
 const trust = await omen.getTrustScore("0xprotocol");
 
 if (trust.score < 80) {
-  throw new Error("Policy blocked: trust score below threshold");
+  throw new Error("Policy blocked: low trust score");
 }
 
+// Inject assertion into transaction
 await omen.injectSecurityAssertion(tx, {
   target: "0xprotocol",
   minScore: 80,
