@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock01 } from "@untitled-ui/icons-react";
+import { Lock } from "lucide-react";
 
 export function VisionSection() {
   return (
     <section className="py-24 md:py-48 bg-background flex flex-col items-center text-center px-4 relative z-10">
       <div className="flex flex-col items-center animate-fade-up">
-        <Lock01 className="w-10 h-10 text-[#49A5BD]/20 mb-8" aria-hidden="true" />
+        <Lock className="w-10 h-10 text-[#49A5BD]/20 mb-8" aria-hidden="true" />
         <h2 className="text-3xl md:text-6xl font-black tracking-tighter max-w-5xl mb-12 text-foreground uppercase leading-[1.1] font-outfit text-balance">
           "Programmatic <span className="text-gradient underline decoration-[#49A5BD]/20">Accountability</span> <br /> 
           for the Agentic Web."

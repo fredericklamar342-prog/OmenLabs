@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { ShieldTick, LayersThree01, CheckCircle, Zap, CpuChip01, Fingerprint04, Server06, ArrowRight } from "@untitled-ui/icons-react";
+import { ShieldCheck, Layers, CheckCircle2, Zap, Cpu, Fingerprint, Database, ArrowRight } from "lucide-react";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
 import SuiIcon from "@/components/icons/SuiIcon";
 import WalrusIcon from "@/components/icons/WalrusIcon";
@@ -61,10 +61,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] font-black tracking-tighter text-foreground leading-[1.05] mb-6 font-outfit text-balance"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-black tracking-tighter text-foreground leading-[1.05] mb-6 font-outfit text-balance"
             >
-              The <span className="text-gradient drop-shadow-sm">Verification Layer</span> <br className="hidden md:block lg:hidden xl:block" />
-              for the <span className="inline-flex items-center gap-2 lg:gap-3 xl:gap-4 mx-1">Sui <SuiIcon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-20 xl:h-20 text-foreground" /></span> Economy
+              The <span className="text-gradient drop-shadow-sm">Trust Primitive</span> <br className="hidden md:block lg:hidden xl:block" />
+              for the Sui Network
             </motion.h1>
 
             <motion.p
@@ -132,7 +132,7 @@ export function HeroSection() {
                      className="absolute top-[15%] left-[50%] -translate-x-1/2 flex flex-col items-center gap-3 z-20"
                    >
                       <div className="w-16 h-16 rounded-2xl bg-surface/80 border border-[#49A5BD]/40 flex items-center justify-center shadow-lg backdrop-blur-md">
-                         <Fingerprint04 className="w-8 h-8 text-[#49A5BD]" />
+                         <Fingerprint className="w-8 h-8 text-[#49A5BD]" />
                       </div>
                       <span className="text-[10px] font-mono font-black uppercase text-[#49A5BD] tracking-[0.2em] bg-surface/80 px-2 py-0.5 rounded backdrop-blur">OmenBadge [zkLogin]</span>
                    </motion.div>
@@ -145,7 +145,7 @@ export function HeroSection() {
                    >
                       <div className="w-24 h-24 rounded-full bg-[#49A5BD] border-4 border-surface shadow-[0_0_30px_rgba(73,165,189,0.4)] flex items-center justify-center z-10 relative overflow-hidden">
                          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent,rgba(255,255,255,0.3),transparent)] animate-shimmer" />
-                         <ShieldTick className="w-12 h-12 text-white relative z-10" />
+                         <ShieldCheck className="w-12 h-12 text-white relative z-10" />
                       </div>
                       <span className="text-[11px] font-mono font-black uppercase text-white tracking-[0.2em] bg-[#49A5BD]/80 px-3 py-1 rounded-full backdrop-blur shadow-lg border border-[#49A5BD]">Trust Oracle</span>
                    </motion.div>
@@ -157,7 +157,7 @@ export function HeroSection() {
                      className="absolute bottom-[20%] left-[20%] flex flex-col items-center gap-3 z-20"
                    >
                       <div className="w-14 h-14 rounded-2xl bg-surface/80 border border-white/10 flex items-center justify-center shadow-lg backdrop-blur-md">
-                         <CpuChip01 className="w-7 h-7 text-white" />
+                         <Cpu className="w-7 h-7 text-white" />
                       </div>
                       <span className="text-[9px] font-mono font-black uppercase text-body tracking-[0.2em] bg-surface/80 px-2 py-0.5 rounded backdrop-blur border border-white/5">AI App</span>
                    </motion.div>
@@ -222,25 +222,25 @@ export function HeroSection() {
               Engineered For The Sui Web3 Stack
            </p>
            
-           {/* Static Logo Grid for density */}
-           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 opacity-60">
-             <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-               <SuiIcon className="w-6 h-6 sm:w-8 sm:h-8" />
-               <span className="text-sm sm:text-base font-black tracking-widest uppercase">Sui Network</span>
-             </div>
-             <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-               <WalrusIcon className="w-6 h-6 sm:w-8 sm:h-8" />
-               <span className="text-sm sm:text-base font-black tracking-widest uppercase text-white font-mono">Walrus</span>
-             </div>
-             <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-               <Server06 className="w-6 h-6 sm:w-8 sm:h-8" />
-               <span className="text-sm sm:text-base font-black tracking-widest uppercase">DeepBook V3</span>
-             </div>
-             <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-               <GoogleIcon className="w-5 h-5 sm:w-7 sm:h-7" />
-               <span className="text-sm sm:text-base font-black tracking-widest uppercase">zkLogin</span>
-             </div>
-           </div>
+            {/* Static Logo Grid for density */}
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-y-6 gap-x-8 sm:gap-x-12 md:gap-x-16 lg:gap-x-20 opacity-60">
+              <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <SuiIcon className="w-6 h-6 sm:w-8 sm:h-8" />
+                <span className="text-sm sm:text-base font-black tracking-widest uppercase">Sui Network</span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <WalrusIcon className="w-6 h-6 sm:w-8 sm:h-8" />
+                <span className="text-sm sm:text-base font-black tracking-widest uppercase text-white font-mono">Walrus</span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <Database className="w-6 h-6 sm:w-8 sm:h-8" />
+                <span className="text-sm sm:text-base font-black tracking-widest uppercase">DeepBook V3</span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <GoogleIcon className="w-5 h-5 sm:w-7 sm:h-7" />
+                <span className="text-sm sm:text-base font-black tracking-widest uppercase">zkLogin</span>
+              </div>
+            </div>
         </motion.div>
 
       </div>

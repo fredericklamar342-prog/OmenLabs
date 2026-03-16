@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldTick } from "@untitled-ui/icons-react";
+import { ShieldCheck } from "lucide-react";
 import SuiIcon from "@/components/icons/SuiIcon";
 import { Github, Twitter } from "lucide-react";
 
@@ -13,7 +13,7 @@ export function TeamSection() {
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16 animate-fade-up">
           <span className="text-[11px] font-bold tracking-widest text-[#49A5BD] uppercase mb-4 flex items-center gap-2">
-            <ShieldTick className="w-4 h-4" /> Built on Trust
+            <ShieldCheck className="w-4 h-4" /> Built on Trust
           </span>
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground mb-4 uppercase font-outfit">
             The Team Behind Omen
@@ -67,7 +67,7 @@ export function TeamSection() {
             
             <div className="mt-8 pt-6 border-t border-[#49A5BD]/10 w-full">
                <p className="text-[13px] text-body font-bold leading-relaxed flex items-center justify-center gap-1.5 flex-wrap">
-                 Building the minimal, programmable trust layer for the <SuiIcon className="w-4 h-4" /> Sui economy. Real identity. Real security.
+                 Building the minimal, programmable trust layer for the Sui economy. Real identity. Real security.
                </p>
             </div>
           </motion.div>

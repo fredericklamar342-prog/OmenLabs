@@ -41,8 +41,13 @@ export function useCountUp({
       const elapsed = ts - startTs;
       const raw = Math.min(elapsed / duration, 1);
       const progress = easeOut(raw);
+      const nextValue = progress * end;
 
-      setValue(progress * end);
+      // Only update state if the value has changed significantly or it's the final tick
+      // This prevents high-frequency re-renders for sub-pixel/sub-decimal changes
+      if (raw === 1 || Math.abs(nextValue - value) >= 0.01) {
+        setValue(nextValue);
+      }
 
       if (raw < 1) {
         raf = requestAnimationFrame(tick);

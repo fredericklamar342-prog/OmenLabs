@@ -18,7 +18,7 @@ const items = [
   },
   {
     title:       "Walrus Anchoring",
-    description: <>Heavy AI audit data is stored on <WalrusIcon className="inline-block w-4 h-4 mx-1" /> Walrus. Only the 256-bit hash and Blob ID live on-chain, keeping <SuiIcon className="inline-block w-4 h-4 mx-1" /> Sui gas fees near absolute zero.</>,
+    description: "Heavy AI audit data is stored on Walrus Protocol. Only the 256-bit hash and Blob ID live on-chain, keeping Sui gas fees near absolute zero.",
     icon:        Server,
   },
   {

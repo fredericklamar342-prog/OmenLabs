@@ -7,20 +7,20 @@ import SuiIcon from "@/components/icons/SuiIcon";
 import WalrusIcon from "@/components/icons/WalrusIcon";
 import { 
   Terminal, 
-  BookOpen01, 
-  ShieldTick, 
+  BookOpen, 
+  ShieldCheck, 
   Activity, 
-  CheckCircle, 
+  CheckCircle2, 
   ChevronRight,
   ChevronDown,
-  Code01,
-  Users01,
-  Database01,
-  Lock01,
-  CpuChip01,
+  Code2,
+  Users,
+  Database,
+  Lock,
+  Cpu,
   Zap,
-  LayersThree01
-} from "@untitled-ui/icons-react";
+  Layers
+} from "lucide-react";
 
 /* ──────── API Method Card (mobile stacked) ──────── */
 interface ApiMethod {
@@ -62,7 +62,7 @@ function ApiMethodCard({ method, returns, description }: ApiMethod) {
       </div>
       <div>
         <span className="text-[10px] font-black uppercase tracking-widest text-[#49A5BD] block mb-1 font-mono">Description</span>
-        <p className="text-sm text-body leading-relaxed font-bold">{description}</p>
+        <p className="text-sm text-body leading-relaxed font-bold">Fetches a full security report from the Walrus storage network.</p>
       </div>
     </div>
   );
@@ -102,23 +102,23 @@ export default function DocsPage() {
     {
       id: "overview",
       title: "Overview",
-      icon: <BookOpen01 className="w-5 h-5" />,
+      icon: <BookOpen className="w-5 h-5" />,
       tag: "CORE_CONCEPT",
       content: (
         <div className="space-y-8">
           <p className="text-[#49A5BD] leading-relaxed text-lg md:text-xl font-bold">
-            Omen is a decentralized reputation protocol and trust infrastructure built natively for the <span className="inline-flex items-center gap-1.5"><SuiIcon className="w-5 h-5 md:w-6 md:h-6" /> Sui</span> ecosystem. It bridges the gap between verified code and verifiable identity.
+            Omen is a decentralized reputation protocol and trust infrastructure built natively for the Sui ecosystem. It bridges the gap between verified code and verifiable identity.
           </p>
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 my-8 md:my-12">
             <div className="p-6 md:p-8 glass-card space-y-4 border-[#49A5BD]/10 hover:border-[#49A5BD]/30 transition-all duration-300">
                <h4 className="text-[#49A5BD] font-black flex items-center gap-3 uppercase tracking-widest text-xs font-mono">
-                 <ShieldTick className="w-4 h-4" /> THE TRUST GAP
+                 <ShieldCheck className="w-4 h-4" /> THE TRUST GAP
                </h4>
                <p className="text-sm text-body leading-relaxed font-bold">Web3 lacks a non-transferable reputation layer. Omen fills this by linking real-world credibility to soulbound on-chain identities.</p>
             </div>
             <div className="p-6 md:p-8 glass-card space-y-4 border-[#49A5BD]/10 hover:border-[#49A5BD]/30 transition-all duration-300">
                <h4 className="text-[#49A5BD] font-black flex items-center gap-3 uppercase tracking-widest text-xs font-mono">
-                 <CpuChip01 className="w-4 h-4" /> AGENTIC WEB
+                 <Cpu className="w-4 h-4" /> AGENTIC WEB
                </h4>
                <p className="text-sm text-body leading-relaxed font-bold">As AI agents take over trading and governance, Omen provides the &ldquo;Proof of Creator&rdquo; layer needed for autonomous safety.</p>
             </div>
@@ -158,7 +158,7 @@ export default function DocsPage() {
     {
       id: "sdk-setup",
       title: "SDK Setup",
-      icon: <Code01 className="w-5 h-5" />,
+      icon: <Code2 className="w-5 h-5" />,
       tag: "CONFIG",
       content: (
         <div className="space-y-8">
@@ -209,7 +209,7 @@ if (trustScore < 85) {
     {
       id: "security-thresholds",
       title: "Security Thresholds",
-      icon: <CheckCircle className="w-5 h-5" />,
+      icon: <CheckCircle2 className="w-5 h-5" />,
       tag: "GOVERNANCE",
       content: (
         <div className="space-y-10">
@@ -238,10 +238,10 @@ if (trustScore < 85) {
       content: (
          <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
             {[
-              { title: "DEEPBOOK FIREWALL", desc: "Gate trading pool access based on Omen badges to protect liquidity from anonymous predators.", icon: <Database01 className="w-4 h-4" /> },
-              { title: "WALLET WARNING", desc: "Inject a 'Verified Builder' badge into the transaction approval screen in your wallet extension.", icon: <ShieldTick className="w-4 h-4" /> },
-              { title: "AI AGENT SAFETY", desc: "Force autonomous bots to check creator reputation before engaging with new pools.", icon: <LayersThree01 className="w-4 h-4" /> },
-              { title: "SOULBOUND INDEX", desc: <><span>Index move-native identities to create a leaderboard of the most trusted </span><SuiIcon className="inline-block w-4 h-4 mx-0.5" /> Sui developers.</>, icon: <Users01 className="w-4 h-4" /> }
+              { title: "DEEPBOOK FIREWALL", desc: "Gate trading pool access based on Omen badges to protect liquidity from anonymous predators.", icon: <Database className="w-4 h-4" /> },
+              { title: "WALLET WARNING", desc: "Inject a 'Verified Builder' badge into the transaction approval screen in your wallet extension.", icon: <ShieldCheck className="w-4 h-4" /> },
+              { title: "AI AGENT SAFETY", desc: "Force autonomous bots to check creator reputation before engaging with new pools.", icon: <Layers className="w-4 h-4" /> },
+              { title: "SOULBOUND INDEX", desc: "Index move-native identities to create a leaderboard of the most trusted Sui developers.", icon: <Users className="w-4 h-4" /> }
             ].map((ex, i) => (
               <div key={i} className="p-6 md:p-8 glass-card space-y-4 group border-[#49A5BD]/10 hover:border-[#49A5BD]/40 transition-all duration-300">
                 <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center text-[#49A5BD] group-hover:bg-[#49A5BD] group-hover:text-white transition-all shadow-md">
@@ -257,7 +257,7 @@ if (trustScore < 85) {
     {
       id: "api-reference",
       title: "API Reference",
-      icon: <Database01 className="w-5 h-5" />,
+      icon: <Database className="w-5 h-5" />,
       tag: "SDK_SPEC",
       content: (
         <div className="space-y-8">
@@ -282,7 +282,10 @@ if (trustScore < 85) {
     <Layout>
       <div className="max-w-7xl mx-auto py-12 sm:py-16 lg:py-24 xl:py-32 px-4 sm:px-6">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left mb-12 sm:mb-16 lg:mb-24 animate-fade-up">
-           <span className="text-[9px] sm:text-[10px] font-black tracking-[0.4em] text-[#49A5BD] uppercase mb-4 sm:mb-6">Developer Documentation</span>
+           <div className="flex items-center gap-3 mb-4 sm:mb-6">
+             <SuiIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+             <span className="text-[9px] sm:text-[10px] font-black tracking-[0.4em] text-[#49A5BD] uppercase">Developer Documentation</span>
+           </div>
            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter text-foreground mb-4 sm:mb-6 md:mb-8 uppercase font-outfit leading-[0.9] sm:leading-[0.85] text-balance px-2">
              Specifications <br className="hidden lg:block md:hidden" />&amp; SDK
            </h1>

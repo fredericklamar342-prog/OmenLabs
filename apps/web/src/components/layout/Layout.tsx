@@ -139,7 +139,7 @@ export function Layout({ children }: LayoutProps) {
 
            <div className="flex flex-col lg:flex-row items-center justify-between border-t border-white/5 pt-12 gap-10">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-12 gap-y-6">
-               <p className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-white/20">&copy; {new Date().getFullYear()} OMEN LABS. ALL RIGHTS RESERVED.</p>
+                <p className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-white/20">&copy; 2026 OMEN LABS. ALL RIGHTS RESERVED.</p>
                <div className="flex gap-10">
                  {['Privacy', 'Terms', 'Security'].map(item => (
                    <span key={item} className="text-[11px] font-black uppercase tracking-[0.2em] text-white/30 cursor-not-allowed hover:text-white/60 transition-colors" title="Institutional Review Pending">{item}</span>

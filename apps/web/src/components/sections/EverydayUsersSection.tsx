@@ -1,27 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock01, SearchLg, AlertTriangle, ShieldTick, BarChart05, CheckDone01, Database02 } from "@untitled-ui/icons-react";
+import { ShieldCheck, Search, TriangleAlert, Activity, CheckCircle2, Database } from "lucide-react";
 import SuiIcon from "@/components/icons/SuiIcon";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-const stats = [
-  { label: "Trust Accuracy", value: "99.9%", icon: CheckDone01 },
-  { label: "Verified Teams", value: "450+", icon: Database02 },
-  { label: "Risky Blocked", value: "1.2M+", icon: BarChart05 },
-];
-
 export function EverydayUsersSection() {
   return (
-    <section id="product" className="py-24 md:py-32 xl:py-48 relative z-10 bg-[#0B0C10]" aria-labelledby="everyday-title">
+    <section id="product" className="py-24 md:py-32 xl:pt-48 xl:pb-24 relative z-10 bg-[#0B0C10]" aria-labelledby="everyday-title">
       <div className="max-container px-4 sm:px-6 relative z-10">
         
         <div className="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-center mb-24 md:mb-32">
           {/* Left Side: Content */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-[#111418] border border-white/10 rounded-full mb-8">
-              <ShieldTick className="w-4 h-4 text-[#49A5BD]" />
+              <ShieldCheck className="w-4 h-4 text-[#49A5BD]" />
               <span className="text-[10px] sm:text-[11px] font-mono font-black uppercase tracking-[0.25em] text-[#49A5BD]">User Protection Layer</span>
             </div>
 
@@ -71,7 +65,7 @@ export function EverydayUsersSection() {
                 >
                    <div className="flex items-center gap-5">
                       <div className="w-14 h-14 rounded-2xl bg-[#49A5BD] flex items-center justify-center shadow-[0_0_20px_rgba(73,165,189,0.3)] shrink-0">
-                         <ShieldTick className="w-8 h-8 text-white" />
+                         <ShieldCheck className="w-8 h-8 text-white" />
                       </div>
                       <div className="flex-1">
                          <div className="flex items-center justify-between mb-1">
@@ -97,7 +91,7 @@ export function EverydayUsersSection() {
                 >
                    <div className="flex items-center gap-5 grayscale">
                       <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                         <AlertTriangle className="w-8 h-8 text-white/40" />
+                         <TriangleAlert className="w-8 h-8 text-white/40" />
                       </div>
                       <div className="flex-1">
                          <div className="flex items-center justify-between mb-1">
@@ -116,7 +110,7 @@ export function EverydayUsersSection() {
                    className="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#151922] border border-[#49A5BD]/30 p-4 rounded-2xl shadow-xl z-30 flex items-center gap-3 hidden md:flex"
                 >
                    <div className="w-8 h-8 rounded-lg bg-[#49A5BD]/10 flex items-center justify-center">
-                      <BarChart05 className="w-4 h-4 text-[#49A5BD]" />
+                      <Activity className="w-4 h-4 text-[#49A5BD]" />
                    </div>
                    <div className="pr-4">
                       <div className="text-[8px] font-mono font-black text-[#49A5BD] uppercase tracking-widest">Reputation Flow</div>
@@ -125,30 +119,6 @@ export function EverydayUsersSection() {
                 </motion.div>
              </div>
           </div>
-        </div>
-
-        {/* Deterministic Trust Banner */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 border-t border-white/5 pt-16 mt-16">
-          {stats.map((stat, i) => (
-             <motion.div 
-               key={stat.label}
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.5, delay: i * 0.1 }}
-               className="bg-[#111418] border border-white/5 p-8 rounded-3xl group hover:border-[#49A5BD]/30 transition-all duration-300"
-             >
-                <div className="flex items-center gap-4 mb-4">
-                   <div className="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-[#49A5BD] group-hover:bg-[#49A5BD] group-hover:text-white transition-all">
-                      <stat.icon className="w-5 h-5" />
-                   </div>
-                   <span className="text-[10px] font-mono font-black text-body uppercase tracking-[0.2em] group-hover:text-[#49A5BD] transition-colors">{stat.label}</span>
-                </div>
-                <div className="text-4xl font-black text-white font-outfit uppercase tracking-tighter">
-                   {stat.value}
-                </div>
-             </motion.div>
-          ))}
         </div>
 
       </div>

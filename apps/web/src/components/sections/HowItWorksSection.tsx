@@ -2,7 +2,16 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { UserCheck01, Activity, ShieldTick, CpuChip01, ChevronRight, Fingerprint04, Database01, SearchMd } from "@untitled-ui/icons-react";
+import { 
+  UserCheck, 
+  Activity, 
+  ShieldCheck, 
+  Cpu, 
+  ChevronRight, 
+  Fingerprint, 
+  Database, 
+  Search
+} from "lucide-react";
 import GoogleIcon from "@/components/icons/GoogleIcon";
 import WalrusIcon from "@/components/icons/WalrusIcon";
 
@@ -13,7 +22,7 @@ const steps = [
     id: "identity" as StepId,
     title: "Identity Layer",
     description: "Developers create an OmenBadge using zkLogin to link Web2 reputation permanently to their on-chain identity.",
-    icon: UserCheck01,
+    icon: GoogleIcon,
     tag: "STEP 01",
     visual: (
       <div className="w-full h-full flex items-center justify-center">
@@ -29,7 +38,7 @@ const steps = [
                  <ChevronRight className="w-5 h-5 text-[#49A5BD]" />
                </motion.div>
                <div className="w-16 h-16 rounded-2xl bg-[#49A5BD]/10 border-2 border-[#49A5BD] flex items-center justify-center shadow-[0_0_20px_rgba(73,165,189,0.2)] relative overflow-hidden">
-                  <Fingerprint04 className="w-8 h-8 text-[#49A5BD] relative z-10" />
+                  <Fingerprint className="w-8 h-8 text-[#49A5BD] relative z-10" />
                   <motion.div 
                     animate={{ y: ["-100%", "100%"] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -55,7 +64,7 @@ const steps = [
          <div className="relative w-full max-w-sm flex items-center justify-between">
             <div className="flex flex-col items-center gap-2">
                <div className="w-12 h-12 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-white">
-                  <Database01 className="w-5 h-5" />
+                  <Database className="w-5 h-5" />
                </div>
                <span className="text-[9px] font-mono text-body uppercase tracking-wider">Oracle</span>
             </div>
@@ -82,7 +91,7 @@ const steps = [
     id: "protection" as StepId,
     title: "Transaction Protection",
     description: "Wallets and applications can block risky protocols using verified trust scores anchored securely on Walrus.",
-    icon: ShieldTick,
+    icon: ShieldCheck,
     tag: "STEP 03",
     visual: (
        <div className="w-full h-full flex items-center justify-center">
@@ -94,13 +103,13 @@ const steps = [
                   transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse", repeatDelay: 3 }}
                   className="bg-[#0B0C10] border border-red-500/50 rounded-xl px-4 py-3 shadow-2xl flex items-center gap-3 z-10"
                 >
-                   <div className="w-8 h-8 rounded bg-red-500/10 flex items-center justify-center"><ShieldTick className="w-4 h-4 text-red-500"/></div>
+                   <div className="w-8 h-8 rounded bg-red-500/10 flex items-center justify-center"><ShieldCheck className="w-4 h-4 text-red-500"/></div>
                    <div>
                      <div className="text-[10px] font-black uppercase text-red-500 tracking-wider">Transaction Blocked</div>
                      <div className="text-[8px] font-mono text-body uppercase tracking-wider">Score &lt; 60 Threshold</div>
                    </div>
                 </motion.div>
-                <div className="absolute inset-0 bg-red-500/5 pulse-slow" />
+                <div className="absolute inset-0 bg-red-500/5 animate-pulse-slow" />
              </div>
              <div className="flex items-center gap-2">
                 <WalrusIcon className="w-4 h-4 text-white" />
@@ -114,12 +123,12 @@ const steps = [
     id: "accountability" as StepId,
     title: "Agent Accountability",
     description: "AI agents inherit the reputation of their creators through an immutable agent lineage graph on chain.",
-    icon: CpuChip01,
+    icon: Cpu,
     tag: "STEP 04",
     visual: (
        <div className="w-full h-full flex flex-col items-center justify-center gap-8">
           <div className="w-16 h-16 rounded-2xl bg-surface border-2 border-[#49A5BD] flex items-center justify-center relative shadow-[0_0_20px_rgba(73,165,189,0.2)]">
-             <UserCheck01 className="w-8 h-8 text-[#49A5BD]" />
+             <UserCheck className="w-8 h-8 text-[#49A5BD]" />
              <div className="absolute -bottom-3 text-[9px] font-mono font-black uppercase text-[#49A5BD] bg-[#0B0C10] px-2 py-0.5 border border-[#49A5BD]/30 rounded">Parent</div>
           </div>
           
@@ -136,7 +145,7 @@ const steps = [
              
              {[1, 2].map(i => (
                 <div key={i} className="w-12 h-12 rounded-xl bg-surface/50 border border-white/10 flex items-center justify-center">
-                   <CpuChip01 className="w-5 h-5 text-body" />
+                   <Cpu className="w-5 h-5 text-body" />
                 </div>
              ))}
           </div>
@@ -166,7 +175,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* Interactive Split Layout */}
-        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1.1fr_1.3fr] gap-8 md:gap-12 lg:gap-16 items-start">
            
            {/* Left Sidebar Steps */}
            <div className="flex flex-col gap-3 sm:gap-4">
@@ -176,7 +185,7 @@ export function HowItWorksSection() {
                     <div key={step.id} className="relative">
                        <button
                          onClick={() => setActiveId(step.id)}
-                         className={["w-full text-left p-5 md:p-6 rounded-2xl md:rounded-[32px] border-2 transition-all duration-300 group outline-none relative overflow-hidden", isActive ? "border-[#49A5BD] bg-[#49A5BD]/5 shadow-[0_0_30px_rgba(73,165,189,0.1)]" : "border-[#49A5BD]/10 bg-surface/30 hover:border-[#49A5BD]/30 hover:bg-surface/50 opacity-70 hover:opacity-100"].join(" ")}
+                         className={["w-full text-left p-6 md:p-8 rounded-[32px] md:rounded-[40px] border-2 transition-all duration-500 group outline-none relative overflow-hidden", isActive ? "border-[#49A5BD] bg-[#49A5BD]/5 shadow-[0_0_30px_rgba(73,165,189,0.15)]" : "border-[#49A5BD]/10 bg-surface/30 hover:border-[#49A5BD]/30 hover:bg-surface/50 opacity-80 hover:opacity-100"].join(" ")}
                        >
                           {isActive && (
                              <motion.div 
@@ -188,15 +197,23 @@ export function HowItWorksSection() {
                                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                              />
                           )}
-                          <div className="flex items-center gap-4 md:gap-6 relative z-10">
-                             <div className={["w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl border transition-colors duration-500 flex items-center justify-center shrink-0", isActive ? "bg-[#49A5BD] border-[#49A5BD] text-white shadow-xl" : "bg-surface border-white/10 text-[#49A5BD] group-hover:border-[#49A5BD]/30"].join(" ")}>
-                                <step.icon className="w-5 h-5 md:w-6 md:h-6" />
+                          <div className="flex items-center gap-6 md:gap-8 relative z-10">
+                             {/* Premium Icon Shell */}
+                             <div className="relative shrink-0">
+                                <div className={["w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl border transition-all duration-500 flex items-center justify-center glassmorphism", isActive ? "border-cyan-400/50 bg-gradient-to-br from-cyan-400/30 via-sky-400/15 to-teal-400/30 shadow-[0_0_40px_rgba(34,211,238,0.4)] scale-105 -translate-y-1" : "border-cyan-400/10 bg-white/[0.04] text-[#49A5BD] group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.2)]"].join(" ")}>
+                                   <div className={["absolute inset-0 rounded-2xl md:rounded-3xl animate-pulse-subtle", isActive ? "bg-cyan-400/10" : "opacity-0 group-hover:opacity-100 bg-cyan-400/5"].join(" ")} />
+                                   <step.icon className={["w-7 h-7 md:w-9 md:h-9 relative z-10 transition-all duration-500", isActive ? "text-cyan-400 scale-110" : "text-[#49A5BD]/60 group-hover:text-cyan-400 group-hover:scale-105"].join(" ")} />
+                                   
+                                   {/* Inner Glow */}
+                                   <div className={["absolute inset-0 blur-xl transition-opacity duration-500", isActive ? "bg-cyan-400/20 opacity-100" : "opacity-0 group-hover:opacity-10"].join(" ")} />
+                                </div>
                              </div>
-                             <div>
-                                <div className={["text-[9px] sm:text-[10px] uppercase font-mono tracking-widest mb-1 transition-colors", isActive ? "text-[#49A5BD] font-black" : "text-body font-bold"].join(" ")}>
+
+                             <div className="min-w-0">
+                                <div className={["text-[9px] sm:text-[10px] uppercase font-mono tracking-[0.3em] mb-2 transition-colors", isActive ? "text-cyan-400 font-black" : "text-body/60 font-bold group-hover:text-cyan-400/80"].join(" ")}>
                                    {step.tag}
                                 </div>
-                                <h3 className={["text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight font-outfit", isActive ? "text-foreground" : "text-foreground/80 group-hover:text-foreground"].join(" ")}>
+                                <h3 className={["text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight font-outfit leading-none", isActive ? "text-foreground" : "text-foreground/60 group-hover:text-foreground transition-colors"].join(" ")}>
                                    {step.title}
                                 </h3>
                              </div>
@@ -213,9 +230,9 @@ export function HowItWorksSection() {
                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                className="lg:hidden overflow-hidden"
                              >
-                                <div className="px-2 pt-4 pb-2">
-                                   <p className="text-sm text-body font-bold leading-relaxed">{step.description}</p>
-                                   <div className="mt-6 aspect-video rounded-3xl border border-[#49A5BD]/20 bg-surface/30 overflow-hidden relative shadow-inner">
+                                <div className="px-4 pt-6 pb-4 ml-2 border-l-2 border-cyan-400/20">
+                                   <p className="text-base text-body/90 font-bold leading-relaxed">{step.description}</p>
+                                   <div className="mt-8 aspect-[16/10] rounded-3xl border border-[#49A5BD]/20 bg-surface/30 overflow-hidden relative shadow-2xl">
                                       {step.visual}
                                    </div>
                                 </div>
@@ -228,27 +245,27 @@ export function HowItWorksSection() {
            </div>
 
            {/* Right Panel Diagram (Desktop Only) */}
-           <div className="hidden lg:block relative min-h-[500px] xl:min-h-[580px] w-full">
+           <div className="hidden lg:block relative min-h-[500px] xl:min-h-[620px] w-full">
               <AnimatePresence mode="wait">
                  <motion.div
                    key={activeStep.id}
-                   initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                   exit={{ opacity: 0, y: -15, scale: 0.98 }}
-                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                   initial={{ opacity: 0, y: 30, scale: 0.98, filter: "blur(10px)" }}
+                   animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                   exit={{ opacity: 0, y: -30, scale: 0.98, filter: "blur(10px)" }}
+                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                    className="absolute inset-0"
                  >
-                    <div className="glass-card p-10 xl:p-14 bg-surface/30 border-2 border-[#49A5BD]/20 rounded-[40px] xl:rounded-[48px] h-full shadow-2xl overflow-hidden relative flex flex-col group hover:border-[#49A5BD]/40 transition-colors duration-500">
-                       <div className="absolute top-0 right-0 w-64 h-64 bg-[#49A5BD]/10 blur-[100px] rounded-full -mr-32 -mt-32 transition-opacity duration-700 pointer-events-none group-hover:bg-[#49A5BD]/20" />
+                    <div className="glass-card p-12 xl:p-16 bg-surface/30 border-2 border-[#49A5BD]/20 rounded-[48px] xl:rounded-[64px] h-full shadow-2xl overflow-hidden relative flex flex-col group hover:border-cyan-400/40 transition-all duration-700">
+                       <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-400/10 blur-[120px] rounded-full -mr-40 -mt-40 transition-opacity duration-700 pointer-events-none group-hover:bg-cyan-400/20" />
                        
-                       <div className="relative z-10 flex flex-col h-full space-y-8">
-                          <p className="text-xl xl:text-2xl text-body font-bold leading-relaxed max-w-lg">
+                       <div className="relative z-10 flex flex-col h-full space-y-10">
+                          <p className="text-xl xl:text-3xl text-body font-bold leading-relaxed max-w-xl group-hover:text-foreground/90 transition-colors">
                              {activeStep.description}
                           </p>
-                          <div className="flex-1 rounded-[32px] border border-[#49A5BD]/20 bg-surface/40 overflow-hidden relative shadow-inner flex items-center justify-center p-8 mt-auto">
-                            {/* Ambient overlay inside diagram container */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(73,165,189,0.05),transparent_60%)] pointer-events-none" />
-                            {activeStep.visual}
+                          <div className="flex-1 rounded-[40px] border-2 border-white/5 bg-surface/40 overflow-hidden relative shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] flex items-center justify-center p-12 mt-auto group-hover:border-cyan-400/10 transition-colors">
+                             {/* Ambient overlay inside diagram container */}
+                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.1),transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+                             {activeStep.visual}
                           </div>
                        </div>
                     </div>

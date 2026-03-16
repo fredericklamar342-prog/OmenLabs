@@ -52,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center whitespace-nowrap",
           "transition-all duration-150 ease-out",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43B6D5]/40 focus-visible:ring-offset-2",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#49A5BD]/40 focus-visible:ring-offset-2",
           "disabled:pointer-events-none disabled:opacity-40",
           variants[variant],
           variant !== "link" && sizes[size],

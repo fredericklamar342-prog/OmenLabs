@@ -7,7 +7,7 @@ import WalrusIcon from "@/components/icons/WalrusIcon";
 
 const features = [
   "Lightweight on-chain verification registry",
-  <>Heavy metadata anchored through <WalrusIcon className="inline-block w-4 h-4 ml-1" /> Walrus Blob IDs</>,
+  "Heavy metadata anchored through Walrus Blob IDs",
   "Fast verification lookups for dApps",
   "SDK for wallets and protocols",
   "Support for AI agent lineage accountability",

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import SuiIcon from "@/components/icons/SuiIcon";
 import WalrusIcon from "@/components/icons/WalrusIcon";
-import { Zap, ShieldTick, Server06, Activity, Database01, UserCheck01 } from "@untitled-ui/icons-react";
+import { Zap, ShieldCheck, Database, Activity, UserCheck } from "lucide-react";
 
 const SoftBlur = ({ color, size, top, left, delay = 0, duration = 20 }: { color: string; size: string; top: string; left: string; delay?: number; duration?: number }) => (
   <motion.div
@@ -65,9 +65,9 @@ export function EcosystemVisual() {
       {/* Floating Ecosystem Symbols - Reduced count and simple motion */}
       {[
         { icon: Zap, x: "15%", y: "20%" },
-        { icon: ShieldTick, x: "80%", y: "15%" },
-        { icon: Server06, x: "10%", y: "70%" },
-        { icon: Database01, x: "50%", y: "85%" },
+        { icon: ShieldCheck, x: "80%", y: "15%" },
+        { icon: Database, x: "10%", y: "70%" },
+        { icon: Database, x: "50%", y: "85%" },
       ].map((node, i) => (
         <motion.div
           key={`node-${i}`}

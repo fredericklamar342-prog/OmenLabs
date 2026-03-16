@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserCheck01, AlertCircle, CheckCircle, CpuChip01, ArrowUpRight, Zap, Target02, Shield02 } from "@untitled-ui/icons-react";
+import { Fingerprint, ShieldCheck, KeyRound, GitBranch, ArrowUpRight, Target } from "lucide-react";
 
 const benefits = [
   {
     title: "Deterministic Trust",
     description: "Eliminate social engineering. Omen links Web2 builder identities to Move-native reputation primitives for sub-second verification.",
-    icon: UserCheck01,
+    icon: Fingerprint,
     tag: "Protocol Core",
     metric: "0.4s Verification",
     bg: "bg-[#111418]"
@@ -15,7 +15,7 @@ const benefits = [
   {
     title: "Trust-Gated Liquidity",
     description: "Connect Omen to DeepBook V3 PTBs to gate pool access based on real-time reputation scores, protecting protocol capital.",
-    icon: Zap,
+    icon: ShieldCheck,
     tag: "Defi Firewalls",
     metric: "DeepBook Ready",
     bg: "bg-[#151922]"
@@ -23,7 +23,7 @@ const benefits = [
   {
     title: "Soulbound Identity",
     description: "Developers earn permanent, immobile OmenBadges. Reputation accrues over time and cannot be transferred or traded.",
-    icon: Shield02,
+    icon: KeyRound,
     tag: "Builder Sovereignty",
     metric: "zkLogin Native",
     bg: "bg-[#111418]"
@@ -31,7 +31,7 @@ const benefits = [
   {
     title: "Agent Accountability",
     description: "Cryptographic lineage ensures AI agents are never anonymous. Creator reputation is slashed programmatically for agent malfeasance.",
-    icon: CpuChip01,
+    icon: GitBranch,
     tag: "Agentic Economy",
     metric: "Lineage Verified",
     bg: "bg-[#151922]"
@@ -71,12 +71,12 @@ export function BenefitsSection() {
             >
               {/* Top Accent Icon */}
               <div className="w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center mb-10 group-hover:bg-[#49A5BD] transition-all duration-500 shadow-lg">
-                <benefit.icon className="w-7 h-7 text-[#49A5BD] group-hover:text-white transition-colors" />
+                <benefit.icon className="w-6 h-6 text-[#49A5BD] group-hover:text-white transition-colors" />
               </div>
               
               <div className="flex-1 flex flex-col">
                 <div className="text-[10px] font-mono font-black text-[#49A5BD] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                   <Target02 className="w-3.5 h-3.5" />
+                   <Target className="w-3.5 h-3.5" />
                    {benefit.tag}
                 </div>
                 

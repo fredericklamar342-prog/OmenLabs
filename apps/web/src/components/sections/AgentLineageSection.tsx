@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GitBranch01, UserPlus01, ShieldTick, Share07, Activity } from "@untitled-ui/icons-react";
+import { GitBranch, UserPlus, ShieldCheck, Share2, Activity } from "lucide-react";
 import SuiIcon from "@/components/icons/SuiIcon";
 
 export function AgentLineageSection() {
@@ -21,7 +21,7 @@ export function AgentLineageSection() {
                 <div className="flex items-center justify-between mb-12 relative z-10">
                    <div className="flex items-center gap-5">
                       <div className="w-14 h-14 rounded-2xl bg-[#0B0C10] border border-white/10 flex items-center justify-center text-[#49A5BD] group-hover:bg-[#49A5BD] group-hover:text-white transition-all duration-500 shadow-md">
-                         <GitBranch01 className="w-7 h-7" />
+                         <GitBranch className="w-7 h-7" />
                       </div>
                       <div className="space-y-1">
                          <h4 className="font-outfit font-black text-white text-lg tracking-tight uppercase">Lineage Node</h4>
@@ -29,7 +29,7 @@ export function AgentLineageSection() {
                       </div>
                    </div>
                    <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20">
-                      <Share07 className="w-4 h-4" />
+                      <Share2 className="w-4 h-4" />
                    </div>
                 </div>
                 
@@ -102,7 +102,7 @@ export function AgentLineageSection() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#49A5BD]/5 blur-[60px] rounded-full pointer-events-none" />
                 
                 <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-[#0B0C10] border border-white/10 rounded-full mb-8 relative z-10">
-                   <UserPlus01 className="w-4 h-4 text-[#49A5BD]" />
+                   <UserPlus className="w-4 h-4 text-[#49A5BD]" />
                    <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-[#49A5BD]">Agent Accountability</span>
                 </div>
                 
@@ -121,7 +121,7 @@ export function AgentLineageSection() {
                       <p className="text-[11px] text-body opacity-60 leading-normal font-medium">Agents start with a fraction of creator's score.</p>
                    </div>
                    <div className="bg-[#151922] p-6 rounded-2xl border border-white/5">
-                      <ShieldTick className="w-5 h-5 text-[#49A5BD] mb-3" />
+                      <ShieldCheck className="w-5 h-5 text-[#49A5BD] mb-3" />
                       <h5 className="text-[11px] font-black text-white uppercase tracking-wider mb-2">Recursive Slashing</h5>
                       <p className="text-[11px] text-body opacity-60 leading-normal font-medium">Protocol-level penalties flow back to the parent.</p>
                    </div>

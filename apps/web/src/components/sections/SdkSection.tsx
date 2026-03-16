@@ -6,15 +6,15 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { 
   Terminal, 
-  ShieldTick, 
-  Database01, 
+  ShieldCheck, 
+  Database, 
   ChevronRight,
   ArrowRight,
-  Code02,
+  Code2,
   Activity,
-  CpuChip01,
-  Lock01
-} from "@untitled-ui/icons-react";
+  Cpu,
+  Lock
+} from "lucide-react";
 import SuiIcon from "@/components/icons/SuiIcon";
 import WalrusIcon from "@/components/icons/WalrusIcon";
 
@@ -74,7 +74,7 @@ const DOCS_ITEMS: DocItem[] = [
     id: "verify",
     title: "Verify Reputation",
     subtitle: "Check protocol reputation",
-    icon: ShieldTick,
+    icon: ShieldCheck,
     tag: "MODULE_02",
     hash: "0xOMEN::GUARD_LOGIC",
     content: (
@@ -85,7 +85,7 @@ const DOCS_ITEMS: DocItem[] = [
         <div className="bg-[#0D0F14] rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
           <div className="flex items-center justify-between px-5 py-3 bg-[#111418] border-b border-white/5">
             <div className="flex items-center gap-2">
-               <Code02 className="w-3.5 h-3.5 text-[#49A5BD]" />
+               <Code2 className="w-3.5 h-3.5 text-[#49A5BD]" />
                <span className="text-[10px] text-body font-mono uppercase tracking-widest ml-1 opacity-40">guards.ts</span>
             </div>
             <div className="flex items-center gap-2">
@@ -125,7 +125,7 @@ const DOCS_ITEMS: DocItem[] = [
     id: "api",
     title: "Method Index",
     subtitle: "Complete method documentation",
-    icon: Database01,
+    icon: Database,
     tag: "MODULE_03",
     hash: "0xOMEN::API_STUB",
     content: (

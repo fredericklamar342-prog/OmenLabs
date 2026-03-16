@@ -131,7 +131,7 @@ export default function ProductPage() {
               <p className="max-w-3xl text-lg text-body font-bold leading-relaxed">
                 Omen is not just a badge. It is a programmable trust stack that links builder identity,
                 security evidence, and policy enforcement so users can evaluate who built a protocol before
-                they route value into it.
+                they route value into it on the Sui network.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="h-14 px-8 bg-[#49A5BD] text-white hover:bg-[#49A5BD]/90 rounded-xl shadow-xl shadow-[#49A5BD]/20 border-none font-bold" asChild>

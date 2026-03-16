@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ShieldTick, Stars01 } from "@untitled-ui/icons-react";
+import { ArrowLeft, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useEarlyAccessModal } from "@/context/EarlyAccessModalContext";
 
@@ -39,7 +39,7 @@ export default function EarlyAccessPage() {
             </motion.div>
 
             <div className="mb-10 inline-flex items-center gap-3 px-4 py-1.5 border border-[#49A5BD]/20 bg-[#49A5BD]/10 rounded-full shadow-sm">
-              <Stars01 className="h-4 w-4 text-[#49A5BD]" />
+              <Sparkles className="h-4 w-4 text-[#49A5BD]" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#49A5BD] font-mono">Registry Induction</span>
             </div>
 
@@ -68,7 +68,7 @@ export default function EarlyAccessPage() {
                 className="flex items-start gap-4 p-6 glass-card bg-surface/50 border-[#49A5BD]/10 rounded-3xl"
               >
                 <div className="rounded-2xl bg-surface border border-[#49A5BD]/20 p-3 text-[#49A5BD] shadow-xl">
-                  <ShieldTick className="h-5 w-5" />
+                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <p className="text-sm font-bold text-body leading-relaxed uppercase tracking-tight">{item}</p>
               </motion.div>
@@ -88,7 +88,7 @@ export default function EarlyAccessPage() {
             <div className="space-y-6">
               <div className="flex justify-center mb-8">
                 <div className="w-20 h-20 rounded-[28px] bg-surface border border-[#49A5BD]/20 flex items-center justify-center shadow-xl">
-                  <Stars01 className="w-10 h-10 text-[#49A5BD]" />
+                  <Sparkles className="w-10 h-10 text-[#49A5BD]" />
                 </div>
               </div>
               <h2 className="text-4xl font-black text-foreground uppercase tracking-tighter leading-none">Join the Private Alpha</h2>

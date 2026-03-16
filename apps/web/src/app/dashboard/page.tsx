@@ -4,33 +4,33 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  ShieldTick, 
-  LayoutGrid02, 
-  CheckCircle, 
-  File02, 
-  Settings01, 
-  UploadCloud01, 
+  ShieldCheck, 
+  LayoutGrid, 
+  CheckCircle2, 
+  FileText, 
+  Settings, 
+  Upload, 
   Activity,
-  Menu01,
-  XClose,
-  LogOut01,
-  Bell01,
-  GitBranch01,
-  Database01,
-  SearchLg,
-  AlertCircle,
-  HelpCircle
-} from "@untitled-ui/icons-react";
+  Menu,
+  X,
+  LogOut,
+  Bell,
+  GitBranch,
+  Database,
+  Search,
+  CircleAlert,
+  CircleHelp
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SIDEBAR_LINKS = [
-  { name: "Overview",       icon: LayoutGrid02,      href: "#", active: true },
-  { name: "OmenBadge",      icon: ShieldTick,      href: "#" },
-  { name: "Agent Lineage",  icon: GitBranch01,     href: "#" },
-  { name: "Walrus Storage", icon: Database01,      href: "#" },
+  { name: "Overview",       icon: LayoutGrid,      href: "#", active: true },
+  { name: "OmenBadge",      icon: ShieldCheck,      href: "#" },
+  { name: "Agent Lineage",  icon: GitBranch,     href: "#" },
+  { name: "Walrus Storage", icon: Database,      href: "#" },
   { name: "My Protocols",   icon: Activity,        href: "#" },
-  { name: "Developer Settings", icon: Settings01,  href: "#" },
+  { name: "Developer Settings", icon: Settings,  href: "#" },
 ];
 
 const RECENT_ALERTS = [
@@ -80,7 +80,7 @@ export default function DashboardPage() {
             onClick={() => setSidebarOpen(false)}
             aria-label="Close menu"
           >
-            <XClose className="w-5 h-5" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -122,7 +122,7 @@ export default function DashboardPage() {
             href="/"
             className="flex items-center gap-2.5 pt-4 border-t border-[#49A5BD]/20 text-[10px] font-black uppercase tracking-widest text-[#49A5BD] hover:opacity-70 transition-colors font-mono"
           >
-            <LogOut01 className="w-3.5 h-3.5" />
+            <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>
           </Link>
         </div>
@@ -138,11 +138,11 @@ export default function DashboardPage() {
             aria-label="Open navigation menu"
             aria-expanded={sidebarOpen}
           >
-            <Menu01 className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
           </button>
           
           <div className="hidden lg:flex items-center gap-4 bg-surface px-5 py-3 rounded-2xl border border-[#49A5BD]/20 w-full max-w-lg transition-all focus-within:ring-2 focus-within:ring-[#49A5BD]/20 group">
-            <SearchLg className="w-4 h-4 text-body group-focus-within:text-[#49A5BD] transition-colors" />
+            <Search className="w-4 h-4 text-body group-focus-within:text-[#49A5BD] transition-colors" />
             <input 
               type="text" 
               placeholder="Query protocol registry..." 
@@ -157,7 +157,7 @@ export default function DashboardPage() {
           <div className="ml-auto flex items-center gap-4 sm:gap-8">
              <div className="flex items-center gap-4 sm:gap-6 pr-4 sm:pr-6 border-r border-[#49A5BD]/20">
                 <button className="relative group" aria-label="Notifications">
-                   <Bell01 className="w-4 h-4 sm:w-5 sm:h-5 text-body hover:text-foreground transition-colors" />
+                   <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-body hover:text-foreground transition-colors" />
                    <span className="absolute -top-1 -right-1 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#49A5BD] border-2 border-background rounded-full" />
                 </button>
              </div>
@@ -204,9 +204,9 @@ export default function DashboardPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 animate-fade-up delay-100">
               {[
-                { label: "Omen Trust Score", value: "92 / 100", sub: "Institutional Prime", icon: ShieldTick, color: "text-[#49A5BD]", bg: "bg-surface" },
-                { label: "Active Lineage", value: "08", sub: "Verified Entities", icon: GitBranch01, color: "text-[#49A5BD]", bg: "bg-surface" },
-                { label: "Storage Pinned", value: "24.8 GB", sub: "Walrus Network", icon: Database01, color: "text-[#49A5BD]", bg: "bg-surface" },
+                { label: "Omen Trust Score", value: "92 / 100", sub: "Institutional Prime", icon: ShieldCheck, color: "text-[#49A5BD]", bg: "bg-surface" },
+                { label: "Active Lineage", value: "08", sub: "Verified Entities", icon: GitBranch, color: "text-[#49A5BD]", bg: "bg-surface" },
+                { label: "Storage Pinned", value: "24.8 GB", sub: "Walrus Network", icon: Database, color: "text-[#49A5BD]", bg: "bg-surface" },
                 { label: "Security Health", value: "Optimal", sub: "No active risk", icon: Activity, color: "text-[#49A5BD]", bg: "bg-surface" },
               ].map((stat, i) => (
                 <div key={i} className="bg-surface/50 p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-[#49A5BD]/20 transition-all duration-500 group relative overflow-hidden text-foreground hover:border-[#49A5BD]/40 shadow-xl sm:shadow-2xl">
@@ -255,7 +255,7 @@ export default function DashboardPage() {
                           <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] rounded-xl sm:rounded-2xl border-2 border-[#49A5BD]/10 group hover:border-[#49A5BD] transition-all duration-300 gap-4 sm:gap-0">
                              <div className="flex items-start sm:items-center gap-4 sm:gap-5 min-w-0">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#FFFFFF] border-2 border-[#49A5BD] flex items-center justify-center group-hover:bg-[#49A5BD] transition-all shrink-0 mt-1 sm:mt-0">
-                                   <File02 className="w-4 h-4 sm:w-5 sm:h-5 text-[#49A5BD] group-hover:text-[#FFFFFF] transition-colors" />
+                                    <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-[#49A5BD] group-hover:text-[#FFFFFF] transition-colors" />
                                 </div>
                                 <div className="min-w-0 flex-1">
                                    <p className="text-[12px] sm:text-[13px] font-black text-[#49A5BD] mb-1 sm:mb-0.5 truncate">{file.name}</p>
@@ -284,14 +284,14 @@ export default function DashboardPage() {
                             <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-foreground">Deep-Graph Lineage</h3>
                             <p className="text-[9px] sm:text-[11px] font-black text-body/70 uppercase tracking-[0.15em] sm:tracking-[0.25em] italic font-mono">Encrypted entity relationships</p>
                          </div>
-                         <GitBranch01 className="w-5 h-5 sm:w-6 sm:h-6 text-[#49A5BD] hidden sm:block" />
+                         <GitBranch className="w-5 h-5 sm:w-6 sm:h-6 text-[#49A5BD] hidden sm:block" />
                       </div>
                      <div className="relative p-5 sm:p-10 border-2 border-[#49A5BD]/10 rounded-2xl sm:rounded-[32px] bg-[#FFFFFF] overflow-hidden">
                         <div className="absolute top-0 right-0 w-40 h-40 sm:w-64 sm:h-64 bg-[#FFFFFF]/40 rotate-12 -mr-20 -mt-20 sm:-mr-32 sm:-mt-32 rounded-3xl sm:rounded-[64px]" />
                         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 relative z-10">
                            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-[28px] bg-[#49A5BD] flex items-center justify-center text-[#FFFFFF] font-black text-xl sm:text-2xl relative shrink-0">
                               OM
-                                 <ShieldTick className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
+                                  <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                               </div>
                            <div className="flex-1 space-y-1">
                               <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[#49A5BD]">Root Principal Badge</p>
@@ -335,7 +335,7 @@ export default function DashboardPage() {
                      <div className="relative z-10 space-y-8 sm:space-y-12">
                         <div className="flex justify-between items-start mb-2 sm:mb-0">
                            <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 rounded-xl sm:rounded-2xl border border-white/40 flex items-center justify-center text-white shadow-xl backdrop-blur-md">
-                              <ShieldTick className="w-6 h-6 sm:w-8 sm:h-8" />
+                               <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8" />
                            </div>
                            <div className="flex flex-col items-end">
                               <span className="text-[8px] sm:text-[9px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-white/70 uppercase font-mono">Sui Network</span>
@@ -377,7 +377,7 @@ export default function DashboardPage() {
                   <div className="glass-card bg-surface/30 border border-[#49A5BD]/20 p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] shadow-xl sm:shadow-2xl">
                      <div className="flex items-center justify-between mb-6 sm:mb-8">
                         <h3 className="text-xs sm:text-sm font-black uppercase tracking-widest text-foreground font-mono">Security Ledger</h3>
-                        <Bell01 className="w-4 h-4 text-[#49A5BD]" />
+                        <Bell className="w-4 h-4 text-[#49A5BD]" />
                      </div>
                      <div className="space-y-6 sm:space-y-8">
                         {RECENT_ALERTS.map((alert, i) => (
